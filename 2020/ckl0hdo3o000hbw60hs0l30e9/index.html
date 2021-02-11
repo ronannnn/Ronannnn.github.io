@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="Hexo,Hexo主题,代码,博客,游戏" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Redis个人总结 |  Ronan Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Ronan Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-redis"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Redis个人总结
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/ckl0hdo3o000hbw60hs0l30e9/" class="article-date">
+  <time datetime="2020-06-01T07:07:03.000Z" itemprop="datePublished">2020-06-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Interview/">Interview</a> / <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><a target="_blank" rel="noopener" href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
+<h1>Features</h1>
+<ol>
+<li>In-memory(store data in RAM) non-relational database(No SQL)</li>
+<li>flush to disk when
+<ol>
+<li>a point-in-time dump either when certain conditions are met (a number of writes in a given period)</li>
+<li>one of the two dump-to-disk commands is called.</li>
+</ol>
+</li>
+<li>Supports master/slave replication where slaves connect to the master and receive an initial copy of the full database.
+<ol>
+<li>support higher rates of read performance</li>
+<li>writes are performed on the master</li>
+</ol>
+</li>
+<li>No need to go through a query parser/optimizer</li>
+<li>Update an existing row is always fast</li>
+<li>don’t allow nested structure</li>
+</ol>
+<h1>vs Memcached</h1>
+<ol>
+<li>Memcached uses a blacklist to hide items that is removed, in Redis, use <code>remove</code> to remove item directly</li>
+</ol>
+<h1>Data Structures and Commands</h1>
+<p><a target="_blank" rel="noopener" href="http://redis.io/commands">Redis Commands</a></p>
+<h2 id="strings">Strings</h2>
+<p>Strings has three types:</p>
+<ol>
+<li>Byte string Values (each character has 8 bits)</li>
+<li>Integer values</li>
+<li>Floating-point values</li>
+</ol>
+<p>Commands:</p>
+<ol>
+<li>Basic:
+<ol>
+<li><code>set hello world</code></li>
+<li><code>get hello</code></li>
+<li><code>del hello</code></li>
+</ol>
+</li>
+<li>Numeric Operation:
+<ol>
+<li><code>incr/decr key</code> (the value of this key must be Integer or Floating-point)</li>
+<li><code>incrby/decrby key amount</code></li>
+<li><code>incrbyfloat key amout</code></li>
+</ol>
+</li>
+<li>Substring Manipulation:
+<ol>
+<li><code>append key append-value</code> (concatenate)</li>
+<li><code>getrange key start end</code> (fetch substring)</li>
+<li><code>setrange key offset value</code> (replace offset^{th} element with value)</li>
+<li><code>bitcount key</code> count the number of 1 in the string</li>
+<li><code>getbit key offset</code></li>
+<li><code>setbit key offset value</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="lists">Lists</h2>
+<ol>
+<li><code>lpush/rpush list-key item</code></li>
+<li><code>lpop/rpop list-key item</code></li>
+<li><code>lindex list-key 1</code> (the second item in this list)</li>
+<li><code>lrange list-key 0 2</code> (list out the first three items)</li>
+<li><code>lrange list-key 0 -1</code> (list out all items in this list)</li>
+<li><code>ltrim list-key start end</code> ( Trims the list to only include items at indices between start and end, inclusive)</li>
+<li><code>blpop/brpop list-key1 list-key2 ... timeout</code> (Pops the leftmost item from the first non-empty LIST, or waits the timeout in seconds for an item)</li>
+<li><code>rpoplpush source-key dest-key</code></li>
+<li><code>brpoplpush source-key dest-key timeout</code></li>
+</ol>
+<p>Can be used as stack or queue, which is similar to Deque in Java</p>
+<h2 id="sets">Sets</h2>
+<p>use a hash table to keep all strings unique</p>
+<ol>
+<li>Basic:
+<ol>
+<li><code>sadd set-key item</code></li>
+<li><code>smembers set-key</code> (list out all items in this set)</li>
+<li><code>sismember set-key item</code> (check whether item is in this set or not)</li>
+<li><code>srem set-key item</code> (remove item from set, return 1 if success, 0 if fail)</li>
+<li><code>scard set-key</code> (print the number of items in this list)</li>
+<li><code>spop set-key</code> removes and returns a random item from the SET</li>
+<li><code>srandmember set-key [count]</code> Returns one or more random items from the SET. When count is positive,<br>
+Redis will return count distinct randomly chosen items, and when count is negative,<br>
+Redis will return count randomly chosen items that may not be distinct.</li>
+<li><code>smove source-key dest-key item</code> If the item is in the source,<br>
+removes the item from the source and adds it to the destination</li>
+</ol>
+</li>
+<li>Operations for combining and manipulating
+<ol>
+<li><code>sdiff/sinter/sunion key1 key2 key3 ...</code></li>
+<li><code>sdiffstore/sinterstore/sunionstore dest-key key1 key2 key3 ...</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="hashes">Hashes</h2>
+<p>Similar to HashMap in Java</p>
+<ol>
+<li><code>hset hash-key sub-key1 value1</code> (return 1 if sub-key1 is new, 0 if not)</li>
+<li><code>hmset hash-key sub-key1 value1 [sub-key2 value2]</code></li>
+<li><code>hget hash-key sub-key1</code></li>
+<li><code>hmget hash-key sub-key1 sub-key2</code></li>
+<li><code>hgetall hash-key</code> (each entry will print into two rows, one for key, one for value)</li>
+<li><code>hdel hash-key sub-key1</code></li>
+<li><code>hlen hash-key</code></li>
+<li><code>hexists hash-key sub-key</code></li>
+<li><code>hkeys hash-key</code></li>
+<li><code>hvals hash-key</code></li>
+<li><code>hincrby hash-key sub-key increment</code></li>
+<li><code>hincrbyfloat hash-key sub-key increment</code></li>
+</ol>
+<h2 id="sorted-sets-zsets">Sorted Sets(ZSets)</h2>
+<p>Also hold a type of key and value.<br>
+The keys (called <strong>members</strong>) are unique, and the values (called <strong>scores</strong>) are limited to floating-point numbers.</p>
+<ol>
+<li><code>zadd zset-key &lt;score&gt; &lt;member&gt;</code></li>
+<li><code>zrange zset-key 0 -1 withscores</code><br>
+(list out all items in this set in order, each entry will print into two rows, one for member, one for scores)</li>
+<li><code>zrange zset-key 0 2 withscores</code> (print the first three members (with scores) in this set)</li>
+<li><code>zrangebyscore/zrevrangebyscore zset-key 1 24 withscores</code> (print members with scores between 1 and 24)</li>
+<li><code>zrem zset-key member</code></li>
+<li><code>zscore zset-key member</code></li>
+<li><code>zcard zset-key</code> (print out the size of this zset)</li>
+<li><code>zcount zset-key min max</code> (count scores between min and max)</li>
+<li><code>zrank/zrevrank zset-key member</code> (the position of the given member in order/reverse order)</li>
+<li><code>zinterstore/zunionstore dest-key key-count zset-key set-key aggragate min/sum/max</code> default function is sum<br>
+<a target="_blank" rel="noopener" href="https://redislabs.com/ebook/part-2-core-concepts/chapter-3-commands-in-redis/3-5-sorted-sets/">process of union and intersection</a></li>
+</ol>
+<h2 id="publish-subscribe">Publish/Subscribe</h2>
+<ol>
+<li>Reasons that don’t use it often
+<ol>
+<li>send but no read(cause buffer too large, which may result in redis kill or system unavailable),<br>
+configure <code>client-output-buffer-limit pubsub</code> to avoid large buffer</li>
+<li>data transmission reliability: subscriber may disconnect with channel</li>
+</ol>
+</li>
+<li>Commands
+<ol>
+<li><code>subscribe channel</code></li>
+<li><code>unsubscribe channel</code></li>
+<li><code>publish channel message</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="sort">Sort</h2>
+<p>Three types can be sorted: list, set, zset at key<br>
+Before sort, data strcture will be converted to double</p>
+<ol>
+<li><code>sort list-key limit 0 5 alpha desc</code></li>
+<li><code>sort hkey</code></li>
+</ol>
+<h2 id="transaction">Transaction</h2>
+<ol>
+<li>Cannot be executed partially and then rollback or commit</li>
+<li>Improve performance since the number of round trips between Redis and client is reduced</li>
+<li>Commands
+<ol>
+<li>input <code>multi</code></li>
+<li>input all commands that you want in this transaction</li>
+<li>input <code>exec</code> then redis will execute all commands sequentially without interruption(<code>pipeline</code> in python)</li>
+</ol>
+</li>
+</ol>
+<h2 id="expiring-keys">Expiring keys</h2>
+<ol>
+<li><code>persist key-name</code>  (Removes the expiration from a key)</li>
+<li><code>ttl key-name</code> (Returns the amount of time(seconds) remaining before a key will expire)</li>
+<li><code>expire key-name seconds</code> 倒计时</li>
+<li><code>expireat key-name timestamp</code> 定时</li>
+<li><code>pttl key-name</code> (milliseconds)</li>
+<li><code>pexpire key-name milliseconds</code> 倒计时</li>
+<li><code>pexpireat key-name timestamp-milliseconds</code> 定时</li>
+</ol>
+<h1>Usage of Redis</h1>
+<h2 id="login-and-cookie-caching">Login and cookie caching</h2>
+<h2 id="shopping-carts-in-redis">Shopping carts in Redis</h2>
+<h2 id="web-page-caching">Web page caching</h2>
+<h2 id="database-row-caching">Database row caching</h2>
+<ol>
+<li><code>set row_id json.dumps(row.to_dict())</code> use strings to cache row, use id as key, use json format as value</li>
+</ol>
+<h2 id="web-page-analysis">Web page analysis</h2>
+<h1>Cases</h1>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zeb_perfect/article/details/54135506">缓存问题 Reference1</a><br>
+<a target="_blank" rel="noopener" href="https://www.javazhiyin.com/54503.html">缓存问题 Reference2</a></p>
+<h2 id="缓存雪崩">缓存雪崩</h2>
+<p>问题描述：所有key在同一时间失效，那么请求全部落数据库，数据库负载很大<br><br>
+解决方法：</p>
+<ol>
+<li>Redis设置key的expire time的时候，在原有的时间上加一个随机值，或者热点数据不过期（有更新操作就更新缓存）</li>
+<li>加锁或队列方式保证缓存单线程写，从而避免失效时大量的并发请求落到底层存储系统上</li>
+<li>数据预热：系统上线后，将相关的缓存数据直接加载到缓存系统</li>
+<li>双层缓存策略：C1为原始缓存，C2为拷贝缓存，C1失效时，可以访问C2，C1缓存失效时间设置为短期，C2设置为长期</li>
+<li>定时更新缓存策略：实效性要求不高的缓存，容器启动初始化加载，采用定时任务更新或移除缓存</li>
+</ol>
+<h2 id="缓存穿透">缓存穿透</h2>
+<p>问题描述：指缓存和数据库中都没有的数据，因此数据不会写入缓存，而用户不断发起该数据的请求都会让系统去DB查询；<br>
+攻击者可以利用不存在的key攻击该服务<br><br>
+解决方法：</p>
+<ol>
+<li>布隆过滤器：将所有可能存在的数据hash到一个bitmap中，通过hash key来过滤不存在的值</li>
+<li>增加校验，比如拦截id&lt;=0</li>
+<li>将查询返回为空的数据缓存，设置一个较短的过期时间（设置太长会导致正常情况也没法使用）</li>
+</ol>
+<h2 id="缓存击穿">缓存击穿</h2>
+<p>问题描述：某些过期的key可能在某个时间点被超高频率访问（&quot;热点&quot;数据），与雪崩不同之处在于，雪崩是很多key，这个是一个key<br><br>
+解决方法：</p>
+<ol>
+<li>热点数据永不过期</li>
+<li>使用互斥锁(mutex key)：多个线程同时去查询数据库的这条数据，在第一个查询数据的请求上使用一个互斥锁来锁住它<br>
+其他的线程走到这一步拿不到锁就等着，等第一个线程查询到了数据，然后做缓存。后面的线程进来发现已经有缓存了，就直接走缓存</li>
+<li>&quot;提前&quot;使用互斥锁</li>
+<li>资源隔离组件hystrix</li>
+</ol>
+<h1>Persistence</h1>
+<h2 id="snapshotting">Snapshotting</h2>
+<h2 id="aof-append-only-file">AOF(Append-only file)</h2>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckl0hdo3o000hbw60hs0l30e9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/ckl0hdo3n000gbw60111760wq/" class="article-nav-link">
+        <strong class="article-nav-caption">Prev</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/ckl0hdo3a0001bw60a0bmhdl5/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">算法个人总结</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> Ronan Chen
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.svg" alt="Ronan Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">@Me</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
