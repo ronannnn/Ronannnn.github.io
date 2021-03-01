@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>算法个人总结</title>
-    <url>/2020/ckl0hdo3a0001bw60a0bmhdl5/</url>
+    <url>/2020/cklqjzoum0001ouq18oz179gq/</url>
     <content><![CDATA[<h1>Quick Sort</h1>
 <h2 id="原理">原理</h2>
 <p>使用了分治的思想</p>
@@ -81,25 +81,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Computer System Security(MIT 6.858)</title>
-    <url>/2020/ckl0hdo3e0003bw60ce1dg3s7/</url>
-    <content><![CDATA[<h1>Buffer Overflow</h1>
-<h2 id="buggy-c-code">buggy C code</h2>
-<p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
-But this is not doable</p>
-<h2 id="attack">Attack</h2>
-]]></content>
-      <categories>
-        <category>Security</category>
-      </categories>
-      <tags>
-        <tag>Security</tag>
-        <tag>Buffer Overflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis个人总结</title>
-    <url>/2021/ckl0hdo3h0006bw60ag0jbm5m/</url>
+    <title>Go个人学习</title>
+    <url>/2021/cklqjzoup0003ouq13wjr1lw0/</url>
     <content><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p>
 <p>主要记录一些小知识点</p>
 <h1>Types</h1>
@@ -132,7 +115,7 @@ But this is not doable</p>
   </entry>
   <entry>
     <title>Mysql面试个人总结</title>
-    <url>/2020/ckl0hdo3j0008bw605za23jse/</url>
+    <url>/2020/cklqjzous0006ouq18dycafit/</url>
     <content><![CDATA[<h1>Engines</h1>
 <p>InnoDB, MEMORY, MyISAM</p>
 <h2 id="myisam-vs-innodb">MyISAM vs InnoDB</h2>
@@ -416,8 +399,25 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
       </tags>
   </entry>
   <entry>
+    <title>Computer System Security(MIT 6.858)</title>
+    <url>/2020/cklqjzouu0008ouq130cs5y9i/</url>
+    <content><![CDATA[<h1>Buffer Overflow</h1>
+<h2 id="buggy-c-code">buggy C code</h2>
+<p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
+But this is not doable</p>
+<h2 id="attack">Attack</h2>
+]]></content>
+      <categories>
+        <category>Security</category>
+      </categories>
+      <tags>
+        <tag>Security</tag>
+        <tag>Buffer Overflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux命令总结</title>
-    <url>/2020/ckl0hdo3k0009bw6076svfoa5/</url>
+    <url>/2020/cklqjzouv0009ouq180f78qv3/</url>
     <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
 <h1>Main Directory in Linux</h1>
 <h2 id="proc">/proc</h2>
@@ -557,7 +557,7 @@ one of the PATTERNs to standard output, one per line.</li>
   </entry>
   <entry>
     <title>Computer Network总结</title>
-    <url>/2020/ckl0hdo3l000cbw60dcyi2fat/</url>
+    <url>/2020/cklqjzouw000couq1b4r4ey18/</url>
     <content><![CDATA[<h1>Layers</h1>
 <ol>
 <li>
@@ -835,8 +835,284 @@ ETH_P_ARP(arp数据包)</p>
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2021/cklqjzoux000douq1el45b3ll/</url>
+    <content><![CDATA[<h1>产品参数</h1>
+<ol>
+<li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
+1.1. 电池单模式<br>
+1.1.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
+1.2. 电池三模式<br>
+1.2.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
+1.3. 充电三模式<br>
+1.3.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
+<li>不锈钢款 12L 250<em>250</em>345mm 有内桶<br>
+2.1. 充电三模式（香槟金，玫瑰金，砂钢）<br>
+2.1.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
+<li>垃圾袋尺寸：45*50</li>
+</ol>
+<h1>快递区域</h1>
+<p>[快递区域](File:///Users/ronan/merchant/express.xlsx)</p>
+<h1>物品损坏</h1>
+<ol>
+<li>自动回复中选择相应选项让买家拍照片<br>
+1.1. 确认包装箱是否损坏<br>
+1.2. 产品破损拍照<br>
+1.3. 说是快递暴力的问题</li>
+<li>盖子损坏：申请换货，把盖子寄回来，有退货物流信息就（收到再）补发</li>
+<li>桶损坏：补发桶</li>
+<li>补发会提供单号，记得查收</li>
+</ol>
+<h1>物品不感应</h1>
+<h1>发货</h1>
+<ol>
+<li>提供单号</li>
+<li>发货时间一般是：16点之前的订单当天发，之后的次日发货</li>
+</ol>
+<h1>额外返现</h1>
+<ol>
+<li>提供五星好评和追评的图片返1元</li>
+<li>关注店铺返1元</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Redis个人总结</title>
+    <url>/2020/cklqjzouz000gouq12btibjul/</url>
+    <content><![CDATA[<p><a href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
+<h1>Features</h1>
+<ol>
+<li>In-memory(store data in RAM) non-relational database(No SQL)</li>
+<li>flush to disk when
+<ol>
+<li>a point-in-time dump either when certain conditions are met (a number of writes in a given period)</li>
+<li>one of the two dump-to-disk commands is called.</li>
+</ol>
+</li>
+<li>Supports master/slave replication where slaves connect to the master and receive an initial copy of the full database.
+<ol>
+<li>support higher rates of read performance</li>
+<li>writes are performed on the master</li>
+</ol>
+</li>
+<li>No need to go through a query parser/optimizer</li>
+<li>Update an existing row is always fast</li>
+<li>don’t allow nested structure</li>
+</ol>
+<h1>vs Memcached</h1>
+<ol>
+<li>Memcached uses a blacklist to hide items that is removed, in Redis, use <code>remove</code> to remove item directly</li>
+</ol>
+<h1>Data Structures and Commands</h1>
+<p><a href="http://redis.io/commands">Redis Commands</a></p>
+<h2 id="strings">Strings</h2>
+<p>Strings has three types:</p>
+<ol>
+<li>Byte string Values (each character has 8 bits)</li>
+<li>Integer values</li>
+<li>Floating-point values</li>
+</ol>
+<p>Commands:</p>
+<ol>
+<li>Basic:
+<ol>
+<li><code>set hello world</code></li>
+<li><code>get hello</code></li>
+<li><code>del hello</code></li>
+</ol>
+</li>
+<li>Numeric Operation:
+<ol>
+<li><code>incr/decr key</code> (the value of this key must be Integer or Floating-point)</li>
+<li><code>incrby/decrby key amount</code></li>
+<li><code>incrbyfloat key amout</code></li>
+</ol>
+</li>
+<li>Substring Manipulation:
+<ol>
+<li><code>append key append-value</code> (concatenate)</li>
+<li><code>getrange key start end</code> (fetch substring)</li>
+<li><code>setrange key offset value</code> (replace offset^{th} element with value)</li>
+<li><code>bitcount key</code> count the number of 1 in the string</li>
+<li><code>getbit key offset</code></li>
+<li><code>setbit key offset value</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="lists">Lists</h2>
+<ol>
+<li><code>lpush/rpush list-key item</code></li>
+<li><code>lpop/rpop list-key item</code></li>
+<li><code>lindex list-key 1</code> (the second item in this list)</li>
+<li><code>lrange list-key 0 2</code> (list out the first three items)</li>
+<li><code>lrange list-key 0 -1</code> (list out all items in this list)</li>
+<li><code>ltrim list-key start end</code> ( Trims the list to only include items at indices between start and end, inclusive)</li>
+<li><code>blpop/brpop list-key1 list-key2 ... timeout</code> (Pops the leftmost item from the first non-empty LIST, or waits the timeout in seconds for an item)</li>
+<li><code>rpoplpush source-key dest-key</code></li>
+<li><code>brpoplpush source-key dest-key timeout</code></li>
+</ol>
+<p>Can be used as stack or queue, which is similar to Deque in Java</p>
+<h2 id="sets">Sets</h2>
+<p>use a hash table to keep all strings unique</p>
+<ol>
+<li>Basic:
+<ol>
+<li><code>sadd set-key item</code></li>
+<li><code>smembers set-key</code> (list out all items in this set)</li>
+<li><code>sismember set-key item</code> (check whether item is in this set or not)</li>
+<li><code>srem set-key item</code> (remove item from set, return 1 if success, 0 if fail)</li>
+<li><code>scard set-key</code> (print the number of items in this list)</li>
+<li><code>spop set-key</code> removes and returns a random item from the SET</li>
+<li><code>srandmember set-key [count]</code> Returns one or more random items from the SET. When count is positive,<br>
+Redis will return count distinct randomly chosen items, and when count is negative,<br>
+Redis will return count randomly chosen items that may not be distinct.</li>
+<li><code>smove source-key dest-key item</code> If the item is in the source,<br>
+removes the item from the source and adds it to the destination</li>
+</ol>
+</li>
+<li>Operations for combining and manipulating
+<ol>
+<li><code>sdiff/sinter/sunion key1 key2 key3 ...</code></li>
+<li><code>sdiffstore/sinterstore/sunionstore dest-key key1 key2 key3 ...</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="hashes">Hashes</h2>
+<p>Similar to HashMap in Java</p>
+<ol>
+<li><code>hset hash-key sub-key1 value1</code> (return 1 if sub-key1 is new, 0 if not)</li>
+<li><code>hmset hash-key sub-key1 value1 [sub-key2 value2]</code></li>
+<li><code>hget hash-key sub-key1</code></li>
+<li><code>hmget hash-key sub-key1 sub-key2</code></li>
+<li><code>hgetall hash-key</code> (each entry will print into two rows, one for key, one for value)</li>
+<li><code>hdel hash-key sub-key1</code></li>
+<li><code>hlen hash-key</code></li>
+<li><code>hexists hash-key sub-key</code></li>
+<li><code>hkeys hash-key</code></li>
+<li><code>hvals hash-key</code></li>
+<li><code>hincrby hash-key sub-key increment</code></li>
+<li><code>hincrbyfloat hash-key sub-key increment</code></li>
+</ol>
+<h2 id="sorted-sets-zsets">Sorted Sets(ZSets)</h2>
+<p>Also hold a type of key and value.<br>
+The keys (called <strong>members</strong>) are unique, and the values (called <strong>scores</strong>) are limited to floating-point numbers.</p>
+<ol>
+<li><code>zadd zset-key &lt;score&gt; &lt;member&gt;</code></li>
+<li><code>zrange zset-key 0 -1 withscores</code><br>
+(list out all items in this set in order, each entry will print into two rows, one for member, one for scores)</li>
+<li><code>zrange zset-key 0 2 withscores</code> (print the first three members (with scores) in this set)</li>
+<li><code>zrangebyscore/zrevrangebyscore zset-key 1 24 withscores</code> (print members with scores between 1 and 24)</li>
+<li><code>zrem zset-key member</code></li>
+<li><code>zscore zset-key member</code></li>
+<li><code>zcard zset-key</code> (print out the size of this zset)</li>
+<li><code>zcount zset-key min max</code> (count scores between min and max)</li>
+<li><code>zrank/zrevrank zset-key member</code> (the position of the given member in order/reverse order)</li>
+<li><code>zinterstore/zunionstore dest-key key-count zset-key set-key aggragate min/sum/max</code> default function is sum<br>
+<a href="https://redislabs.com/ebook/part-2-core-concepts/chapter-3-commands-in-redis/3-5-sorted-sets/">process of union and intersection</a></li>
+</ol>
+<h2 id="publish-subscribe">Publish/Subscribe</h2>
+<ol>
+<li>Reasons that don’t use it often
+<ol>
+<li>send but no read(cause buffer too large, which may result in redis kill or system unavailable),<br>
+configure <code>client-output-buffer-limit pubsub</code> to avoid large buffer</li>
+<li>data transmission reliability: subscriber may disconnect with channel</li>
+</ol>
+</li>
+<li>Commands
+<ol>
+<li><code>subscribe channel</code></li>
+<li><code>unsubscribe channel</code></li>
+<li><code>publish channel message</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="sort">Sort</h2>
+<p>Three types can be sorted: list, set, zset at key<br>
+Before sort, data strcture will be converted to double</p>
+<ol>
+<li><code>sort list-key limit 0 5 alpha desc</code></li>
+<li><code>sort hkey</code></li>
+</ol>
+<h2 id="transaction">Transaction</h2>
+<ol>
+<li>Cannot be executed partially and then rollback or commit</li>
+<li>Improve performance since the number of round trips between Redis and client is reduced</li>
+<li>Commands
+<ol>
+<li>input <code>multi</code></li>
+<li>input all commands that you want in this transaction</li>
+<li>input <code>exec</code> then redis will execute all commands sequentially without interruption(<code>pipeline</code> in python)</li>
+</ol>
+</li>
+</ol>
+<h2 id="expiring-keys">Expiring keys</h2>
+<ol>
+<li><code>persist key-name</code>  (Removes the expiration from a key)</li>
+<li><code>ttl key-name</code> (Returns the amount of time(seconds) remaining before a key will expire)</li>
+<li><code>expire key-name seconds</code> 倒计时</li>
+<li><code>expireat key-name timestamp</code> 定时</li>
+<li><code>pttl key-name</code> (milliseconds)</li>
+<li><code>pexpire key-name milliseconds</code> 倒计时</li>
+<li><code>pexpireat key-name timestamp-milliseconds</code> 定时</li>
+</ol>
+<h1>Usage of Redis</h1>
+<h2 id="login-and-cookie-caching">Login and cookie caching</h2>
+<h2 id="shopping-carts-in-redis">Shopping carts in Redis</h2>
+<h2 id="web-page-caching">Web page caching</h2>
+<h2 id="database-row-caching">Database row caching</h2>
+<ol>
+<li><code>set row_id json.dumps(row.to_dict())</code> use strings to cache row, use id as key, use json format as value</li>
+</ol>
+<h2 id="web-page-analysis">Web page analysis</h2>
+<h1>Cases</h1>
+<p><a href="https://blog.csdn.net/zeb_perfect/article/details/54135506">缓存问题 Reference1</a><br>
+<a href="https://www.javazhiyin.com/54503.html">缓存问题 Reference2</a></p>
+<h2 id="缓存雪崩">缓存雪崩</h2>
+<p>问题描述：所有key在同一时间失效，那么请求全部落数据库，数据库负载很大<br><br>
+解决方法：</p>
+<ol>
+<li>Redis设置key的expire time的时候，在原有的时间上加一个随机值，或者热点数据不过期（有更新操作就更新缓存）</li>
+<li>加锁或队列方式保证缓存单线程写，从而避免失效时大量的并发请求落到底层存储系统上</li>
+<li>数据预热：系统上线后，将相关的缓存数据直接加载到缓存系统</li>
+<li>双层缓存策略：C1为原始缓存，C2为拷贝缓存，C1失效时，可以访问C2，C1缓存失效时间设置为短期，C2设置为长期</li>
+<li>定时更新缓存策略：实效性要求不高的缓存，容器启动初始化加载，采用定时任务更新或移除缓存</li>
+</ol>
+<h2 id="缓存穿透">缓存穿透</h2>
+<p>问题描述：指缓存和数据库中都没有的数据，因此数据不会写入缓存，而用户不断发起该数据的请求都会让系统去DB查询；<br>
+攻击者可以利用不存在的key攻击该服务<br><br>
+解决方法：</p>
+<ol>
+<li>布隆过滤器：将所有可能存在的数据hash到一个bitmap中，通过hash key来过滤不存在的值</li>
+<li>增加校验，比如拦截id&lt;=0</li>
+<li>将查询返回为空的数据缓存，设置一个较短的过期时间（设置太长会导致正常情况也没法使用）</li>
+</ol>
+<h2 id="缓存击穿">缓存击穿</h2>
+<p>问题描述：某些过期的key可能在某个时间点被超高频率访问（&quot;热点&quot;数据），与雪崩不同之处在于，雪崩是很多key，这个是一个key<br><br>
+解决方法：</p>
+<ol>
+<li>热点数据永不过期</li>
+<li>使用互斥锁(mutex key)：多个线程同时去查询数据库的这条数据，在第一个查询数据的请求上使用一个互斥锁来锁住它<br>
+其他的线程走到这一步拿不到锁就等着，等第一个线程查询到了数据，然后做缓存。后面的线程进来发现已经有缓存了，就直接走缓存</li>
+<li>&quot;提前&quot;使用互斥锁</li>
+<li>资源隔离组件hystrix</li>
+</ol>
+<h1>Persistence</h1>
+<h2 id="snapshotting">Snapshotting</h2>
+<h2 id="aof-append-only-file">AOF(Append-only file)</h2>
+]]></content>
+      <categories>
+        <category>Interview</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS个人总结</title>
-    <url>/2020/ckl0hdo3m000dbw604on13lmi/</url>
+    <url>/2020/cklqjzov0000houq18u0k8k1f/</url>
     <content><![CDATA[<h1>CPU Context Switch</h1>
 <p><a href="https://zhuanlan.zhihu.com/p/52845869">CPU上下文切换 Reference1</a><br>
 <a href="https://baike.baidu.com/item/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">CPU上下文切换 Reference2</a></p>
@@ -1130,284 +1406,8 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/ckl0hdo3n000gbw60111760wq/</url>
-    <content><![CDATA[<h1>产品参数</h1>
-<ol>
-<li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
-1.1. 电池单模式<br>
-1.1.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
-1.2. 电池三模式<br>
-1.2.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
-1.3. 充电三模式<br>
-1.3.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
-<li>不锈钢款 12L 250<em>250</em>345mm 有内桶<br>
-2.1. 充电三模式（香槟金，玫瑰金，砂钢）<br>
-2.1.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
-<li>垃圾袋尺寸：45*50</li>
-</ol>
-<h1>快递区域</h1>
-<p>[快递区域](File:///Users/ronan/merchant/express.xlsx)</p>
-<h1>物品损坏</h1>
-<ol>
-<li>自动回复中选择相应选项让买家拍照片<br>
-1.1. 确认包装箱是否损坏<br>
-1.2. 产品破损拍照<br>
-1.3. 说是快递暴力的问题</li>
-<li>盖子损坏：申请换货，把盖子寄回来，有退货物流信息就（收到再）补发</li>
-<li>桶损坏：补发桶</li>
-<li>补发会提供单号，记得查收</li>
-</ol>
-<h1>物品不感应</h1>
-<h1>发货</h1>
-<ol>
-<li>提供单号</li>
-<li>发货时间一般是：16点之前的订单当天发，之后的次日发货</li>
-</ol>
-<h1>额外返现</h1>
-<ol>
-<li>提供五星好评和追评的图片返1元</li>
-<li>关注店铺返1元</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Redis个人总结</title>
-    <url>/2020/ckl0hdo3o000hbw60hs0l30e9/</url>
-    <content><![CDATA[<p><a href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
-<h1>Features</h1>
-<ol>
-<li>In-memory(store data in RAM) non-relational database(No SQL)</li>
-<li>flush to disk when
-<ol>
-<li>a point-in-time dump either when certain conditions are met (a number of writes in a given period)</li>
-<li>one of the two dump-to-disk commands is called.</li>
-</ol>
-</li>
-<li>Supports master/slave replication where slaves connect to the master and receive an initial copy of the full database.
-<ol>
-<li>support higher rates of read performance</li>
-<li>writes are performed on the master</li>
-</ol>
-</li>
-<li>No need to go through a query parser/optimizer</li>
-<li>Update an existing row is always fast</li>
-<li>don’t allow nested structure</li>
-</ol>
-<h1>vs Memcached</h1>
-<ol>
-<li>Memcached uses a blacklist to hide items that is removed, in Redis, use <code>remove</code> to remove item directly</li>
-</ol>
-<h1>Data Structures and Commands</h1>
-<p><a href="http://redis.io/commands">Redis Commands</a></p>
-<h2 id="strings">Strings</h2>
-<p>Strings has three types:</p>
-<ol>
-<li>Byte string Values (each character has 8 bits)</li>
-<li>Integer values</li>
-<li>Floating-point values</li>
-</ol>
-<p>Commands:</p>
-<ol>
-<li>Basic:
-<ol>
-<li><code>set hello world</code></li>
-<li><code>get hello</code></li>
-<li><code>del hello</code></li>
-</ol>
-</li>
-<li>Numeric Operation:
-<ol>
-<li><code>incr/decr key</code> (the value of this key must be Integer or Floating-point)</li>
-<li><code>incrby/decrby key amount</code></li>
-<li><code>incrbyfloat key amout</code></li>
-</ol>
-</li>
-<li>Substring Manipulation:
-<ol>
-<li><code>append key append-value</code> (concatenate)</li>
-<li><code>getrange key start end</code> (fetch substring)</li>
-<li><code>setrange key offset value</code> (replace offset^{th} element with value)</li>
-<li><code>bitcount key</code> count the number of 1 in the string</li>
-<li><code>getbit key offset</code></li>
-<li><code>setbit key offset value</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="lists">Lists</h2>
-<ol>
-<li><code>lpush/rpush list-key item</code></li>
-<li><code>lpop/rpop list-key item</code></li>
-<li><code>lindex list-key 1</code> (the second item in this list)</li>
-<li><code>lrange list-key 0 2</code> (list out the first three items)</li>
-<li><code>lrange list-key 0 -1</code> (list out all items in this list)</li>
-<li><code>ltrim list-key start end</code> ( Trims the list to only include items at indices between start and end, inclusive)</li>
-<li><code>blpop/brpop list-key1 list-key2 ... timeout</code> (Pops the leftmost item from the first non-empty LIST, or waits the timeout in seconds for an item)</li>
-<li><code>rpoplpush source-key dest-key</code></li>
-<li><code>brpoplpush source-key dest-key timeout</code></li>
-</ol>
-<p>Can be used as stack or queue, which is similar to Deque in Java</p>
-<h2 id="sets">Sets</h2>
-<p>use a hash table to keep all strings unique</p>
-<ol>
-<li>Basic:
-<ol>
-<li><code>sadd set-key item</code></li>
-<li><code>smembers set-key</code> (list out all items in this set)</li>
-<li><code>sismember set-key item</code> (check whether item is in this set or not)</li>
-<li><code>srem set-key item</code> (remove item from set, return 1 if success, 0 if fail)</li>
-<li><code>scard set-key</code> (print the number of items in this list)</li>
-<li><code>spop set-key</code> removes and returns a random item from the SET</li>
-<li><code>srandmember set-key [count]</code> Returns one or more random items from the SET. When count is positive,<br>
-Redis will return count distinct randomly chosen items, and when count is negative,<br>
-Redis will return count randomly chosen items that may not be distinct.</li>
-<li><code>smove source-key dest-key item</code> If the item is in the source,<br>
-removes the item from the source and adds it to the destination</li>
-</ol>
-</li>
-<li>Operations for combining and manipulating
-<ol>
-<li><code>sdiff/sinter/sunion key1 key2 key3 ...</code></li>
-<li><code>sdiffstore/sinterstore/sunionstore dest-key key1 key2 key3 ...</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="hashes">Hashes</h2>
-<p>Similar to HashMap in Java</p>
-<ol>
-<li><code>hset hash-key sub-key1 value1</code> (return 1 if sub-key1 is new, 0 if not)</li>
-<li><code>hmset hash-key sub-key1 value1 [sub-key2 value2]</code></li>
-<li><code>hget hash-key sub-key1</code></li>
-<li><code>hmget hash-key sub-key1 sub-key2</code></li>
-<li><code>hgetall hash-key</code> (each entry will print into two rows, one for key, one for value)</li>
-<li><code>hdel hash-key sub-key1</code></li>
-<li><code>hlen hash-key</code></li>
-<li><code>hexists hash-key sub-key</code></li>
-<li><code>hkeys hash-key</code></li>
-<li><code>hvals hash-key</code></li>
-<li><code>hincrby hash-key sub-key increment</code></li>
-<li><code>hincrbyfloat hash-key sub-key increment</code></li>
-</ol>
-<h2 id="sorted-sets-zsets">Sorted Sets(ZSets)</h2>
-<p>Also hold a type of key and value.<br>
-The keys (called <strong>members</strong>) are unique, and the values (called <strong>scores</strong>) are limited to floating-point numbers.</p>
-<ol>
-<li><code>zadd zset-key &lt;score&gt; &lt;member&gt;</code></li>
-<li><code>zrange zset-key 0 -1 withscores</code><br>
-(list out all items in this set in order, each entry will print into two rows, one for member, one for scores)</li>
-<li><code>zrange zset-key 0 2 withscores</code> (print the first three members (with scores) in this set)</li>
-<li><code>zrangebyscore/zrevrangebyscore zset-key 1 24 withscores</code> (print members with scores between 1 and 24)</li>
-<li><code>zrem zset-key member</code></li>
-<li><code>zscore zset-key member</code></li>
-<li><code>zcard zset-key</code> (print out the size of this zset)</li>
-<li><code>zcount zset-key min max</code> (count scores between min and max)</li>
-<li><code>zrank/zrevrank zset-key member</code> (the position of the given member in order/reverse order)</li>
-<li><code>zinterstore/zunionstore dest-key key-count zset-key set-key aggragate min/sum/max</code> default function is sum<br>
-<a href="https://redislabs.com/ebook/part-2-core-concepts/chapter-3-commands-in-redis/3-5-sorted-sets/">process of union and intersection</a></li>
-</ol>
-<h2 id="publish-subscribe">Publish/Subscribe</h2>
-<ol>
-<li>Reasons that don’t use it often
-<ol>
-<li>send but no read(cause buffer too large, which may result in redis kill or system unavailable),<br>
-configure <code>client-output-buffer-limit pubsub</code> to avoid large buffer</li>
-<li>data transmission reliability: subscriber may disconnect with channel</li>
-</ol>
-</li>
-<li>Commands
-<ol>
-<li><code>subscribe channel</code></li>
-<li><code>unsubscribe channel</code></li>
-<li><code>publish channel message</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="sort">Sort</h2>
-<p>Three types can be sorted: list, set, zset at key<br>
-Before sort, data strcture will be converted to double</p>
-<ol>
-<li><code>sort list-key limit 0 5 alpha desc</code></li>
-<li><code>sort hkey</code></li>
-</ol>
-<h2 id="transaction">Transaction</h2>
-<ol>
-<li>Cannot be executed partially and then rollback or commit</li>
-<li>Improve performance since the number of round trips between Redis and client is reduced</li>
-<li>Commands
-<ol>
-<li>input <code>multi</code></li>
-<li>input all commands that you want in this transaction</li>
-<li>input <code>exec</code> then redis will execute all commands sequentially without interruption(<code>pipeline</code> in python)</li>
-</ol>
-</li>
-</ol>
-<h2 id="expiring-keys">Expiring keys</h2>
-<ol>
-<li><code>persist key-name</code>  (Removes the expiration from a key)</li>
-<li><code>ttl key-name</code> (Returns the amount of time(seconds) remaining before a key will expire)</li>
-<li><code>expire key-name seconds</code> 倒计时</li>
-<li><code>expireat key-name timestamp</code> 定时</li>
-<li><code>pttl key-name</code> (milliseconds)</li>
-<li><code>pexpire key-name milliseconds</code> 倒计时</li>
-<li><code>pexpireat key-name timestamp-milliseconds</code> 定时</li>
-</ol>
-<h1>Usage of Redis</h1>
-<h2 id="login-and-cookie-caching">Login and cookie caching</h2>
-<h2 id="shopping-carts-in-redis">Shopping carts in Redis</h2>
-<h2 id="web-page-caching">Web page caching</h2>
-<h2 id="database-row-caching">Database row caching</h2>
-<ol>
-<li><code>set row_id json.dumps(row.to_dict())</code> use strings to cache row, use id as key, use json format as value</li>
-</ol>
-<h2 id="web-page-analysis">Web page analysis</h2>
-<h1>Cases</h1>
-<p><a href="https://blog.csdn.net/zeb_perfect/article/details/54135506">缓存问题 Reference1</a><br>
-<a href="https://www.javazhiyin.com/54503.html">缓存问题 Reference2</a></p>
-<h2 id="缓存雪崩">缓存雪崩</h2>
-<p>问题描述：所有key在同一时间失效，那么请求全部落数据库，数据库负载很大<br><br>
-解决方法：</p>
-<ol>
-<li>Redis设置key的expire time的时候，在原有的时间上加一个随机值，或者热点数据不过期（有更新操作就更新缓存）</li>
-<li>加锁或队列方式保证缓存单线程写，从而避免失效时大量的并发请求落到底层存储系统上</li>
-<li>数据预热：系统上线后，将相关的缓存数据直接加载到缓存系统</li>
-<li>双层缓存策略：C1为原始缓存，C2为拷贝缓存，C1失效时，可以访问C2，C1缓存失效时间设置为短期，C2设置为长期</li>
-<li>定时更新缓存策略：实效性要求不高的缓存，容器启动初始化加载，采用定时任务更新或移除缓存</li>
-</ol>
-<h2 id="缓存穿透">缓存穿透</h2>
-<p>问题描述：指缓存和数据库中都没有的数据，因此数据不会写入缓存，而用户不断发起该数据的请求都会让系统去DB查询；<br>
-攻击者可以利用不存在的key攻击该服务<br><br>
-解决方法：</p>
-<ol>
-<li>布隆过滤器：将所有可能存在的数据hash到一个bitmap中，通过hash key来过滤不存在的值</li>
-<li>增加校验，比如拦截id&lt;=0</li>
-<li>将查询返回为空的数据缓存，设置一个较短的过期时间（设置太长会导致正常情况也没法使用）</li>
-</ol>
-<h2 id="缓存击穿">缓存击穿</h2>
-<p>问题描述：某些过期的key可能在某个时间点被超高频率访问（&quot;热点&quot;数据），与雪崩不同之处在于，雪崩是很多key，这个是一个key<br><br>
-解决方法：</p>
-<ol>
-<li>热点数据永不过期</li>
-<li>使用互斥锁(mutex key)：多个线程同时去查询数据库的这条数据，在第一个查询数据的请求上使用一个互斥锁来锁住它<br>
-其他的线程走到这一步拿不到锁就等着，等第一个线程查询到了数据，然后做缓存。后面的线程进来发现已经有缓存了，就直接走缓存</li>
-<li>&quot;提前&quot;使用互斥锁</li>
-<li>资源隔离组件hystrix</li>
-</ol>
-<h1>Persistence</h1>
-<h2 id="snapshotting">Snapshotting</h2>
-<h2 id="aof-append-only-file">AOF(Append-only file)</h2>
-]]></content>
-      <categories>
-        <category>Interview</category>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Interview</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java面试个人总结</title>
-    <url>/2020/ckl0hdo4e0023bw604jos20xc/</url>
+    <url>/2020/cklqjzovr0025ouq1bvihei5t/</url>
     <content><![CDATA[<h1>Collections</h1>
 <h2 id="arraylist">ArrayList</h2>
 <ol>

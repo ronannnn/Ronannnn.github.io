@@ -11,7 +11,7 @@
    
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Linux命令总结 |  Ronan Blog
+    Computer System Security(MIT 6.858) |  Ronan Blog
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -47,7 +47,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-linux-cmd"
+  id="post-computer-system-security"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -58,18 +58,18 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Linux命令总结
+  Computer System Security(MIT 6.858)
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/ckl0hdo3k0009bw6076svfoa5/" class="article-date">
+      <a href="/2020/cklqjzouu0008ouq130cs5y9i/" class="article-date">
   <time datetime="2020-05-01T07:07:03.000Z" itemprop="datePublished">2020-05-01</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Interview/">Interview</a> / <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/categories/Security/">Security</a>
   </div>
   
 <div class="word_count">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">622</span>
+            <span class="post-count">24</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -101,133 +101,11 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><a target="_blank" rel="noopener" href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
-<h1>Main Directory in Linux</h1>
-<h2 id="proc">/proc</h2>
-<p>This is a virtual filesystem which contains information about all the<br>
-running processes, and information about the hardware present in the system.<br>
-Such as files: cpuinfo, cmdline, meminfo</p>
-<h1>Compression</h1>
-<h2 id="tar">tar</h2>
-<ol>
-<li><code>tar -xzvf files.tar.gz</code></li>
-<li><code>tar -xjvf files.tar.bz2</code></li>
-<li><code>tar -cjvf files.tar.gz hello.c bye.txt</code><br>
-<code>x</code>: extract, <code>c</code>: create, <code>z</code>: gzip, <code>j</code>: bzip, <code>v</code>: verbose, <code>f</code>: file</li>
-</ol>
-<h1>environment variable</h1>
-<ol>
-<li><code>printenv</code></li>
-<li><code>echo $PATH</code></li>
-</ol>
-<h1>Users and Groups</h1>
-<p><code>cat /etc/passwd</code> (contains all the users available in the system)</p>
-<h1>Processes</h1>
-<ol>
-<li><code>ps aux</code></li>
-<li><code>top</code></li>
-</ol>
-<h1>Memory</h1>
-<p><a target="_blank" rel="noopener" href="https://www.tecmint.com/check-memory-usage-in-linux/">Free Reference</a></p>
-<ol>
-<li><code>free -h</code></li>
-<li><code>free -s 5</code> show latest memory usage per 5 seconds</li>
-<li><code>top</code></li>
-<li><code>du --max-depth=1 -h</code> 当前目录下各个子目录的大小</li>
-</ol>
-<h1>Service</h1>
-<ol>
-<li><code>systemctl</code>
-<ol>
-<li><code>systemctl reboot/shutdown</code></li>
-<li><code>systemctl -t service</code></li>
-<li><code>systemctl start/status sshd</code></li>
-</ol>
-</li>
-<li><code>systemctl enable sshd.service</code>
-<ol>
-<li><code>journalctl -f -u sshd</code> find the log of a given service <code>-f</code>: follow(keep reading) <code>-u</code>: unit</li>
-<li><code>journalctl --since yesterday</code></li>
-<li><code>journalctl --since &quot;2015-11-10 14:00:00&quot;</code></li>
-</ol>
-</li>
-</ol>
-<h1>File System Mounting</h1>
-<h1>Networking</h1>
-<ol>
-<li><code>ip addr</code></li>
-<li><code>cat /etc/resolv.conf</code> DNS server address to use for DNS queries</li>
-<li><code>ss</code> another utility to investigate sockets
-<ol>
-<li><code>ss -tlpn</code> (<code>t</code>: tcp, <code>l</code>: listen state, <code>p</code>: process, <code>n</code>: numeric port) see ports and relevant processes</li>
-<li><code>ss -tapn</code> (show all state)</li>
-</ol>
-</li>
-<li><code>traceroute/tracepath www.google.com</code>  show the full route of a network packet from the system to any given host.</li>
-</ol>
-<h2 id="ssh">ssh</h2>
-<p><code>vim /etc/ssh/sshd_config</code> to disable password login for ssh</p>
-<h1>watch</h1>
-<ol>
-<li><code>watch -n 1 &quot;ss -ltp&quot;</code> execute a program periodically, showing output fullscreen</li>
-</ol>
-<h1>Linux Firewall</h1>
-<h2 id="install">install</h2>
-<p><code>apt install iptables-persistent</code><br>
-iptables: administration tool for IPv4/IPv6 packet filtering and NAT(Network Address Translation)</p>
-<ol>
-<li><code>iptables -nvL --line-number</code> shows the default table filter and all chains and rules inside of it<br>
-see more details in pdf chapter “Linux Firewall”</li>
-</ol>
-<h1>Disk</h1>
-<p><a target="_blank" rel="noopener" href="https://www.binarytides.com/linux-command-check-disk-partitions/">Reference</a></p>
-<ol>
-<li><code>fdisk -l</code></li>
-<li><code>sfdisk -l</code></li>
-<li><code>df -h</code> <code>h</code>: --human-readable (df shows only the mounted file systems or partitions and not all.)</li>
-<li><code>df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs</code> output with specific formats<br>
-<code>-x</code> means not shows whose type is any of these</li>
-<li><code>lsblk</code> List Block Devices</li>
-</ol>
-<h1>Others</h1>
-<p><a target="_blank" rel="noopener" href="https://www.tecmint.com/useful-linux-commands-for-newbies/">Reference</a></p>
-<ol>
-<li><code>md5sum/sha1sum filename</code></li>
-<li><code>uname -a</code> print detailed information about the machine name, Operating System and Kernel.<br>
-(kernel name, node name, kernel release, kernel version, )</li>
-<li><code>cat /etc/os-release</code></li>
-<li><code>sudo</code> stands for super user do</li>
-<li><code>touch filename</code> touch command creates the file, only if it doesn’t exist.<br>
-If the file already exists it will update the timestamp and not the contents of the file.</li>
-<li><code>whatis ls</code></li>
-<li><code>alias l='ls -l'</code> <code>unalias l</code></li>
-<li><code>cmp filename1 filename2</code></li>
-<li><code>w</code> a combination of <code>uptime</code> and <code>who</code></li>
-<li><code>rsync</code> a fast, versatile, remote (and local) file-copying tool, which can replace <code>cp</code></li>
-<li><code>lsof</code> list of open file <a target="_blank" rel="noopener" href="https://www.tecmint.com/10-lsof-command-examples-in-linux/">See More Details</a></li>
-<li><code>more/less</code> does not have to read the entire input file before starting(vim does)</li>
-<li><code>head/tail</code> read file from head/tail</li>
-</ol>
-<h2 id="how-to-find-files-or-directories">How to find files or directories</h2>
-<ol>
-<li><code>locate java</code> locate reads one or more databases prepared by <code>updatedb</code> and writes file names matching at least<br>
-one of the PATTERNs to standard output, one per line.</li>
-<li><code>which java</code>  find the exact path of the executable being used by a command in our shell.</li>
-<li><code>whereis java</code> locate the binary, source, and manual page files for a command(ie, not only the executable one in <code>which</code>, and some other stuff (like man pages).)</li>
-<li><strong>find</strong> Search for files in the given directory, hierarchically starting at the parent directory and moving to sub-directories.
-<ol>
-<li><code>find -name *.sh</code></li>
-<li><code>find -iname *.SH</code> case insensitive</li>
-</ol>
-</li>
-<li><strong>grep</strong>
-<ol>
-<li><code>grep tecmint /etc/passwd</code></li>
-<li><code>grep -i TECMINT /etc/passwd</code> case insensitive</li>
-<li><code>grep -r &quot;127.0.0.1&quot; /etc/</code> search recursively</li>
-</ol>
-</li>
-</ol>
+  <h1>Buffer Overflow</h1>
+<h2 id="buggy-c-code">buggy C code</h2>
+<p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
+But this is not doable</p>
+<h2 id="attack">Attack</h2>
  
       <!-- reward -->
       
@@ -280,12 +158,12 @@ one of the PATTERNs to standard output, one per line.</li>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckl0hdo3k0009bw6076svfoa5/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/cklqjzouu0008ouq130cs5y9i/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buffer-Overflow/" rel="tag">Buffer Overflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Security/" rel="tag">Security</a></li></ul>
 
     </footer>
   </div>
@@ -293,19 +171,19 @@ one of the PATTERNs to standard output, one per line.</li>
    
   <nav class="article-nav">
     
-      <a href="/2020/ckl0hdo3e0003bw60ce1dg3s7/" class="article-nav-link">
+      <a href="/2020/cklqjzoum0001ouq18oz179gq/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
-            Computer System Security(MIT 6.858)
+            算法个人总结
           
         </div>
       </a>
     
     
-      <a href="/2020/ckl0hdo3l000cbw60dcyi2fat/" class="article-nav-link">
+      <a href="/2020/cklqjzouv0009ouq180f78qv3/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title">Computer Network总结</div>
+        <div class="article-nav-title">Linux命令总结</div>
       </a>
     
   </nav>

@@ -6,7 +6,7 @@
   <link href="https://ronannnn.github.io/atom.xml" rel="self"/>
   
   <link href="https://ronannnn.github.io/"/>
-  <updated>2021-01-27T04:41:17.792Z</updated>
+  <updated>2021-03-01T12:23:25.254Z</updated>
   <id>https://ronannnn.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Redis个人总结</title>
-    <link href="https://ronannnn.github.io/2021/ckl0hdo3h0006bw60ag0jbm5m/"/>
-    <id>https://ronannnn.github.io/2021/ckl0hdo3h0006bw60ag0jbm5m/</id>
+    <title>Go个人学习</title>
+    <link href="https://ronannnn.github.io/2021/cklqjzoup0003ouq13wjr1lw0/"/>
+    <id>https://ronannnn.github.io/2021/cklqjzoup0003ouq13wjr1lw0/</id>
     <published>2021-01-23T05:14:15.000Z</published>
-    <updated>2021-01-27T04:41:17.792Z</updated>
+    <updated>2021-03-01T12:23:25.254Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p><p>主要记录一些小知识点</p><h1>Types</h1><ol><li>数字可以写成<code>100_000_000</code></li><li><code>uint</code> = either 32 or 64 bits, <code>int</code> = same size as uint, 所以<code>int32</code>和<code>int</code>不是同一个类型</li></ol><h1>Struct</h1><p>定义struct时，如果没有定义field name，那么field name和类型同名</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">T1        <span class="comment">// field name is T1</span></span><br><span class="line">*T2       <span class="comment">// field name is T2</span></span><br><span class="line">P.T3      <span class="comment">// field name is T3</span></span><br><span class="line">*P.T4     <span class="comment">// field name is T4</span></span><br><span class="line">x, y <span class="keyword">int</span>  <span class="comment">// field names are x and y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1>Channel</h1><p><code>make(chan int, 100)</code>: 不设置capacity，只有当sender和receiver ready之后才能使用；<br>设置capacity相当于设置了buffer，在buffer不满(sends)或者buffer不空(receives)时，不会阻塞。</p><h1>Goroutine原理</h1><h2 id="mpg模型"><a href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/">MPG模型</a></h2><ol><li>M是machine，一个M直接关联了一个内核线程，由操作系统管理</li><li>P是Processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接</li><li>G是Goroutine</li></ol>]]></content>
     
@@ -50,8 +50,8 @@
   
   <entry>
     <title></title>
-    <link href="https://ronannnn.github.io/2021/ckl0hdo3n000gbw60111760wq/"/>
-    <id>https://ronannnn.github.io/2021/ckl0hdo3n000gbw60111760wq/</id>
+    <link href="https://ronannnn.github.io/2021/cklqjzoux000douq1el45b3ll/"/>
+    <id>https://ronannnn.github.io/2021/cklqjzoux000douq1el45b3ll/</id>
     <published>2021-01-03T12:33:00.728Z</published>
     <updated>2021-01-13T06:02:52.052Z</updated>
     
@@ -76,8 +76,8 @@
   
   <entry>
     <title>Redis个人总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3o000hbw60hs0l30e9/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3o000hbw60hs0l30e9/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzouz000gouq12btibjul/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzouz000gouq12btibjul/</id>
     <published>2020-06-01T07:07:03.000Z</published>
     <updated>2021-01-03T12:17:07.571Z</updated>
     
@@ -107,8 +107,8 @@
   
   <entry>
     <title>算法个人总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3a0001bw60a0bmhdl5/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3a0001bw60a0bmhdl5/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzoum0001ouq18oz179gq/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzoum0001ouq18oz179gq/</id>
     <published>2020-05-01T07:07:03.000Z</published>
     <updated>2021-01-03T12:33:00.728Z</updated>
     
@@ -143,8 +143,8 @@
   
   <entry>
     <title>Computer System Security(MIT 6.858)</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3e0003bw60ce1dg3s7/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3e0003bw60ce1dg3s7/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzouu0008ouq130cs5y9i/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzouu0008ouq130cs5y9i/</id>
     <published>2020-05-01T07:07:03.000Z</published>
     <updated>2021-01-04T10:09:18.063Z</updated>
     
@@ -171,8 +171,8 @@
   
   <entry>
     <title>Linux命令总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3k0009bw6076svfoa5/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3k0009bw6076svfoa5/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzouv0009ouq180f78qv3/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzouv0009ouq180f78qv3/</id>
     <published>2020-05-01T07:07:03.000Z</published>
     <updated>2021-01-06T04:05:41.222Z</updated>
     
@@ -201,8 +201,8 @@
   
   <entry>
     <title>Computer Network总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3l000cbw60dcyi2fat/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3l000cbw60dcyi2fat/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzouw000couq1b4r4ey18/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzouw000couq1b4r4ey18/</id>
     <published>2020-05-01T07:07:03.000Z</published>
     <updated>2021-01-12T12:25:58.561Z</updated>
     
@@ -238,8 +238,8 @@
   
   <entry>
     <title>OS个人总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3m000dbw604on13lmi/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3m000dbw604on13lmi/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzov0000houq18u0k8k1f/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzov0000houq18u0k8k1f/</id>
     <published>2020-04-01T07:07:03.000Z</published>
     <updated>2021-01-22T04:32:14.777Z</updated>
     
@@ -272,8 +272,8 @@
   
   <entry>
     <title>Mysql面试个人总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo3j0008bw605za23jse/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo3j0008bw605za23jse/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzous0006ouq18dycafit/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzous0006ouq18dycafit/</id>
     <published>2020-01-03T11:07:03.000Z</published>
     <updated>2021-01-20T14:33:55.487Z</updated>
     
@@ -307,8 +307,8 @@
   
   <entry>
     <title>Java面试个人总结</title>
-    <link href="https://ronannnn.github.io/2020/ckl0hdo4e0023bw604jos20xc/"/>
-    <id>https://ronannnn.github.io/2020/ckl0hdo4e0023bw604jos20xc/</id>
+    <link href="https://ronannnn.github.io/2020/cklqjzovr0025ouq1bvihei5t/"/>
+    <id>https://ronannnn.github.io/2020/cklqjzovr0025ouq1bvihei5t/</id>
     <published>2020-01-03T11:07:03.000Z</published>
     <updated>2021-01-12T05:50:10.315Z</updated>
     

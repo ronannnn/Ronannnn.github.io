@@ -11,7 +11,7 @@
    
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Redis个人总结 |  Ronan Blog
+     Ronan Blog
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -47,37 +47,24 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-go"
+  id="post-pdd-customer-service"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
 >
   <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Redis个人总结
-</h1>
- 
-
-    </header>
      
     <div class="article-meta">
-      <a href="/2021/ckl0hdo3h0006bw60ag0jbm5m/" class="article-date">
-  <time datetime="2021-01-23T05:14:15.000Z" itemprop="datePublished">2021-01-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Go/">Go</a> / <a class="article-category-link" href="/categories/Self-Learning/">Self-Learning</a>
-  </div>
-  
+      <a href="/2021/cklqjzoux000douq1el45b3ll/" class="article-date">
+  <time datetime="2021-01-03T12:33:00.728Z" itemprop="datePublished">2021-01-03</time>
+</a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">228</span>
+            <span class="post-count">330</span>
         </span>
     </span>
 
@@ -101,25 +88,42 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><a target="_blank" rel="noopener" href="https://golang.org/ref/spec">Go Official Specification</a></p>
-<p>主要记录一些小知识点</p>
-<h1>Types</h1>
+  <h1>产品参数</h1>
 <ol>
-<li>数字可以写成<code>100_000_000</code></li>
-<li><code>uint</code> = either 32 or 64 bits, <code>int</code> = same size as uint, 所以<code>int32</code>和<code>int</code>不是同一个类型</li>
+<li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
+1.1. 电池单模式<br>
+1.1.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
+1.2. 电池三模式<br>
+1.2.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
+1.3. 充电三模式<br>
+1.3.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
+<li>不锈钢款 12L 250<em>250</em>345mm 有内桶<br>
+2.1. 充电三模式（香槟金，玫瑰金，砂钢）<br>
+2.1.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
+<li>垃圾袋尺寸：45*50</li>
 </ol>
-<h1>Struct</h1>
-<p>定义struct时，如果没有定义field name，那么field name和类型同名</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">	T1        <span class="comment">// field name is T1</span></span><br><span class="line">	*T2       <span class="comment">// field name is T2</span></span><br><span class="line">	P.T3      <span class="comment">// field name is T3</span></span><br><span class="line">	*P.T4     <span class="comment">// field name is T4</span></span><br><span class="line">	x, y <span class="keyword">int</span>  <span class="comment">// field names are x and y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>Channel</h1>
-<p><code>make(chan int, 100)</code>: 不设置capacity，只有当sender和receiver ready之后才能使用；<br>
-设置capacity相当于设置了buffer，在buffer不满(sends)或者buffer不空(receives)时，不会阻塞。</p>
-<h1>Goroutine原理</h1>
-<h2 id="mpg模型"><a target="_blank" rel="noopener" href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/">MPG模型</a></h2>
+<h1>快递区域</h1>
+<p>[快递区域](File:///Users/ronan/merchant/express.xlsx)</p>
+<h1>物品损坏</h1>
 <ol>
-<li>M是machine，一个M直接关联了一个内核线程，由操作系统管理</li>
-<li>P是Processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接</li>
-<li>G是Goroutine</li>
+<li>自动回复中选择相应选项让买家拍照片<br>
+1.1. 确认包装箱是否损坏<br>
+1.2. 产品破损拍照<br>
+1.3. 说是快递暴力的问题</li>
+<li>盖子损坏：申请换货，把盖子寄回来，有退货物流信息就（收到再）补发</li>
+<li>桶损坏：补发桶</li>
+<li>补发会提供单号，记得查收</li>
+</ol>
+<h1>物品不感应</h1>
+<h1>发货</h1>
+<ol>
+<li>提供单号</li>
+<li>发货时间一般是：16点之前的订单当天发，之后的次日发货</li>
+</ol>
+<h1>额外返现</h1>
+<ol>
+<li>提供五星好评和追评的图片返1元</li>
+<li>关注店铺返1元</li>
 </ol>
  
       <!-- reward -->
@@ -173,23 +177,30 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2021/ckl0hdo3h0006bw60ag0jbm5m/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2021/cklqjzoux000douq1el45b3ll/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Self-Learning/" rel="tag">Self-Learning</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
+      <a href="/2021/cklqjzoup0003ouq13wjr1lw0/" class="article-nav-link">
+        <strong class="article-nav-caption">Prev</strong>
+        <div class="article-nav-title">
+          
+            Go个人学习
+          
+        </div>
+      </a>
     
-      <a href="/2021/ckl0hdo3n000gbw60111760wq/" class="article-nav-link">
+    
+      <a href="/2020/cklqjzouz000gouq12btibjul/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title"></div>
+        <div class="article-nav-title">Redis个人总结</div>
       </a>
     
   </nav>
