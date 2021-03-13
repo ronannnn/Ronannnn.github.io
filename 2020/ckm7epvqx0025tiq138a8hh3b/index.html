@@ -65,7 +65,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/cklqjzovr0025ouq1bvihei5t/" class="article-date">
+      <a href="/2020/ckm7epvqx0025tiq138a8hh3b/" class="article-date">
   <time datetime="2020-01-03T11:07:03.000Z" itemprop="datePublished">2020-01-03</time>
 </a> 
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">7.2k</span>
+            <span class="post-count">7.6k</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">30 min</span>
+            <span class="post-count">32 min</span>
         </span>
     </span>
 </div>
@@ -184,6 +184,14 @@ n |= n &gt;&gt;&gt; 16      : 32 bits are all 1, which is MAX VALUE of integer</
 <h1>Thread</h1>
 <h2 id="lifecycle">Lifecycle</h2>
 <p>new, runnable, blocked, waiting, time_waiting, terminated</p>
+<h2 id="yield-join">yield(), join()</h2>
+<ol>
+<li><code>yield()</code>: basically means that the thread is not doing anything particularly important<br>
+and if any other threads or processes need to be run(has higher priority), they should run.<br>
+Otherwise, the current thread will continue to run.</li>
+<li><code>join()</code>: If <code>join()</code> is called on a Thread instance,<br>
+the currently running thread will block until the Thread instance has finished executing.</li>
+</ol>
 <h2 id="sleep-vs-wait">sleep() vs wait()</h2>
 <ol>
 <li>sleep doesn’t lose ownership of monitors, but wait does</li>
@@ -245,7 +253,7 @@ which causes memory consistency errors. <code>volatile</code> let variables read
 </ol>
 <h2 id="threadlocal">ThreadLocal</h2>
 <ol>
-<li>get map from current thread</li>
+<li>get ThreadLocalMap from current thread</li>
 <li>the key of this map is <code>ThreadLocal&lt;T&gt;</code>, hence one ThreadLocal only store one value</li>
 <li>it should be declared as <code>static</code></li>
 <li>better to invoke <code>remove()</code> if ThreadLocal is useless since key(ThreadLocal<T>) is weak reference and it may be recycled by jvm,<br>
@@ -257,26 +265,39 @@ but its value will not be recycled</T></li>
 <li>maximumPoolSize: 最大线程数</li>
 <li>keepAliveTime: 空闲回收时间</li>
 <li>unit: 回收时间单位</li>
-<li>workQueue: 用于缓存任务的阻塞队列<br>
-5.1. 如果没有空闲的线程执行该任务且 当前运行的线程数少于corePoolSize，则添加新的线程执行该任务。<br>
-5.2. 如果没有空闲的线程执行该任务且 当前的线程数等于corePoolSize同时阻塞队列未满，则将任务入队列，而不添加新的线程。<br>
-5.3. 如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数小于maximumPoolSize，则创建新的线程执行任务。<br>
-5.4. 如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数等于maximumPoolSize，则根据构造函数中的handler指定的策略来拒绝新的任务。<br>
-5.5. 当一个线程无事可做超过keepAliveTime时,线程池会判断:如果当前运行的线程数大于corePoolSize,那么这个线程就被停掉。<br>
+<li>workQueue: 用于缓存任务的阻塞队列
+<ol>
+<li>如果没有空闲的线程执行该任务且 当前运行的线程数少于corePoolSize，则添加新的线程执行该任务。</li>
+<li>如果没有空闲的线程执行该任务且 当前的线程数等于corePoolSize同时阻塞队列未满，则将任务入队列，而不添加新的线程。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数小于maximumPoolSize，则创建新的线程执行任务。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数等于maximumPoolSize，则根据构造函数中的handler指定的策略来拒绝新的任务。</li>
+<li>当一个线程无事可做超过keepAliveTime时,线程池会判断:如果当前运行的线程数大于corePoolSize,那么这个线程就被停掉。<br>
 所以线程池的所有任务完成后它最终会收缩到corePoolSize的大小。</li>
-<li>threadFactory: 线程工厂，用于创建线程</li>
-<li>handler: 拒绝策略<br>
-7.1. AbortPolicy: 直接抛出异常<br>
-7.2. DiscardPolicy: 直接抛弃任务，无异常<br>
-7.3. CallerRunsPolicy: 任务被拒绝添加后，会调用当前线程池的所在线程去执行被拒绝的任务<br>
-7.4. DiscardOldestPolicy: 抛弃最老的任务，然后添加这个任务</li>
 </ol>
-<h3 id="原理">原理</h3>
+</li>
+<li>threadFactory: 线程工厂，用于创建线程</li>
+<li>handler: 拒绝策略
+<ol>
+<li>AbortPolicy: 直接抛出异常</li>
+<li>DiscardPolicy: 直接抛弃任务，无异常</li>
+<li>CallerRunsPolicy: 任务被拒绝添加后，会调用当前线程池的所在线程去执行被拒绝的任务</li>
+<li>DiscardOldestPolicy: 抛弃最老的任务，然后添加这个任务</li>
+</ol>
+</li>
+<li>线程数目如何变化
 <ol>
 <li>当队列空时，获取元素的线程会等待队列变为非空</li>
 <li>当队列满时，存储元素的线程会等待队列可用</li>
 </ol>
-<h2 id="atomic">Atomic</h2>
+</li>
+<li>submit vs execute
+<ol>
+<li>execute(Runnable) does not return anything</li>
+<li>submit(Callable<T>) returns a Future object which allows a way to cancel the running thread and get returned value</T></li>
+</ol>
+</li>
+</ol>
+<h1>Atomic</h1>
 <p>use CAS(compare and swap)(optimistic lock) + volatile + native methods to guarantee atomicity rather than synchronized<br>
 compareAndSwap(Object object, long offset, int expected, int new) compare offset and expected, if equivalent, write new in memory<br>
 if not, do nothing.</p>
@@ -645,6 +666,29 @@ system.</li>
 <li>use IO if there are few connections with very high bandwidth.</li>
 </ol>
 <hr>
+<h1><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43809223/article/details/100529810">BIO vs NIO vs AIO</a></h1>
+<ol>
+<li>BIO-同步阻塞IO
+<ol>
+<li>服务器实现模式为一个连接一个线程</li>
+<li>适用于连接数目比较小且固定的架构</li>
+</ol>
+</li>
+<li>NIO-同步非阻塞IO：
+<ol>
+<li>服务器实现模式为一个请求一个线程</li>
+<li>客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有IO请求时才启动一个线程进行处理</li>
+<li>适用于连接数目多且连接比较短（轻操作）的架构，比如聊推荐服务器</li>
+</ol>
+</li>
+<li>AIO-异步非阻塞AIO：在读写操作结束之前允许进行其他的操作
+<ol>
+<li>适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作</li>
+</ol>
+</li>
+<li>同步和异步说的是消息的通知机制，这个线程仍然要定时的读取stream，判断数据有没有准备好;<br>
+非阻塞：体现在，这个线程可以去干别的，不需要一直在这等着</li>
+</ol>
 <h1>ClassLoad</h1>
 <h2 id="类加载器">类加载器</h2>
 <ol>
@@ -825,7 +869,7 @@ boolean类型数组的访问与修改共用byte类型数组的baload和 bastore�
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/cklqjzovr0025ouq1bvihei5t/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckm7epvqx0025tiq138a8hh3b/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -838,7 +882,7 @@ boolean类型数组的访问与修改共用byte类型数组的baload和 bastore�
    
   <nav class="article-nav">
     
-      <a href="/2020/cklqjzous0006ouq18dycafit/" class="article-nav-link">
+      <a href="/2020/ckm7epvqf0006tiq1bmfc2j6i/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>算法个人总结</title>
-    <url>/2020/cklqjzoum0001ouq18oz179gq/</url>
+    <url>/2020/ckm7epvq90001tiq1csbl7u7m/</url>
     <content><![CDATA[<h1>Quick Sort</h1>
 <h2 id="原理">原理</h2>
 <p>使用了分治的思想</p>
@@ -81,41 +81,25 @@
       </tags>
   </entry>
   <entry>
-    <title>Go个人学习</title>
-    <url>/2021/cklqjzoup0003ouq13wjr1lw0/</url>
-    <content><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p>
-<p>主要记录一些小知识点</p>
-<h1>Types</h1>
-<ol>
-<li>数字可以写成<code>100_000_000</code></li>
-<li><code>uint</code> = either 32 or 64 bits, <code>int</code> = same size as uint, 所以<code>int32</code>和<code>int</code>不是同一个类型</li>
-</ol>
-<h1>Struct</h1>
-<p>定义struct时，如果没有定义field name，那么field name和类型同名</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">	T1        <span class="comment">// field name is T1</span></span><br><span class="line">	*T2       <span class="comment">// field name is T2</span></span><br><span class="line">	P.T3      <span class="comment">// field name is T3</span></span><br><span class="line">	*P.T4     <span class="comment">// field name is T4</span></span><br><span class="line">	x, y <span class="keyword">int</span>  <span class="comment">// field names are x and y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>Channel</h1>
-<p><code>make(chan int, 100)</code>: 不设置capacity，只有当sender和receiver ready之后才能使用；<br>
-设置capacity相当于设置了buffer，在buffer不满(sends)或者buffer不空(receives)时，不会阻塞。</p>
-<h1>Goroutine原理</h1>
-<h2 id="mpg模型"><a href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/">MPG模型</a></h2>
-<ol>
-<li>M是machine，一个M直接关联了一个内核线程，由操作系统管理</li>
-<li>P是Processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接</li>
-<li>G是Goroutine</li>
-</ol>
+    <title>Computer System Security(MIT 6.858)</title>
+    <url>/2020/ckm7epvqb0003tiq104gc2w6l/</url>
+    <content><![CDATA[<h1>Buffer Overflow</h1>
+<h2 id="buggy-c-code">buggy C code</h2>
+<p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
+But this is not doable</p>
+<h2 id="attack">Attack</h2>
 ]]></content>
       <categories>
-        <category>Self-Learning</category>
-        <category>Go</category>
+        <category>Security</category>
       </categories>
       <tags>
-        <tag>Self-Learning</tag>
-        <tag>Go</tag>
+        <tag>Security</tag>
+        <tag>Buffer Overflow</tag>
       </tags>
   </entry>
   <entry>
     <title>Mysql面试个人总结</title>
-    <url>/2020/cklqjzous0006ouq18dycafit/</url>
+    <url>/2020/ckm7epvqf0006tiq1bmfc2j6i/</url>
     <content><![CDATA[<h1>Engines</h1>
 <p>InnoDB, MEMORY, MyISAM</p>
 <h2 id="myisam-vs-innodb">MyISAM vs InnoDB</h2>
@@ -215,13 +199,16 @@
 <p>主要和磁盘读取存储有关，为了减少IO，磁盘不会按需读取，一般是磁盘预读（即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存）。<br>
 预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，<br>
 每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。</p>
-<p>B树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
+<p>B+树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
 B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(log_d{N})。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。<br>
 而红黑树这种结构，h明显要深的多，效率明显比B-Tree差很多。</p>
+<p>B+树所有数据都在叶子节点上且是有序的，可以进行范围查找或排序</p>
+<p>哈希虽然能够提供 O(1) 的单数据行操作性能，但是对于范围查询和排序却无法很好地支持，最终导致全表扫描；</p>
 <h2 id="为什么用b-树而不是b树">为什么用B+树而不是B树</h2>
 <ol>
 <li>B+树可以实现区间访问，B树不行</li>
-<li>B+树IO访问次数少，因为非叶子节点都是索引不是数据</li>
+<li>B 树能够在非叶节点中存储数据，但是这也导致在查询连续数据时可能会带来更多的随机 I/O，<br>
+而 B+ 树的所有叶节点可以通过指针相互连接，能够减少顺序遍历时产生的额外随机 I/O；</li>
 </ol>
 <h2 id="为什么要使用一个与业务无关的自增字段作为主键">为什么要使用一个与业务无关的自增字段作为主键</h2>
 <p>mysql的InnoDB引擎中使用的是B树，如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。<br>
@@ -399,25 +386,42 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
       </tags>
   </entry>
   <entry>
-    <title>Computer System Security(MIT 6.858)</title>
-    <url>/2020/cklqjzouu0008ouq130cs5y9i/</url>
-    <content><![CDATA[<h1>Buffer Overflow</h1>
-<h2 id="buggy-c-code">buggy C code</h2>
-<p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
-But this is not doable</p>
-<h2 id="attack">Attack</h2>
+    <title>Go个人学习</title>
+    <url>/2021/ckm7epvqg0008tiq1guwrezpj/</url>
+    <content><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p>
+<p>主要记录一些小知识点</p>
+<h1>Types</h1>
+<ol>
+<li>数字可以写成<code>100_000_000</code></li>
+<li><code>uint</code> = either 32 or 64 bits, <code>int</code> = same size as uint, 所以<code>int32</code>和<code>int</code>不是同一个类型</li>
+</ol>
+<h1>Struct</h1>
+<p>定义struct时，如果没有定义field name，那么field name和类型同名</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">	T1        <span class="comment">// field name is T1</span></span><br><span class="line">	*T2       <span class="comment">// field name is T2</span></span><br><span class="line">	P.T3      <span class="comment">// field name is T3</span></span><br><span class="line">	*P.T4     <span class="comment">// field name is T4</span></span><br><span class="line">	x, y <span class="keyword">int</span>  <span class="comment">// field names are x and y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>Channel</h1>
+<p><code>make(chan int, 100)</code>: 不设置capacity，只有当sender和receiver ready之后才能使用；<br>
+设置capacity相当于设置了buffer，在buffer不满(sends)或者buffer不空(receives)时，不会阻塞。</p>
+<h1>Goroutine原理</h1>
+<h2 id="mpg模型"><a href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/">MPG模型</a></h2>
+<ol>
+<li>M是machine，一个M直接关联了一个内核线程，由操作系统管理</li>
+<li>P是Processor，代表了M所需的上下文环境，也是处理用户级代码逻辑的处理器。它负责衔接M和G的调度上下文，将等待执行的G与M对接</li>
+<li>G是Goroutine</li>
+</ol>
+<h1>Map</h1>
 ]]></content>
       <categories>
-        <category>Security</category>
+        <category>Self-Learning</category>
+        <category>Go</category>
       </categories>
       <tags>
-        <tag>Security</tag>
-        <tag>Buffer Overflow</tag>
+        <tag>Self-Learning</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
     <title>Linux命令总结</title>
-    <url>/2020/cklqjzouv0009ouq180f78qv3/</url>
+    <url>/2020/ckm7epvqh0009tiq12t0uguxy/</url>
     <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
 <h1>Main Directory in Linux</h1>
 <h2 id="proc">/proc</h2>
@@ -557,7 +561,7 @@ one of the PATTERNs to standard output, one per line.</li>
   </entry>
   <entry>
     <title>Computer Network总结</title>
-    <url>/2020/cklqjzouw000couq1b4r4ey18/</url>
+    <url>/2020/ckm7epvqi000ctiq1de2uc89t/</url>
     <content><![CDATA[<h1>Layers</h1>
 <ol>
 <li>
@@ -836,7 +840,7 @@ ETH_P_ARP(arp数据包)</p>
   </entry>
   <entry>
     <title></title>
-    <url>/2021/cklqjzoux000douq1el45b3ll/</url>
+    <url>/2021/ckm7epvqj000dtiq1gdcbh2kq/</url>
     <content><![CDATA[<h1>产品参数</h1>
 <ol>
 <li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
@@ -878,7 +882,7 @@ ETH_P_ARP(arp数据包)</p>
   </entry>
   <entry>
     <title>Redis个人总结</title>
-    <url>/2020/cklqjzouz000gouq12btibjul/</url>
+    <url>/2020/ckm7epvqs001ntiq177v46gzy/</url>
     <content><![CDATA[<p><a href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
 <h1>Features</h1>
 <ol>
@@ -1112,102 +1116,78 @@ Before sort, data strcture will be converted to double</p>
   </entry>
   <entry>
     <title>OS个人总结</title>
-    <url>/2020/cklqjzov0000houq18u0k8k1f/</url>
-    <content><![CDATA[<h1>CPU Context Switch</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/52845869">CPU上下文切换 Reference1</a><br>
-<a href="https://baike.baidu.com/item/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">CPU上下文切换 Reference2</a></p>
+    <url>/2020/ckm7epvqt001otiq1gb3x5cxr/</url>
+    <content><![CDATA[<h1>Basic</h1>
+<h2 id="用户态-user-mode-内核态-privileged-mode">用户态(user mode)，内核态(privileged mode)</h2>
 <ol>
-<li>CPU切换到另一个程序需要保存当前程序的状态并恢复另一个程序的状态</li>
-<li>类型
+<li>权限不同
 <ol>
-<li>进程上下文切换: 操作PCB</li>
-<li>线程上下文切换
-<ol>
-<li>若两个线程在不同进程，切换过程同进程</li>
-<li>若两个线程在同一进程，只需切换线程私有数据，寄存器等不共享的数据（无需切换虚拟内存，全局变量等）</li>
+<li>用户态只有少数权限</li>
+<li>内核态几乎所有权限</li>
 </ol>
 </li>
-<li>中断上下文切换</li>
+<li>使用kernel来表示运行在内核态的OS</li>
+<li>用户态切换到内核态：
+<ol>
+<li>(程序通过)陷阱(traps): invoke the kernel from user code
+<ol>
+<li>program errors</li>
+<li>系统调用(system calls)</li>
+<li>页错误(page faults)</li>
+</ol>
+</li>
+<li>(外部设备通过)中断(Interrupts): is an asynchronous event</li>
+</ol>
+</li>
+<li>上行调用(Upcall)：signals allows the kernel to invoke code that’s part of user program</li>
+</ol>
+<h2 id="寄存器-registers">寄存器(Registers)</h2>
+<ol>
+<li>idx regs(E means 32bits reg)
+<ol>
+<li>EIP(Extended Instruction Pointer)指令指针寄存器：指向即将执行的指令</li>
+<li>ESP(S: Stack)堆栈指针寄存器：指向系统栈最上面一个栈帧的栈顶(to know where to build a new stack frame)</li>
+<li>EBP(B: Basic)基址指针寄存器：point to the middle of the stack frame where your codes are running(用来访问变量等)</li>
+</ol>
+</li>
+<li>segment regs:
+<ol>
+<li>CS(Code Segment): 2bits来表示处理器模式(Processor Mode): 00(内核态),01(other),10(other),11(用户态)</li>
+</ol>
+</li>
+<li>General regs:
+<ol>
+<li>EAX, EBX,ALU</li>
+</ol>
+</li>
+<li>other regs:
+<ol>
+<li>z flag: 算术操作的结果是0，就置1，否则置0</li>
+<li>c(carry) flag: 进位置1否则置0</li>
+<li>o(overflow) flag</li>
+<li>IE(Interrupt Enabled): interrupt pending(wait for IE set to 1) if 0; interrupt delivery(handle pending interrupt) if 1</li>
 </ol>
 </li>
 </ol>
-<h1>互斥和同步</h1>
-<p><a href="https://blog.csdn.net/ns_code/article/details/17284351">Reference</a></p>
+<h2 id="总线-bus">总线(Bus)</h2>
 <ol>
-<li>临界资源: 能够被多个线程共享的数据/资源</li>
-<li>临界区: 对临界资源进行操作的那一段代码</li>
-<li>互斥: 指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性</li>
-<li>同步: 指在互斥的基础上，通过其它机制实现访问者对资源的有序访问</li>
-</ol>
-<h1>Thread</h1>
-<p><a href="https://baike.baidu.com/item/%E7%BA%BF%E7%A8%8B">线程-百度百科</a></p>
+<li>Communication through Bus
 <ol>
-<li>线程控制块TCB(Thread Control Block)，数据段和代码段</li>
-<li>调度的基本单位</li>
-<li>共享：进程中的全部系统资源，如虚拟地址空间，文件描述符，信号处理等</li>
-<li>独有：调用栈(call stack)，寄存器环境(register context)，线程本地存储(thread-local storage)</li>
-<li>线程间可以直接读写进程数据段（如全局变量）来进行通信，需要同步互斥来保证数据一致性</li>
-<li>上下文切换比进程快得多</li>
-</ol>
-<h2 id="thread-communication">Thread Communication</h2>
-<p><a href="https://blog.csdn.net/qq_33951180/article/details/72801228">线程的同步和互斥</a><br>
-<a href="https://github.com/clpsz/linux-itss">Thread Communication</a></p>
-<ol>
-<li>同一个进程的多个线程在同一个地址空间，通信是很容易的事情，因此多线程间要同步就好了。</li>
-<li>同步方式<br>
-<a href="https://zhuanlan.zhihu.com/p/40729293">自旋锁&amp;互斥锁1</a><br>
-<a href="https://blog.csdn.net/electrocrazy/article/details/78931704">自旋锁&amp;互斥锁2</a>
-<ol>
-<li>互斥锁/量(Mutex): 当线程在获取锁时，若锁已被其它线程获取，该线程将睡眠
-<ol>
-<li>线程进入阻塞状态，进入内核态，获取到锁时又恢复到用户态，过程伴随线程上下文切换，cpu抢占，信号的发送等开销</li>
-<li>适合于临界区持锁事件较长的操作，比如IO读写等</li>
-</ol>
-</li>
-<li>自旋锁: 当线程在获取锁时，若锁已被其它线程获取，该线程将循环等待，之后不断判断锁是否能被获取，直到获取到锁才退出循环
-<ol>
-<li>过程不会发生线程上下文切换</li>
-<li>若某个线程持有锁时间过长，使其他线程一直busy waiting，消耗CPU资源</li>
-<li>Java实现的自旋锁是非公平的，存在&quot;线程饥饿&quot;问题</li>
-<li>可重入/不可重入自旋锁</li>
-<li>Java中TicketLock，公平的自旋锁（给线程分配ticketNum，每当释放锁serviceNum+1，之后和ticketNum对应的线程获得锁）</li>
-<li>TicketLock频繁读写serviceNum，解决方法：CLHLock和MCSLock(基于链表和前驱节点是否被占用来判断是否可以获得锁)</li>
-</ol>
-</li>
-<li>信号量(Semaphore)
-<ol>
-<li>临界资源可以有n个锁</li>
-<li>Mutex是Semaphore的一种特殊情况(n=1)</li>
-</ol>
-</li>
-<li><a href="https://oxnz.github.io/2014/04/23/multi-threads-programming/#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F">条件变量</a></li>
-<li>读写锁(共享互斥锁 <a href="https://stackoverflow.com/questions/11837428/whats-the-difference-between-an-exclusive-lock-and-a-shared-lock">shared-exclusive lock</a>)
-<ol>
-<li>exclusive lock: 有且仅有一个线程能获取</li>
-<li>shared lock: 写模式线程无法获取锁，读模式线程可以获取</li>
-</ol>
-</li>
-<li>屏障(barrier)
-<ol>
-<li>是用户协调多个线程并行工作的同步机制。屏障允许每个线程等待，直到所有的合作线程都到达某一点，然后从该点继续执行。<br>
-pthread_join函数就是一种屏障，允许一个线程等待，直到另一个线程退出。</li>
-</ol>
-</li>
-<li>信号机制：类似进程的信号处理</li>
-<li>事件</li>
+<li>信号量(signal)</li>
+<li>CPU通过地址(address)定位设备</li>
+<li>设备通过总线中的地址来查看CPU是否想和他们交互</li>
 </ol>
 </li>
 </ol>
 <h1>Process</h1>
-<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释</a></p>
-<h2 id="process">Process</h2>
+<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释</a><br>
+An abstraction of memory</p>
+<h2 id="basic">Basic</h2>
 <p><a href="https://baike.baidu.com/item/PCB/16067368">PCB</a></p>
 <ol>
 <li>进程控制块 PCB(Process Control Block)，数据段和代码段</li>
 <li>资源拥有的基本单位，资源被记录在PCB中</li>
 <li>进程有各自的虚拟地址空间</li>
-<li>在多线程OS中，进程不是一个可执行的实体</li>
-<li>进程间通讯IPC</li>
 <li>进程状态 <br><br>
 <img src="https://img-blog.csdn.net/20170820104536564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="进程状态"></li>
 </ol>
@@ -1275,6 +1255,151 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 </ol>
 </li>
 </ol>
+<h2 id="methods">Methods</h2>
+<ol>
+<li><code>fork()</code>: the only way to create process
+<ol>
+<li><code>fork()</code> returns twice
+<ol>
+<li>in the parent, return PID of the child process</li>
+<li>in the child, return 0</li>
+</ol>
+</li>
+<li>parent and child process use the same code</li>
+<li>PCB: kernel data structure</li>
+</ol>
+</li>
+<li><code>exit()</code>
+<ol>
+<li>self-terminate</li>
+<li>no returned value</li>
+<li>OS cannot free up PCB too quickly since parent need to get the return code(but it’s ok to free up everything else)</li>
+<li>including all threads</li>
+</ol>
+</li>
+<li><code>wait()</code>: wait for any child process to die
+<ol>
+<li>blocking call</li>
+<li>If there are more than one dead child process, one of them will be chosen randomly</li>
+<li>reap dead chile process one at a time</li>
+</ol>
+</li>
+<li><code>execl()</code>
+<ol>
+<li>make a copy of a process like it in <code>fork()</code></li>
+<li>replace the child process with a new one</li>
+</ol>
+</li>
+</ol>
+<h2 id="zombie-state">Zombie state</h2>
+<p>被终止的子进程进入zombie state，当父进程<code>exit()</code>时，<br>
+process with pid 1将继承该父进程的所有子进程(reparenting)，并一直调用<code>wait()</code>来reap zombies</p>
+<h1>Thread</h1>
+<p><a href="https://baike.baidu.com/item/%E7%BA%BF%E7%A8%8B">线程-百度百科</a><br>
+An abstraction of processor</p>
+<ol>
+<li>线程控制块TCB(Thread Control Block)，数据段和代码段</li>
+<li>调度的基本单位</li>
+<li>共享：进程中的全部系统资源，如虚拟地址空间，文件描述符，信号处理等</li>
+<li>独有：调用栈(call stack)，寄存器环境(register context)，线程本地存储(thread-local storage)</li>
+<li>线程间可以直接读写进程数据段（如全局变量）来进行通信，需要同步互斥来保证数据一致性</li>
+<li>上下文切换比进程快得多</li>
+</ol>
+<h2 id="thread-communication">Thread Communication</h2>
+<p><a href="https://blog.csdn.net/qq_33951180/article/details/72801228">线程的同步和互斥</a><br>
+<a href="https://github.com/clpsz/linux-itss">Thread Communication</a></p>
+<ol>
+<li>同一个进程的多个线程在同一个地址空间，通信是很容易的事情，因此多线程间要同步就好了。</li>
+<li>同步方式<br>
+<a href="https://zhuanlan.zhihu.com/p/40729293">自旋锁&amp;互斥锁1</a><br>
+<a href="https://blog.csdn.net/electrocrazy/article/details/78931704">自旋锁&amp;互斥锁2</a>
+<ol>
+<li>互斥锁/量(Mutex): 当线程在获取锁时，若锁已被其它线程获取，该线程将睡眠
+<ol>
+<li>线程进入阻塞状态，进入内核态，获取到锁时又恢复到用户态，过程伴随线程上下文切换，cpu抢占，信号的发送等开销</li>
+<li>适合于临界区持锁事件较长的操作，比如IO读写等</li>
+</ol>
+</li>
+<li>自旋锁: 当线程在获取锁时，若锁已被其它线程获取，该线程将循环等待，之后不断判断锁是否能被获取，直到获取到锁才退出循环
+<ol>
+<li>过程不会发生线程上下文切换</li>
+<li>若某个线程持有锁时间过长，使其他线程一直busy waiting，消耗CPU资源</li>
+<li>Java实现的自旋锁是非公平的，存在&quot;线程饥饿&quot;问题</li>
+<li>可重入/不可重入自旋锁</li>
+<li>Java中TicketLock，公平的自旋锁（给线程分配ticketNum，每当释放锁serviceNum+1，之后和ticketNum对应的线程获得锁）</li>
+<li>TicketLock频繁读写serviceNum，解决方法：CLHLock和MCSLock(基于链表和前驱节点是否被占用来判断是否可以获得锁)</li>
+</ol>
+</li>
+<li>信号量(Semaphore)
+<ol>
+<li>临界资源可以有n个锁</li>
+<li>Mutex是Semaphore的一种特殊情况(n=1)</li>
+</ol>
+</li>
+<li><a href="https://oxnz.github.io/2014/04/23/multi-threads-programming/#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F">条件变量</a></li>
+<li>读写锁(共享互斥锁 <a href="https://stackoverflow.com/questions/11837428/whats-the-difference-between-an-exclusive-lock-and-a-shared-lock">shared-exclusive lock</a>)
+<ol>
+<li>exclusive lock: 有且仅有一个线程能获取</li>
+<li>shared lock: 写模式线程无法获取锁，读模式线程可以获取</li>
+</ol>
+</li>
+<li>屏障(barrier)
+<ol>
+<li>是用户协调多个线程并行工作的同步机制。屏障允许每个线程等待，直到所有的合作线程都到达某一点，然后从该点继续执行。<br>
+pthread_join函数就是一种屏障，允许一个线程等待，直到另一个线程退出。</li>
+</ol>
+</li>
+<li>信号机制：类似进程的信号处理</li>
+<li>事件</li>
+</ol>
+</li>
+</ol>
+<h1>Coroutine(协程)</h1>
+<ol>
+<li>协程可以认为是运行在线程上的代码块，协程提供的挂起操作会使协程暂停执行，而不会导致线程阻塞</li>
+<li>一个线程内部可以创建几千个协程都没有任何问题。</li>
+<li>协程是一个纯用户态的并发机制，同一时刻只会有一个协程在运行，其他协程挂起等待；<br>
+不同协程之间的切换不涉及内核，只用在用户态切换即可，所以切换代价更小，更轻量级，适合IO密集型的场景。</li>
+</ol>
+<h1>Context Switch</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/52845869">CPU上下文切换 Reference1</a><br>
+<a href="https://baike.baidu.com/item/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">CPU上下文切换 Reference2</a></p>
+<ol>
+<li>CPU切换到另一个程序需要保存当前程序的状态并恢复另一个程序的状态</li>
+<li>类型
+<ol>
+<li>进程上下文切换: 操作PCB</li>
+<li>线程上下文切换
+<ol>
+<li>若两个线程在不同进程，切换过程同进程</li>
+<li>若两个线程在同一进程，只需切换线程私有数据，寄存器等不共享的数据（无需切换虚拟内存，全局变量等）</li>
+</ol>
+</li>
+<li>中断上下文切换</li>
+</ol>
+</li>
+</ol>
+<h1>Files</h1>
+<ol>
+<li>For each process, the kernel maintains a file descriptor table(the first is stdin, stdout, stderr),<br>
+each fd points to system file table</li>
+<li>system file table(system-wide)
+<ol>
+<li>reference count: when it is 0, the file object can be freed up</li>
+<li>access mode</li>
+<li>file location(cursor): next location to read/write; init to 0 when a file is opened</li>
+<li>inode pointer</li>
+</ol>
+</li>
+</ol>
+<h1>互斥和同步</h1>
+<p><a href="https://blog.csdn.net/ns_code/article/details/17284351">Reference</a></p>
+<ol>
+<li>临界资源: 能够被多个线程共享的数据/资源</li>
+<li>临界区: 对临界资源进行操作的那一段代码</li>
+<li>互斥: 指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性</li>
+<li>同步: 指在互斥的基础上，通过其它机制实现访问者对资源的有序访问</li>
+</ol>
 <h1>Coroutine</h1>
 <h2 id="协程-coroutine">协程(Coroutine)</h2>
 <p><a href="https://www.liaoxuefeng.com/wiki/897692888725344/923057403198272">Reference</a></p>
@@ -1283,7 +1408,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>不需要多线程的锁机制，因为只有一个线程，多个协程工作是通过中断实现，不存在同时写变量冲突，在协程中控制共享资源不加锁</li>
 </ol>
 <h1>Select, Poll, EPoll</h1>
-<h2 id="文件描述符">文件描述符</h2>
+<h2 id="文件描述符"><a href="https://www.cnblogs.com/skyfsm/p/7102367.html">文件描述符</a></h2>
 <p>Linux中一切皆可以看成是文件(普通文件、目录文件、链接文件和设备文件)<br>
 <img src="https://img-blog.csdn.net/20140831224818062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="文件描述符"><br>
 <a href="https://segmentfault.com/a/1190000003063859">Linux IO, Select, Poll, Epoll1</a><br>
@@ -1317,8 +1442,12 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>epoll事先通过epoll_ctl()来注册一个文件描述符，一旦基于某个文件描述符就绪时，内核会采用类似callback的回调机制，迅速激活这个文件描述符，当进程调用epoll_wait() 时便得到通知</li>
 <li>IO的效率不会随着监视fd的数量的增长而下降。epoll不同于select和poll轮询的方式，而是通过每个fd定义的回调函数来实现的。只有就绪的fd才会执行回调函数。</li>
 <li>两种操作模式<br>
-6.1. LT模式：即水平触发模式，当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序可以不立即处理它。下次调用epoll_wait时，还会再次产生通知。<br>
-6.2. ET模式：即边缘触发模式，当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序 必须 立即处理它。如果不处理，下次调用epoll_wait时，不会再次产生通知。</li>
+6.1. LT模式：即水平触发模式，同时支持 block 和 non-block socket，<br>
+当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序可以不立即处理它。下次调用epoll_wait时，还会再次产生通知。<br>
+保证每个数据都处理掉了。只要你没有完全接收完上次的数据(比如buff数组比较小，没有处理全部数据)，内核就会继续通知你去接收数据<br>
+6.2. ET模式：即边缘触发模式，只支持no-block socket，<br>
+当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序 必须 立即处理它。如果不处理，下次调用epoll_wait时，不会再次产生通知。</li>
+<li>EpollOnShot事件：一个socket连接在任何时刻只被一个线程处理（对应的，处理完后应重置EPOLLONSHOT以确保这个socket下一次可读时，其他线程有机会处理这个socket）</li>
 </ol>
 </li>
 </ol>
@@ -1350,10 +1479,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <p>电脑中所运行的程序均需经由内存执行，若执行的程序占用内存很大或很多，则会导致内存消耗殆尽。<br>
 为解决该问题，Windows中运用了虚拟内存技术，即匀出一部分硬盘空间来充当内存使用。<br>
 当内存耗尽时，电脑就会自动调用硬盘来充当内存，以缓解内存的紧张。</p>
-<h1>Others</h1>
-<h2 id="用户态和内核态">用户态和内核态</h2>
-<p>内核态权限最大，可访问内存所有数据，包括外围设备（用户态访问受限）</p>
-<h2 id="同步-异步-阻塞-非阻塞">同步 异步 阻塞 非阻塞</h2>
+<h1>同步 异步 阻塞 非阻塞</h1>
 <p><a href="https://www.zhihu.com/question/19732473">同步 异步 阻塞 非阻塞</a></p>
 <ol>
 <li>同步和异步关注的是消息通信机制<br>
@@ -1393,6 +1519,74 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <li>先进先出置换算法(First In First Out, FIFO):</li>
 <li>最近最少使用置换算法（Least Recently Used， LRU）:</li>
 </ol>
+<h1>如何提高并发性</h1>
+<ol>
+<li>提高CPU并发计算能力
+<ol>
+<li>多进程&amp;多线程</li>
+<li>减少进程切换，使用线程，考虑进程绑定CPU</li>
+<li>减少使用不必要的锁，考虑无锁编程</li>
+<li>考虑进程优先级</li>
+<li>关注系统负载</li>
+</ol>
+</li>
+<li>改进I/O模型
+<ol>
+<li>DMA技术</li>
+<li>异步I/O</li>
+<li>改进多路I/O就绪通知策略，epoll</li>
+<li>Sendfile</li>
+<li>内存映射</li>
+<li>直接I/O</li>
+</ol>
+</li>
+</ol>
+<h1><a href="https://zhuanlan.zhihu.com/p/340573903">CPU Cache(高速缓存)</a></h1>
+<h2 id="存在的意义">存在的意义</h2>
+<ol>
+<li>CPU高速缓存是为了解决CPU速率和主存访问速率差距过大问题</li>
+<li>CPU Cache对程序性能有着巨大的影响
+<ol>
+<li>访问 CPU寄存器 的数据，需要  一个    时钟周期</li>
+<li>访问 高速缓存  的数据，需要约 几十个  时钟周期</li>
+<li>访问 主存     的数据，需要约 上百个   时钟周期</li>
+<li>访问 磁盘     的数据，需要约 几千万个 时钟周期</li>
+</ol>
+</li>
+<li>当CPU发出内存访问请求时，先检查缓存内是否有数据，如果存在则不经内存直接返回，若不存在，先从内存载入缓存，再返回给处理器</li>
+</ol>
+<h2 id="结构">结构</h2>
+<p><img src="/2020/ckm7epvqt001otiq1gb3x5cxr/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
+<ol>
+<li>CPU寄存器   访问速度: 1 clock</li>
+<li>SRAM高速缓存 访问速度 ：n clock</li>
+<li>DRAM主存    访问速度：10n~100n clock</li>
+</ol>
+<h2 id="局部性">局部性</h2>
+<ol>
+<li>时间局部性: 如果程序中的某条指令一旦执行，则不久之后该指令可能再次被执行；如果某数据被访问，则不久之后该数据可能再次被访问。</li>
+<li>空间局部性: 一旦程序访问了某个存储单元，则不久之后，其附近的存储单元也将被访问。</li>
+<li>因此在二维数组求和中，按列求和比按行求和更优</li>
+</ol>
+<h2 id="多级缓存-intel-core-i7为例">多级缓存(Intel Core i7为例)</h2>
+<p><img src="/2020/ckm7epvqt001otiq1gb3x5cxr/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
+<ol>
+<li>L1: 4 clock
+<ol>
+<li>L1 D-Cache(数据)</li>
+<li>L1 I-Cache(指令)</li>
+</ol>
+</li>
+<li>L2: 10 clock</li>
+<li>L3: 50 clock</li>
+<li>多核共享L3 Cache</li>
+</ol>
+<h2 id="缓存读写">缓存读写</h2>
+<ol>
+<li>读：在高速缓存中查找所需字判断是否命中，如果命中，立即返回缓存中的副本给CPU；<br>
+如果不命中（以一个level为例），从存储器层次结构中较低层次中取数据，再返回给CPU</li>
+<li>写：直写，回写，写分配</li>
+</ol>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -1407,7 +1601,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
   </entry>
   <entry>
     <title>Java面试个人总结</title>
-    <url>/2020/cklqjzovr0025ouq1bvihei5t/</url>
+    <url>/2020/ckm7epvqx0025tiq138a8hh3b/</url>
     <content><![CDATA[<h1>Collections</h1>
 <h2 id="arraylist">ArrayList</h2>
 <ol>
@@ -1491,6 +1685,14 @@ n |= n &gt;&gt;&gt; 16      : 32 bits are all 1, which is MAX VALUE of integer</
 <h1>Thread</h1>
 <h2 id="lifecycle">Lifecycle</h2>
 <p>new, runnable, blocked, waiting, time_waiting, terminated</p>
+<h2 id="yield-join">yield(), join()</h2>
+<ol>
+<li><code>yield()</code>: basically means that the thread is not doing anything particularly important<br>
+and if any other threads or processes need to be run(has higher priority), they should run.<br>
+Otherwise, the current thread will continue to run.</li>
+<li><code>join()</code>: If <code>join()</code> is called on a Thread instance,<br>
+the currently running thread will block until the Thread instance has finished executing.</li>
+</ol>
 <h2 id="sleep-vs-wait">sleep() vs wait()</h2>
 <ol>
 <li>sleep doesn’t lose ownership of monitors, but wait does</li>
@@ -1552,7 +1754,7 @@ which causes memory consistency errors. <code>volatile</code> let variables read
 </ol>
 <h2 id="threadlocal">ThreadLocal</h2>
 <ol>
-<li>get map from current thread</li>
+<li>get ThreadLocalMap from current thread</li>
 <li>the key of this map is <code>ThreadLocal&lt;T&gt;</code>, hence one ThreadLocal only store one value</li>
 <li>it should be declared as <code>static</code></li>
 <li>better to invoke <code>remove()</code> if ThreadLocal is useless since key(ThreadLocal<T>) is weak reference and it may be recycled by jvm,<br>
@@ -1564,26 +1766,39 @@ but its value will not be recycled</T></li>
 <li>maximumPoolSize: 最大线程数</li>
 <li>keepAliveTime: 空闲回收时间</li>
 <li>unit: 回收时间单位</li>
-<li>workQueue: 用于缓存任务的阻塞队列<br>
-5.1. 如果没有空闲的线程执行该任务且 当前运行的线程数少于corePoolSize，则添加新的线程执行该任务。<br>
-5.2. 如果没有空闲的线程执行该任务且 当前的线程数等于corePoolSize同时阻塞队列未满，则将任务入队列，而不添加新的线程。<br>
-5.3. 如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数小于maximumPoolSize，则创建新的线程执行任务。<br>
-5.4. 如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数等于maximumPoolSize，则根据构造函数中的handler指定的策略来拒绝新的任务。<br>
-5.5. 当一个线程无事可做超过keepAliveTime时,线程池会判断:如果当前运行的线程数大于corePoolSize,那么这个线程就被停掉。<br>
+<li>workQueue: 用于缓存任务的阻塞队列
+<ol>
+<li>如果没有空闲的线程执行该任务且 当前运行的线程数少于corePoolSize，则添加新的线程执行该任务。</li>
+<li>如果没有空闲的线程执行该任务且 当前的线程数等于corePoolSize同时阻塞队列未满，则将任务入队列，而不添加新的线程。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数小于maximumPoolSize，则创建新的线程执行任务。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数等于maximumPoolSize，则根据构造函数中的handler指定的策略来拒绝新的任务。</li>
+<li>当一个线程无事可做超过keepAliveTime时,线程池会判断:如果当前运行的线程数大于corePoolSize,那么这个线程就被停掉。<br>
 所以线程池的所有任务完成后它最终会收缩到corePoolSize的大小。</li>
-<li>threadFactory: 线程工厂，用于创建线程</li>
-<li>handler: 拒绝策略<br>
-7.1. AbortPolicy: 直接抛出异常<br>
-7.2. DiscardPolicy: 直接抛弃任务，无异常<br>
-7.3. CallerRunsPolicy: 任务被拒绝添加后，会调用当前线程池的所在线程去执行被拒绝的任务<br>
-7.4. DiscardOldestPolicy: 抛弃最老的任务，然后添加这个任务</li>
 </ol>
-<h3 id="原理">原理</h3>
+</li>
+<li>threadFactory: 线程工厂，用于创建线程</li>
+<li>handler: 拒绝策略
+<ol>
+<li>AbortPolicy: 直接抛出异常</li>
+<li>DiscardPolicy: 直接抛弃任务，无异常</li>
+<li>CallerRunsPolicy: 任务被拒绝添加后，会调用当前线程池的所在线程去执行被拒绝的任务</li>
+<li>DiscardOldestPolicy: 抛弃最老的任务，然后添加这个任务</li>
+</ol>
+</li>
+<li>线程数目如何变化
 <ol>
 <li>当队列空时，获取元素的线程会等待队列变为非空</li>
 <li>当队列满时，存储元素的线程会等待队列可用</li>
 </ol>
-<h2 id="atomic">Atomic</h2>
+</li>
+<li>submit vs execute
+<ol>
+<li>execute(Runnable) does not return anything</li>
+<li>submit(Callable<T>) returns a Future object which allows a way to cancel the running thread and get returned value</T></li>
+</ol>
+</li>
+</ol>
+<h1>Atomic</h1>
 <p>use CAS(compare and swap)(optimistic lock) + volatile + native methods to guarantee atomicity rather than synchronized<br>
 compareAndSwap(Object object, long offset, int expected, int new) compare offset and expected, if equivalent, write new in memory<br>
 if not, do nothing.</p>
@@ -1952,6 +2167,29 @@ system.</li>
 <li>use IO if there are few connections with very high bandwidth.</li>
 </ol>
 <hr>
+<h1><a href="https://blog.csdn.net/weixin_43809223/article/details/100529810">BIO vs NIO vs AIO</a></h1>
+<ol>
+<li>BIO-同步阻塞IO
+<ol>
+<li>服务器实现模式为一个连接一个线程</li>
+<li>适用于连接数目比较小且固定的架构</li>
+</ol>
+</li>
+<li>NIO-同步非阻塞IO：
+<ol>
+<li>服务器实现模式为一个请求一个线程</li>
+<li>客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有IO请求时才启动一个线程进行处理</li>
+<li>适用于连接数目多且连接比较短（轻操作）的架构，比如聊推荐服务器</li>
+</ol>
+</li>
+<li>AIO-异步非阻塞AIO：在读写操作结束之前允许进行其他的操作
+<ol>
+<li>适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作</li>
+</ol>
+</li>
+<li>同步和异步说的是消息的通知机制，这个线程仍然要定时的读取stream，判断数据有没有准备好;<br>
+非阻塞：体现在，这个线程可以去干别的，不需要一直在这等着</li>
+</ol>
 <h1>ClassLoad</h1>
 <h2 id="类加载器">类加载器</h2>
 <ol>

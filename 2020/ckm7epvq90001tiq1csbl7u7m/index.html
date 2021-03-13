@@ -11,7 +11,7 @@
    
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     Ronan Blog
+    算法个人总结 |  Ronan Blog
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -47,24 +47,37 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-pdd-customer-service"
+  id="post-algorithm"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
 >
   <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  算法个人总结
+</h1>
+ 
+
+    </header>
      
     <div class="article-meta">
-      <a href="/2021/cklqjzoux000douq1el45b3ll/" class="article-date">
-  <time datetime="2021-01-03T12:33:00.728Z" itemprop="datePublished">2021-01-03</time>
-</a>   
+      <a href="/2020/ckm7epvq90001tiq1csbl7u7m/" class="article-date">
+  <time datetime="2020-05-01T07:07:03.000Z" itemprop="datePublished">2020-05-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a> / <a class="article-category-link" href="/categories/Interview/">Interview</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">330</span>
+            <span class="post-count">690</span>
         </span>
     </span>
 
@@ -73,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -88,42 +101,71 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1>产品参数</h1>
+  <h1>Quick Sort</h1>
+<h2 id="原理">原理</h2>
+<p>使用了分治的思想</p>
 <ol>
-<li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
-1.1. 电池单模式<br>
-1.1.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
-1.2. 电池三模式<br>
-1.2.1. 两节五号干电池（赠品）：按一天20次开合，3-6个月<br>
-1.3. 充电三模式<br>
-1.3.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
-<li>不锈钢款 12L 250<em>250</em>345mm 有内桶<br>
-2.1. 充电三模式（香槟金，玫瑰金，砂钢）<br>
-2.1.1. 内置锂电池：3-4小时充满，按不同使用频率，3-6个月</li>
-<li>垃圾袋尺寸：45*50</li>
+<li>选择A中的任意一个元素pivot，该元素作为基准</li>
+<li>将小于基准的元素移到左边，大于基准的元素移到右边（分区操作）</li>
+<li>A被pivot分为两部分，继续对剩下的两部分做同样的处理</li>
+<li>直到所有子集元素不再需要进行上述步骤</li>
 </ol>
-<h1>快递区域</h1>
-<p>[快递区域](File:///Users/ronan/merchant/express.xlsx)</p>
-<h1>物品损坏</h1>
+<h2 id="如何找基准数">如何找基准数</h2>
+<p>最坏情况：每次分完后两边是1和n-1，O(N^2)</p>
 <ol>
-<li>自动回复中选择相应选项让买家拍照片<br>
-1.1. 确认包装箱是否损坏<br>
-1.2. 产品破损拍照<br>
-1.3. 说是快递暴力的问题</li>
-<li>盖子损坏：申请换货，把盖子寄回来，有退货物流信息就（收到再）补发</li>
-<li>桶损坏：补发桶</li>
-<li>补发会提供单号，记得查收</li>
+<li>固定基准数</li>
+<li>随机基准数</li>
+<li>三数取中: 左端右端和中位数</li>
 </ol>
-<h1>物品不感应</h1>
-<h1>发货</h1>
+<h2 id="java实现思路">java实现思路</h2>
 <ol>
-<li>提供单号</li>
-<li>发货时间一般是：16点之前的订单当天发，之后的次日发货</li>
+<li>选择一个基准数A</li>
+<li>从左侧开始，找到一个比A大的数，交换</li>
+<li>再从右侧开始，找到一个比A小的数，交换</li>
+<li>重复2和3</li>
 </ol>
-<h1>额外返现</h1>
+<h1>Skip List(跳表)</h1>
+<p><a target="_blank" rel="noopener" href="https://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html">Reference</a></p>
+<h1>大数据场景题</h1>
+<h2 id="1亿数据取top10">1亿数据取top10</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zyq522376829/article/details/47686867">1亿数据取top10000</a><br>
+先通过hash对数据去重</p>
 <ol>
-<li>提供五星好评和追评的图片返1元</li>
-<li>关注店铺返1元</li>
+<li>将数据全部排序找</li>
+<li>堆排序 最小堆</li>
+<li>分治法：将1亿数据分为100份，每分100万个数据，找到每分中最大的1万个，之后对100*10000（即100w）找到最大的10000</li>
+</ol>
+<h2 id="有一个1g大小的一个文件-里面每一行是一个词-词的大小不超过16字节-内存限制大小是1m-返回频数最高的100个词">有一个1G大小的一个文件，里面每一行是一个词，词的大小不超过16字节，内存限制大小是1M。返回频数最高的100个词</h2>
+<ol>
+<li>一共有2^16</li>
+</ol>
+<h2 id="1亿数据取出现频率top10">1亿数据取出现频率top10</h2>
+<ol>
+<li>将文件hash取模成多个小文件</li>
+<li>重复URL一定落到同一个文件中，对每个文件进行统计即可，取出频率前10</li>
+<li>之后将这些数据合起来再统计一次</li>
+</ol>
+<h2 id="1亿url取出重复url">1亿URL取出重复URL</h2>
+<ol>
+<li>将文件hash取模成多个小文件</li>
+<li>重复URL一定落到同一个文件中，对每个文件进行统计即可</li>
+</ol>
+<h2 id="给定a-b两个文件-各存放50亿个url-每个url各占64字节-内存限制是4g-让你找出a-b文件共同的url">给定a、b两个文件，各存放50亿个url，每个url各占64字节，内存限制是4G，让你找出a、b文件共同的url</h2>
+<ol>
+<li>每个文件大小 5G*64=320G，内存放不下，需要切分文件</li>
+<li>对每个url取hash值%1000，存储到1000个小文件中</li>
+<li>对照(a0,b0),(a1,b1),…，因为相同的url一定会被分到对应的小文件中</li>
+</ol>
+<h2 id="在2-5亿个整数中找出不重复的整数">在2.5亿个整数中找出不重复的整数</h2>
+<ol>
+<li>分治法<br>
+1.1. 划分为多个小文件，找出每个小文件中不重复的数字<br>
+1.2. 归并剔除重复的数字<br>
+1.3. 问题就是所有数字都不重复</li>
+<li>Bitmap<br>
+2.1. 采用2-Bitmap每个数分配2bit，00表示不存在，01表示出现一次，10表示多次，11无意义）进行，共需内存 0.25G*2=0.5GB 内存<br>
+2.2. 扫描Bitmap，如果是00则改为01，如果是01则改为10，如果是10则不变<br>
+2.3. 最后输出bitmap为01的数</li>
 </ol>
  
       <!-- reward -->
@@ -177,30 +219,32 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2021/cklqjzoux000douq1el45b3ll/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckm7epvq90001tiq1csbl7u7m/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Scenario/" rel="tag">Big Data Scenario</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2021/cklqjzoup0003ouq13wjr1lw0/" class="article-nav-link">
+      <a href="/2020/ckm7epvqs001ntiq177v46gzy/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
-            Go个人学习
+            Redis个人总结
           
         </div>
       </a>
     
     
-      <a href="/2020/cklqjzouz000gouq12btibjul/" class="article-nav-link">
+      <a href="/2020/ckm7epvqb0003tiq104gc2w6l/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
-        <div class="article-nav-title">Redis个人总结</div>
+        <div class="article-nav-title">Computer System Security(MIT 6.858)</div>
       </a>
     
   </nav>

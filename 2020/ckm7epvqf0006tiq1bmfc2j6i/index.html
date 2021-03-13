@@ -65,7 +65,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/cklqjzous0006ouq18dycafit/" class="article-date">
+      <a href="/2020/ckm7epvqf0006tiq1bmfc2j6i/" class="article-date">
   <time datetime="2020-01-03T11:07:03.000Z" itemprop="datePublished">2020-01-03</time>
 </a> 
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.1k</span>
+            <span class="post-count">3.3k</span>
         </span>
     </span>
 
@@ -200,13 +200,16 @@
 <p>主要和磁盘读取存储有关，为了减少IO，磁盘不会按需读取，一般是磁盘预读（即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存）。<br>
 预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，<br>
 每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。</p>
-<p>B树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
+<p>B+树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
 B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(log_d{N})。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。<br>
 而红黑树这种结构，h明显要深的多，效率明显比B-Tree差很多。</p>
+<p>B+树所有数据都在叶子节点上且是有序的，可以进行范围查找或排序</p>
+<p>哈希虽然能够提供 O(1) 的单数据行操作性能，但是对于范围查询和排序却无法很好地支持，最终导致全表扫描；</p>
 <h2 id="为什么用b-树而不是b树">为什么用B+树而不是B树</h2>
 <ol>
 <li>B+树可以实现区间访问，B树不行</li>
-<li>B+树IO访问次数少，因为非叶子节点都是索引不是数据</li>
+<li>B 树能够在非叶节点中存储数据，但是这也导致在查询连续数据时可能会带来更多的随机 I/O，<br>
+而 B+ 树的所有叶节点可以通过指针相互连接，能够减少顺序遍历时产生的额外随机 I/O；</li>
 </ol>
 <h2 id="为什么要使用一个与业务无关的自增字段作为主键">为什么要使用一个与业务无关的自增字段作为主键</h2>
 <p>mysql的InnoDB引擎中使用的是B树，如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。<br>
@@ -423,7 +426,7 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/cklqjzous0006ouq18dycafit/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckm7epvqf0006tiq1bmfc2j6i/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -436,7 +439,7 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
    
   <nav class="article-nav">
     
-      <a href="/2020/cklqjzov0000houq18u0k8k1f/" class="article-nav-link">
+      <a href="/2020/ckm7epvqt001otiq1gb3x5cxr/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
@@ -446,7 +449,7 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
       </a>
     
     
-      <a href="/2020/cklqjzovr0025ouq1bvihei5t/" class="article-nav-link">
+      <a href="/2020/ckm7epvqx0025tiq138a8hh3b/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
         <div class="article-nav-title">Java面试个人总结</div>
       </a>
