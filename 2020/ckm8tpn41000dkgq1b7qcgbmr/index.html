@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="Hexo,Hexo主题,代码,博客,游戏" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Computer Network总结 |  Ronan Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Ronan Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-network"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Computer Network总结
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/ckm8tpn41000dkgq1b7qcgbmr/" class="article-date">
+  <time datetime="2020-05-01T07:07:03.000Z" itemprop="datePublished">2020-05-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Interview/">Interview</a> / <a class="article-category-link" href="/categories/Network/">Network</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">10 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>Layers</h1>
+<ol>
+<li>
+<p>OSI           : 应用层，表示层，会话层(SSL,TLS)，运输层，网络层，数据链路层，物理层</p>
+</li>
+<li>
+<p>TCP/IP        : 应用层，运输层，网际层，网络接口层</p>
+</li>
+<li>
+<p>Five Protocols: 应用层，运输层，网络层，数据链路层，物理层</p>
+</li>
+<li>
+<p>应用层(application-layer): 应用进程之间的通讯和交互规则. e.g. DNS, HTTP, SMTP(电子邮件)</p>
+</li>
+<li>
+<p>运输层(transport-layer): 负责向两台主机进程之间的通信提供数据传输服务</p>
+<ol>
+<li>传输控制协议 TCP(Transmission Control Protocol)</li>
+<li>用户数据协议 UDP(User Datagram Protocol)</li>
+</ol>
+</li>
+<li>
+<p>网络层(IP, Internet Protocol): 选择合适的网间路由和交换结点</p>
+<ol>
+<li>ping协议 ICMP(Internet Control Message Protocol)Internet控制消息协议，是TCP/IP的一个子协议</li>
+</ol>
+</li>
+<li>
+<p>数据链路层(data link layer): 两台主机之间的数据传输，总是在一段一段的链路上传送的</p>
+</li>
+<li>
+<p>物理层(physical layer): 相邻计算机节点之间比特流的透明传送</p>
+</li>
+</ol>
+<h1>TCP</h1>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53374516">TCP连接和释放 Reference1</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qzcsu/article/details/72861891">TCP连接和释放 Reference2</a></p>
+<h2 id="tcp报文格式">TCP报文格式</h2>
+<p><img src="https://pic1.zhimg.com/v2-8f5725f163d7f6390a75f3a2d337bc1c_r.jpg" alt="TCP报文格式"></p>
+<h2 id="tcp连接-三次握手">TCP连接（三次握手）</h2>
+<p><img src="https://pic4.zhimg.com/80/v2-07c065a0321f887ae69e269d8dda9f43_1440w.jpg" alt="TCP连接"></p>
+<ol>
+<li>客户端向服务端发送特殊TCP报文段-SYN报文段（不包含应用层信息，且该报文段被封装在IP数据报中）
+<ol>
+<li>SYN置1</li>
+<li>SeqNum=client_isn(随机选择)</li>
+</ol>
+</li>
+<li>服务器读取SYN报文段并为该TCP连接分配TCP缓存和变量，发送允许连接的报文段（同样不包含应用层信息）- SYNACK segment
+<ol>
+<li>SYN置1</li>
+<li>ACK置1</li>
+<li>AckNum=client_isn+1</li>
+<li>SeqNum=server_isn(随机选择)</li>
+</ol>
+</li>
+<li>收到SYNACK segment后，客户端为该连接分配缓存和变量
+<ol>
+<li>SYN置0(因为连接已经建立)</li>
+<li>ACK置1</li>
+<li>AckNum=server_isn+1</li>
+<li>SeqNum=client_isn+1</li>
+</ol>
+</li>
+</ol>
+<p>之后发送的报文SYN都为0</p>
+<p><strong>为什么要三次握手</strong></p>
+<ol>
+<li>第一次握手：Client 什么都不能确认；Server 确认了对方发送正常，自己接收正常</li>
+<li>第二次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：对方发送正常，自己接收正常</li>
+<li>第三次握手：Client 确认了：自己发送、接收正常，对方发送、接收正常；Server 确认了：自己发送、接收正常，对方发送、接收正常</li>
+</ol>
+<p>所以三次握手就能确认双发收发功能都正常，缺一不可。</p>
+<h2 id="tcp中止连接-四次挥手">TCP中止连接(四次挥手)</h2>
+<p><img src="https://pic3.zhimg.com/80/v2-629f51f6f535ebd7683f944707b21d1e_1440w.jpg" alt="TCP断开连接"><br>
+（此过程可以相反：服务端-&gt;客户端）</p>
+<ol>
+<li>客户端-&gt;服务端
+<ol>
+<li>FIN置1</li>
+<li>SeqNum=client_isn</li>
+</ol>
+</li>
+<li>服务端-&gt;客户端
+<ol>
+<li>ACK置1</li>
+<li>AckNum=client_isn+1</li>
+</ol>
+</li>
+<li>服务器-&gt;客户端
+<ol>
+<li>FIN置1</li>
+<li>SeqNum=server_isn</li>
+</ol>
+</li>
+<li>客户端-&gt;服务端
+<ol>
+<li>ACK置1</li>
+<li>ACKNum=server_isn+1</li>
+</ol>
+</li>
+<li>time_wait=2*MSL(Maximum Segment Lifetime 最大报文生存时间)<a target="_blank" rel="noopener" href="https://blog.csdn.net/L_XRUI/article/details/75110377">Reference</a>
+<ol>
+<li>可靠地实现TCP全双工连接的释放：客户端发送的ACK可能会丢失，服务端会重发一个结束豹纹，所以需要维持time_waited状态来重发可能丢失的ACK</li>
+<li>保证让迟来的报文段有足够的时间被识别丢弃：当一个TCP连接处在TIME_WAIT状态，它则会依然占用当前的端口，新的连接时无法立即使用的，<br>
+但当没有这个状态，当立即有新的TCP连接时，其会使用与刚才相同的IP地址与端口号，此时这个新的连接则极有可能收到原来连接的迟到的TCP报文段，<br>
+这明显是不应该发生的，所以设置这个状态是极有必要的。</li>
+<li>为什么是2MSL：由于TCP报文段最大生存时间为MSL,其保持2MSL时间可以确保网络上两个传输方向的尚未接收到的、迟到的报文段都已经消失，<br>
+或被路由器丢弃，而2MSL时间后建立新的连接其绝不会收到原来连接的应用程序数据。</li>
+</ol>
+</li>
+<li>close_wait</li>
+</ol>
+<h2 id="为什么建立连接是三次握手-而关闭连接却是四次挥手呢？">为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</h2>
+<p>这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>
+而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方是否现在关闭发送数据通道，需要上层应用来决定。<br>
+因此，己方ACK和FIN一般都会分开发送。</p>
+<h2 id="isn-initial-sequence-number">ISN(Initial Sequence Number)</h2>
+<p>ISN = M + F(localhost, local port, remote host, remote port)<br>
+M是一个计时器，每隔4毫秒加1。<br>
+F是一个Hash算法，根据源IP、目的IP、源端口、目的端口生成一个随机数值。要保证hash算法不能被外部轻易推算得出。</p>
+<h2 id="syn-flood攻击">SYN flood攻击</h2>
+<p>问题描述：如果恶意的向某个服务器端口发送大量的SYN包，则可以使服务器打开大量的半开连接，分配TCB（Transmission Control Block）,<br>
+从而消耗大量的服务器资源</p>
+<p>解决方法：</p>
+<ol>
+<li>无效连接的监视释放: 监视系统的半开连接和不活动连接，当达到一定阈值时拆除这些连接，从而释放系统资源</li>
+<li>延缓TCB分配方法: 消耗服务器资源主要是因为当SYN数据报文一到达，系统立即分配TCB，从而占用了资源。<br>
+而SYN Flood由于很难建立起正常连接，因此，当正常连接建立起来后再分配TCB则可以有效地减轻服务器资源的消耗。<br>
+常见的方法是使用Syn Cache和Syn Cookie技术。
+<ol>
+<li>Syn Cache: 系统在收到一个SYN报文时，在一个专用HASH表中保存这种半连接信息，直到收到正确的回应ACK报文再分配TCB。<br>
+这个开销远小于TCB的开销。当然还需要保存序列号。</li>
+<li>Syn Cookie: 给对方发一个特殊的SeqNum，之后通过接受到的SeqNum-1判断是否给他分配TCB</li>
+</ol>
+</li>
+</ol>
+<h2 id="连接队列">连接队列</h2>
+<p><img src="https://pic2.zhimg.com/80/v2-c4688fba5db30b31c913f549108c9735_1440w.jpg" alt="连接队列"></p>
+<h2 id="tcp-vs-udp">TCP vs UDP</h2>
+<p><a target="_blank" rel="noopener" href="https://user-gold-cdn.xitu.io/2018/4/19/162db5e97e9a9e01?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">TCP vs UDP</a></p>
+<h2 id="tcp如何保证可靠">TCP如何保证可靠</h2>
+<p><a target="_blank" rel="noopener" href="http://www.52im.net/thread-515-1-1.html">Reference</a><br>
+<a target="_blank" rel="noopener" href="https://juejin.im/post/5c8f615ff265da612009824a">Reference</a></p>
+<ol>
+<li>数据合理分片和排序
+<ol>
+<li>应用数据被分割成TCP认为最适合发送的数据块(according to MTU(Maximum Transmission Unit))</li>
+<li>TCP给发送的每一个包进行编号，接收方对数据包进行排序，把有序数据传送给应用层</li>
+</ol>
+</li>
+<li>校验和(checksum)：发送方将伪首部、TCP首部、TCP数据使用累加和校验的方式计算出一个数字，然后存放在首部的校验和字段里，<br>
+接收者收到TCP包后重复这个过程，然后将计算出的校验和和接收到的首部中的校验和比较，如果不一致则说明数据在传输过程中出错</li>
+<li>TCP的接收端会丢弃重复或损坏的数据，并请求重传</li>
+<li>超时重传：当TCP发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。<br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/wdscq1234/article/details/52476231">超时重传例子</a></li>
+<li>流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止分组丢失。(根据情况调整接受窗口的大小)</li>
+<li>拥塞控制：当网络拥塞时，减少数据的发送
+<ol>
+<li>慢启动(指数规律增长)</li>
+<li>拥塞避免(加法增大)</li>
+<li>拥塞发生(乘法减小)</li>
+<li>快速恢复(加法增大)<br>
+<img src="https://images2015.cnblogs.com/blog/476810/201605/476810-20160508191048124-524427818.jpg" alt="拥塞控制"></li>
+</ol>
+</li>
+<li>滑动窗口：
+<ol>
+<li>发送方滑动窗口：Sent &amp; Ack, Sent &amp; NotAck, BytesReceiverReadyToAccept, BytesReceiverNotReadyToAccept</li>
+<li>TCP确认机制是累计的，即确认的数字之前的包全都收到了</li>
+<li>重传机制</li>
+</ol>
+</li>
+</ol>
+<h1>UDP</h1>
+<p>User Datagram Protocol，是一种无连接的协议。<br>
+不保证能否到达目的地，到达时间以及内容的正确性<br><br>
+<img src="https://img-blog.csdn.net/20131022143815187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbHVvemVuZ2h1aTUyOTQ4MDgyMw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="UDP Segment"></p>
+<h2 id="在视频中使用udp还是tcp">在视频中使用UDP还是TCP</h2>
+<p>为了保证实效性和流畅性UDP更好，因为TCP有一帧卡住的话会一直卡着，且udp不需要握手连接，启动时更快</p>
+<h1>Others</h1>
+<h2 id="get和post区别">Get和Post区别</h2>
+<ol>
+<li>GET参数通过URL传递(不能传递敏感信息)；POST放在Request body中</li>
+<li>GET产生一个TCP数据包；POST产生两个<br>
+2.1. GET: 浏览器会把http header和data一起发出去<br>
+2.2. POST: 浏览器先发header，服务器响应100 continue，浏览器再发data，服务器响应200 ok</li>
+<li>GET：后退按钮，刷新无害；POST：数据会被重新提交</li>
+<li>GET参数可以保存在浏览器历史记录中；POST则不会</li>
+</ol>
+<h2 id="从输入url到页面加载发生了什么">从输入URL到页面加载发生了什么</h2>
+<ol>
+<li>DNS解析</li>
+<li>TCP连接</li>
+<li>发送http请求</li>
+<li>服务器处理请求并返回http报文</li>
+<li>浏览器解析渲染页面</li>
+<li>连接结束</li>
+</ol>
+<h1>HTTP</h1>
+<h2 id="https">HTTPS</h2>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43789231">Reference</a></p>
+<h2 id="request头">Request头</h2>
+<ol>
+<li>Accept: test/html, application/xml -&gt; 告诉服务器客户端的数据格式</li>
+<li>Accept-Encoding: gzip -&gt; 支持的压缩格式</li>
+<li>Accept-language: -&gt; 支持的语言</li>
+<li>Cache-control: -&gt; 告诉服务器是否缓存 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903683046506504">Reference</a><br>
+4.1. 可缓存性:<br>
+4.1.1. public(任何路径都可以)<br>
+4.1.2. private(只有发起请求的浏览器才可以进行缓存)<br>
+4.1.3. no-cache(即使没过期浏览器也要向服务器验证，不会从缓存读取)<br>
+4.2. 到期: max-age=<br>
+4.3. 其他<br>
+4.3.1. no-store(即使服务器下发了缓存相关头，浏览器也会忽略任何和缓存相关的信息，发送请求不会携带相关头，直接去请求最新的数据)</li>
+<li>Connection: keep-alive -&gt; 保持TCP连接</li>
+<li>Host: <a target="_blank" rel="noopener" href="http://www.google.com">www.google.com</a> -&gt; 服务器域名</li>
+<li>User-agent: -&gt; 客户端浏览器的信息</li>
+</ol>
+<h2 id="response头">Response头</h2>
+<ol>
+<li>Access-Control-Allow-Origin: *</li>
+<li>Connection: close</li>
+<li>Content-Length: 43</li>
+<li>Content-Type: image/gif</li>
+<li>Date: Wed, 09 Sep 2020 05:49:48 GMT</li>
+<li>Server: Tengine -&gt; ngnix服务器类型</li>
+</ol>
+<h2 id="http多路复用">HTTP多路复用</h2>
+<p><a target="_blank" rel="noopener" href="https://user-gold-cdn.xitu.io/2019/9/5/16cff873bf2ec175?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">http多路复用</a></p>
+<h1>Network Program</h1>
+<h2 id="socket-套接字">Socket（套接字）</h2>
+<ol>
+<li>文件描述符，代表一个通信管道，可以进行read, write, close等类文件操作函数</li>
+<li>创建: <code>socket(int family, int type, int protocol)</code><br>
+2.1. family:   协议族(AF_INET, AF_INET6, PF_PACKET等)<br>
+2.2. type:     套接字类(SOCK_STREAM, SOCK_DGRAM, SOCK_RAW等)<br>
+2.3. protocol: 协议类别(0, IPPROTO_TCP, IPPROTO_UDP等)</li>
+<li>绑定: <code>bind()</code>将服务器ip+port和socket绑定</li>
+<li>字节序（小端格式：低位字节存在低地址，大端格式：高位字节存在低地址）<br>
+4.1. htonl, htons: host to network, l: 32 bit, s: 16 bit<br>
+4.2. ntohl, ntohs: network to host</li>
+</ol>
+<h3 id="sock-raw">SOCK_RAW</h3>
+<p>附加协议: <code>#include&lt;netinet/ether.h&gt;</code><br>
+ETH_P_ALL(所有协议对应的数据包)<br>
+ETH_P_IP(ip数据包)<br>
+ETH_P_ARP(arp数据包)</p>
+<h2 id="udp">UDP</h2>
+<p>TFTP,<br>
+广播：由一台主机向所有子网内的主机发送数据的方式<br>
+多播：数据的收发仅在同一分组中进行</p>
+<h2 id="tcp">TCP</h2>
+<h3 id="tcp不能实现并发的原因">TCP不能实现并发的原因</h3>
+<p>有两个读阻塞函数(accept &amp; recv)</p>
+<h3 id="多进程-线程-实现并发">多进程(线程)实现并发</h3>
+<ol>
+<li>在accept之后fork，每个子进程进行recv/send</li>
+<li>在accept之后<code>pthread_create()</code>，每个子线程进行recv/send</li>
+</ol>
+<h1>ARP(地址解析协议) Address Resolution Protocol</h1>
+<h2 id="cdn-content-delivery-network">CDN(Content Delivery Network)</h2>
+<p>CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，<br>
+通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，<br>
+降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckm8tpn41000dkgq1b7qcgbmr/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Scenario/" rel="tag">Big Data Scenario</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/ckm8tpn3u0003kgq1au9e7on4/" class="article-nav-link">
+        <strong class="article-nav-caption">Prev</strong>
+        <div class="article-nav-title">
+          
+            Computer System Security(MIT 6.858)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/ckm8tpn42000gkgq1b3fz2kax/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">Linux命令总结</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> Ronan Chen
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.svg" alt="Ronan Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">@Me</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

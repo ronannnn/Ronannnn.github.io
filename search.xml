@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>算法个人总结</title>
-    <url>/2020/ckm7epvq90001tiq1csbl7u7m/</url>
+    <url>/2020/ckm8tpn3s0001kgq1c6nr6cas/</url>
     <content><![CDATA[<h1>Quick Sort</h1>
 <h2 id="原理">原理</h2>
 <p>使用了分治的思想</p>
@@ -82,7 +82,7 @@
   </entry>
   <entry>
     <title>Computer System Security(MIT 6.858)</title>
-    <url>/2020/ckm7epvqb0003tiq104gc2w6l/</url>
+    <url>/2020/ckm8tpn3u0003kgq1au9e7on4/</url>
     <content><![CDATA[<h1>Buffer Overflow</h1>
 <h2 id="buggy-c-code">buggy C code</h2>
 <p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
@@ -98,8 +98,526 @@ But this is not doable</p>
       </tags>
   </entry>
   <entry>
+    <title>five six seven</title>
+    <url>/2021/ckm8tpn3x0006kgq1e2xqddp7/</url>
+    <content><![CDATA[<h1>Project Notes</h1>
+<h2 id="lstm-deep-neural-networks">LSTM Deep Neural Networks</h2>
+<p><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">这篇讲得好棒啊</a></p>
+<h1>Course Indexes</h1>
+<h1>Week1 - project</h1>
+<ol>
+<li>Project(Management) Definition</li>
+<li>Plan projects
+<ol>
+<li>env</li>
+<li>objectives</li>
+<li>S.M.A.R.T.</li>
+</ol>
+</li>
+<li>Four Cornerstones: Cost, Schedule, Scope, Quality
+<ol>
+<li>Scope: Work Breakdown Structure(WBS), creeping scope</li>
+<li>Cost: Project control, contingency plan</li>
+<li>Schedule: Critical path, Network Diagramming</li>
+<li>Quality: cost, risk, project closeout</li>
+</ol>
+</li>
+<li>Project Manager</li>
+</ol>
+<h1>Week2 - lean six sigma</h1>
+<ol>
+<li>Process Improvement</li>
+<li>Timeline</li>
+<li>Lean: Waste is deadly
+<ol>
+<li>methods
+<ol>
+<li>5S</li>
+<li>Kaizen Events(SCORE events)</li>
+<li>Kanban</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Six Sigma:
+<ol>
+<li>Goals</li>
+<li>six standard deviations, reduce variation</li>
+<li>VOC VOP</li>
+</ol>
+</li>
+<li>Lean vs. Six Sigma</li>
+</ol>
+<h1>Week3</h1>
+<ol>
+<li>8 types of waste in lean method</li>
+</ol>
+<h2 id="dmaic-methodology">DMAIC Methodology</h2>
+<ol>
+<li>Define
+<ol>
+<li>Project Scope</li>
+<li>Critical To Quality - CTQ</li>
+<li>Sub-Module
+<ol>
+<li>VOC</li>
+<li>SIPOC</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Measure
+<ol>
+<li>Six Sigma Measurements</li>
+<li>Tools
+<ol>
+<li>VOC Analysis</li>
+<li>Process Mapping</li>
+<li>Value Stream Mapping(Value Stream Process Steps)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1>Week4 DMAIC - Analyze</h1>
+<ol>
+<li>root causes analysis</li>
+<li>80/20 Rule(Pareto Chart)</li>
+<li>Cause-and-Effect Diagram(Fishbone)</li>
+<li>5 whys</li>
+</ol>
+<h1>Week5 DMAIC</h1>
+<h2 id="improve">Improve</h2>
+<ol>
+<li>Goals</li>
+<li>Sub-module
+<ol>
+<li>Brainstorming method
+<ol>
+<li>preparation phase</li>
+<li>conduct the session</li>
+<li>evaluation phase</li>
+</ol>
+</li>
+<li>Pilot Solution</li>
+</ol>
+</li>
+</ol>
+<h2 id="control">Control</h2>
+<ol>
+<li>Definition</li>
+<li>Steps</li>
+<li>Black Belt Perspective</li>
+<li>Risk management</li>
+<li>Mistake Proofing</li>
+<li>Statistical Process Control</li>
+<li>Big-Data Analysis</li>
+</ol>
+<h1>Week 6</h1>
+<h2 id="total-project-management">Total Project Management</h2>
+<ol>
+<li>Concept</li>
+<li>Best practice</li>
+<li>Digital Project Management</li>
+<li>five steps
+<ol>
+<li>Communication</li>
+<li>Assessment</li>
+<li>Recommendation</li>
+<li>Implementation</li>
+<li>Validation</li>
+</ol>
+</li>
+<li>Traditional Environment vs. Total Project Management</li>
+<li>Driving Change</li>
+</ol>
+<h2 id="theory-of-constraints-toc">Theory of Constraints(TOC)</h2>
+<ol>
+<li>What is</li>
+<li>Bottleneck</li>
+<li>Goal</li>
+<li>Drum, Buffer, Ropes</li>
+<li>Implementations 5 steps</li>
+<li>Advantages</li>
+</ol>
+]]></content>
+      <categories>
+        <category>LSTM</category>
+      </categories>
+      <tags>
+        <tag>LSTM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USC CSCI-572 after-class videos notes</title>
+    <url>/2021/ckm8tpn3y0008kgq1fjo9ebz6/</url>
+    <content><![CDATA[<h1>Week3 Crawling</h1>
+<p><a href="https://www.youtube.com/watch?reload=9&amp;v=X6kMrZcilTc&amp;list=PL0ZVw5-GryEkGAQT7lX7oIHqyDPeUyOMQ&amp;index=123&amp;ab_channel=OresoftLWC">URL Frontier Using Mercator Scheme*</a></p>
+<h2 id="mercator-scheme">Mercator scheme</h2>
+<p><img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-crawler.jpeg" alt="URL frontier"></p>
+<ol>
+<li>Prioritizer(freshness) appends URLs to one of k queues
+<ol>
+<li>the first means we need crawl it very frequently, the k-th means very infrequently</li>
+<li>the assigned queue is decided by
+<ol>
+<li>refresh rate sampled from previous crawls</li>
+<li>application-specific (e.g. “crawl news sites more often”)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>queues are FIFO</li>
+<li>queue selector picks a front queue to pull a URL by some strategies
+<ol>
+<li>random number: if in [0,0.5) choose 1th queue, if in [0.5, 0.75) choose 2nd queue and so on</li>
+<li>[第一次: pick 1th],[第二次: pick 1th 2nd],[第三次: pick 1th 2nd 3rd] and so on</li>
+</ol>
+</li>
+<li>back queues invariants
+<ol>
+<li>each is kept non-empty while the crawl is in progress</li>
+<li>each only contains URLs from a single host</li>
+<li>maintain a table from hosts to back queues(Map&lt;Host name, Back queue&gt;)</li>
+</ol>
+</li>
+<li>Min Heap of Size B, the entry is Map&lt;Host name, the earliest time that the host can be hit again&gt;
+<ol>
+<li>one entry for each back queue</li>
+</ol>
+</li>
+<li>Mercator recommendation: three times as many back queues as crawler threads(队列是线程的三倍)</li>
+</ol>
+<h1>Week3 De-duplicate</h1>
+<p><a href="https://www.youtube.com/watch?v=bQAYY8INBxg&amp;ab_channel=EITDigital">Locality Sensitive Hashing*</a><br>
+start from 14 mins</p>
+<h2 id="similar-documents">Similar Documents</h2>
+<p>Three essential techniques:</p>
+<ol>
+<li>k-Shingle: convert documents to sets
+<ol>
+<li>e.g. k=2;doc=abcab =&gt; set{ab,bc,ca}</li>
+<li>changing a word affects k shingles</li>
+<li>reordering paragraphs only affects 2k shingles that cross paragraph boundaries</li>
+<li>compress shingles to 4 bytes by hashing, which is tokens</li>
+</ol>
+</li>
+<li>Minhashing: convert large sets to short signatures
+<ol>
+<li>Jaccard Similarity</li>
+<li>From sets to boolean matrices
+<ol>
+<li>Rows = elements of the universal set (e.g. k shingles)</li>
+<li>Columns = sets (e.g. docs)</li>
+<li>the matrix is sparse</li>
+</ol>
+</li>
+<li>Signature matrix
+<ol>
+<li>Rows = minhash value of k shingles</li>
+<li>Columns = sets (e.g. docs)</li>
+<li>以黄色为例，1的时候填好两个位置，2的时候第四个已经占有了，只能填第一个位子，以此类推，到4的时候填好第三个位子<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh.png" alt="input matrix to signature matrix"></li>
+</ol>
+</li>
+<li>permutation is too slow when encountering 1 billion entries
+<ol>
+<li>pick 100 hash functions</li>
+<li>for each column c and each hash function h_i keep a slot M(i,c)</li>
+<li>M(i,c) become the smallest value of h_i® for which column c has 1 in row r<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh-impl.png" alt="alt"><br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh-eg.png" alt="alt"></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Locality-sensitive hashing: focus on pairs of signatures likely to be similar</li>
+</ol>
+<h2 id="week4-information-retrieval">Week4 Information Retrieval</h2>
+<p><a href="https://www.youtube.com/watch?v=7nWlI_TVid0&amp;ab_channel=FromLanguagestoInformation">Document Frequency Weighting*</a><br>
+<a href="https://www.youtube.com/watch?v=k1tD7pYKWuM&amp;ab_channel=FromLanguagestoInformation">Calculating tf-idf cosine scores*</a></p>
+<h3 id="document-frequency-df">Document Frequency(df)</h3>
+<ol>
+<li>Rare terms are more informative than frequent terms(stopwords) (e.g. arachnocentric)<br>
+A document containing this word is very likely to be relevant to the query.<br>
+So it should have a high weight</li>
+<li>Hence frequent terms are less informative than rare terms (e.g. high, increase, line)</li>
+<li>Inverse Document Frequency(idf): idf_t = log_10(N / df_t)（符合一二，pdf里有例子）</li>
+<li>idf has no effect on ranking one term queries(at least two terms in queries)</li>
+</ol>
+<h3 id="collection-frequency">Collection Frequency</h3>
+<h3 id="tf-idf">tf-idf</h3>
+<ol>
+<li>term frequency</li>
+<li>document frequency</li>
+<li>normalization</li>
+</ol>
+<h2 id="week5-lexicon-text-normalization">Week5 Lexicon &amp; Text Normalization</h2>
+<h3 id="zipf-mystery"><a href="https://www.youtube.com/watch?v=fCn8zs912OE&amp;ab_channel=Vsauce">Zipf Mystery</a></h3>
+<p>just introduce zipf’s law mentioned in ppt</p>
+<h3 id="word-tokenization"><a href="https://www.youtube.com/watch?v=NJaxfxRtKV0&amp;list=PLaZQkZp6WhWy4_bClrW9EGQKnUUD9yp8V&amp;index=3&amp;ab_channel=FromLanguagestoInformation">Word Tokenization*</a></h3>
+<ol>
+<li>cat and cats: same lemma, but different wordforms<br>
+e.g. my name is my ronan</li>
+<li>Type: an element of the vocabulary (4: my name is ronan)</li>
+<li>Token: an instance of that type in running text (5: my*2 name is ronan)</li>
+<li><code>tr 'A-Z' 'a-z' &lt; shakes.txt | tr -sc 'a-z' '\n' | sort | uniq -c | sort -n -r | less</code>
+<ol>
+<li>大写变小写-&gt;把非字母变换行-&gt;排序-&gt;统计-&gt;根据数量排序</li>
+</ol>
+</li>
+<li>language issues e.g. what’re -&gt; what are; San Francisco(one token or two?); PhD</li>
+<li>tokenization in chinese(aka. word segmentation): Standard baseline segmentation algorithm(greedy)
+<ol>
+<li>Given a word list of Chinese, and a string</li>
+<li>Start a pointer at the beginning of the string</li>
+<li>Find the longest word in dictionary that matches the string starting ar pointer</li>
+<li>Move the pointer over the word in string</li>
+<li>Go to 2</li>
+<li>Doesn’t work in English sometimes e.g.<br>
+Thecatinthehat(The cat in the hat);<br>
+Thetabledownthere(The table down there, Theta bled own there)</li>
+</ol>
+</li>
+</ol>
+<h3 id="word-normalization-and-stemming"><a href="https://www.youtube.com/watch?v=k5UCoz79OL8&amp;list=PLaZQkZp6WhWy4_bClrW9EGQKnUUD9yp8V&amp;index=4&amp;ab_channel=FromLanguagestoInformation">Word Normalization and Stemming*</a></h3>
+<h4 id="normalization">Normalization</h4>
+<ol>
+<li>Normalize(e.g. U.S.A.-&gt;USA)
+<ol>
+<li>Case folding(ppt)</li>
+<li>Lemmatization(ppt): reduce inflections or variant form to base form</li>
+</ol>
+</li>
+<li>Define equivalence classes of terms(e.g. deleting periods(句号) in a term)</li>
+<li>Alternative(e.g. Enter: windows -&gt; Search: window, windows)</li>
+<li>Morphology
+<ol>
+<li>Stems: The core meaning-bearing units</li>
+<li>Affixes: Bits and pieces that adhere to stems(often with grammatical functions)</li>
+<li>e.g. Stems -&gt; Stem &amp; s</li>
+</ol>
+</li>
+<li>Stemming: Reduce terms to their stems in IR
+<ol>
+<li>Porter’s algorithm(ppt) : the most common English stemmer; strip -ing if there is a vowel(e.g. walking-&gt;walk,sing-&gt;sing)</li>
+<li><code>tr -sc 'A-Za-z' '\n' &lt; shakes.txt | tr 'A-Z' 'a-z' | grep '[aeiou].*ing$' | sort | uniq -c | sort -n -r | less</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="week6-building-an-inverted-index">Week6 Building an Inverted Index</h2>
+<h3 id="csci-572-videos-w6-1-word-similarity-mp4">CSCI-572/videos/w6.1_Word_Similarity.mp4*</h3>
+<h4 id="word-similarity">Word Similarity</h4>
+<ol>
+<li>Synonymy: a binary relation</li>
+<li>Similarity(or Distance): a looser metric; a relation between senses(e.g. bank is similar to fund)</li>
+<li>Relatedness: car is similar to bicycle; car is related to gasoline, not similar</li>
+<li>compute similarity over both words and senses</li>
+</ol>
+<h4 id="two-similarity-algorithm">Two similarity algorithm</h4>
+<ol>
+<li>Thesaurus-based algorithm
+<ol>
+<li>Path based similarity: two senses are similar if they are near each other in the thesaurus hierarchy<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-path-based-similarity.png" alt="alt">
+<ol>
+<li>pathlen(c1,c2) = 1 + number of edges in the shortest path in the hypernym graph between sense nodes c1 and c2</li>
+<li>simpath(c1,c2) = 1 / pathlen(c1,c2)</li>
+<li>wordsim(w1,w2) = max sim(c1,c2) where c1 \in senses(w1), c2 \in senses(w2)</li>
+<li>e.g. simpath(nickel,coin) = 1/2 simpath(nickel,money) = 1/6</li>
+<li>Problem:
+<ol>
+<li>nickel to money seems to be closer than nickel to standard, but their simpaths are the same</li>
+<li>nodes high in the hierarchy are very abstract</li>
+</ol>
+</li>
+<li>information content similarity metrics
+<ol>
+<li>P© = count(w) / N</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Distributional algorithm</li>
+</ol>
+<h3 id="word-similarity-distributional"><a href="https://www.youtube.com/watch?v=swDoFpuHpzQ&amp;ab_channel=FromLanguagestoInformation">Word similarity distributional*</a></h3>
+<ol>
+<li>Problems with thesaurus-based meaning
+<ol>
+<li>We don’t have a thesaurus for every language</li>
+<li>Even if we do, many words and phrases are missing</li>
+</ol>
+</li>
+<li>Aka Vector-space models
+<ol>
+<li>Two words are similar if they have similar word contexts</li>
+<li>Term-document matrix<br>
+Num of Terms in docs<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-term-doc.png" alt="alt">
+<ol>
+<li>For books, Julius Caesar and Henry V are similar</li>
+<li>For words, fool and clown are similar</li>
+<li>Use tf-idf instead of raw term counts</li>
+</ol>
+</li>
+<li>Term-context matrix<br>
+Two words are similar if they have similar word contexts<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-term-context.png" alt="alt">
+<ol>
+<li>apricot and pineapple are similar, digital and information are similar</li>
+<li>Positive Pointwise Mutual Information(PPMI) is common<br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-PMI.png" alt="alt"><br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-ppmi.png" alt="alt"><br>
+<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-ppmi2.png" alt="alt"></li>
+<li>Weighted PMI</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="will-youtube-ever-run-out-of-video-ids"><a href="https://www.youtube.com/watch?reload=9&amp;v=gocwRvLhDf8&amp;ab_channel=TomScott">Will YouTube Ever Run Out of Video IDs*</a></h3>
+<ol>
+<li>Unique Id is base 64:<br>
+0-9A-Za-z plus ‘-’ plus ‘_’ (10+26+26+1+1=64)</li>
+<li>Generate ID randomly, use it if it is not used</li>
+<li>Incremental ID is ridiculous</li>
+<li>Youtube use 11 characters</li>
+</ol>
+<h1>Exam Index</h1>
+<ol>
+<li>w2.2-SearchEngineEvaluation
+<ol>
+<li>Precision/Recall: True/False Positive/Negative; Difficulties in using precision/recall</li>
+<li>Arithmetic/Geometric/Harmonic mean(F-score/F-Measure)</li>
+<li>Average Precision of relevant docs</li>
+<li>Mean Average Precision(MAP): Averaging Across Queries</li>
+<li>Discounted Cumulative Gain(DCG)</li>
+<li>How Evaluation is Done</li>
+<li>Google’s 4-step process for changing search algorithm</li>
+<li>A/B tests</li>
+<li>Clicks on web</li>
+<li>Enhancements of search results</li>
+</ol>
+</li>
+<li>w3.1-CrawlingInOne
+<ol>
+<li>normalizing url</li>
+<li>handling spam</li>
+<li>re-visit policies</li>
+<li>sitemap</li>
+<li>google crawler</li>
+</ol>
+</li>
+<li>Deduplication
+<ol>
+<li>diff urls redirect to the same page</li>
+<li>near duplicates</li>
+<li>Mirroring</li>
+<li>Why detect duplication</li>
+<li>Cryptographic hash function to convert a web page to a number</li>
+<li>Identify identical web pages</li>
+<li>Identify near identical web pages:
+<ol>
+<li>Produce fingerprints and test for similarity: Simhash or Hamming Distance</li>
+<li>Compute shingles and test for similarity</li>
+</ol>
+</li>
+<li>Distance Measure</li>
+</ol>
+</li>
+<li>w4.2-IntroToInfoRetrieval
+<ol>
+<li>DB management diff</li>
+<li>stopword, stemming, tokens, inverted index</li>
+<li>Boolean Retrieval model</li>
+<li>Vector-Space Model</li>
+<li>Term Weights
+<ol>
+<li>Term Frequency: tf</li>
+<li>Doc Frequency: df, idf=log(N/df) ‘i’ is inverse, base is chosen by us</li>
+<li>w = tf * idf</li>
+</ol>
+</li>
+<li>Cosine Similarity</li>
+</ol>
+</li>
+<li>w5.2-ZipfLexicon
+<ol>
+<li>Power Laws, Zipf’s Law, Heaps’ Law</li>
+<li>Lexicon</li>
+<li>Tokenization</li>
+<li>Token normalization: Stemming, Lemmatization</li>
+<li>Capitalization</li>
+<li>Porter Stemming Algorithm; Error Metrics</li>
+<li>Soundex Algorithm</li>
+<li>Lucene, Solr</li>
+</ol>
+</li>
+<li>w6.1-InvertedIndexPhaseOne
+<ol>
+<li>Parse Documents</li>
+<li>Query Processing</li>
+<li>Posting Merge: Skip pointers</li>
+<li>Intersect postings</li>
+<li>Phrase Queries: Bi-word index(2-grams); positional index</li>
+<li>Part-of-Speech Tagging</li>
+<li>Google N-gram</li>
+</ol>
+</li>
+<li>w6.2-YouTube
+<ol>
+<li>Video Search Engine(and issues)</li>
+<li>Channels</li>
+<li>Ads, monetize youtube</li>
+<li>Ranking Factors</li>
+<li>Upload Features, platform</li>
+<li>Recommendations system</li>
+<li>Google is biased to youtube</li>
+<li>Youtube’s CDN: upload and download</li>
+<li>ContentID for copyrights</li>
+</ol>
+</li>
+<li>w7.1-QueryFormulation
+<ol>
+<li>Boolean Queries, AND, OR(has higher priority than AND), Exact Phrases with quotes,</li>
+<li>‘+’, ‘*’</li>
+<li>Advanced Operators: ‘link:’, ‘filetype:’</li>
+<li>Failed Google Experiments</li>
+<li>Special Content Search Engine</li>
+<li>Relevance Feedback &amp; Query Expansion: Related Search</li>
+<li>Auto-Completion(Algorithm) &amp; Spelling Correction</li>
+<li>Mean Reciprocal Rank(MRR) Scoring</li>
+</ol>
+</li>
+<li>w7.2-PageRank
+<ol>
+<li>Bibliometrics; Citation</li>
+<li>PR Calculation &amp; Convergence</li>
+<li>Web links Examples</li>
+<li>Suggestions on Examples</li>
+<li>Disavow backlinks: let google not count in PR computation</li>
+<li>PR Problems</li>
+<li>Another Link Analysis Algorithm - HITS: Authorities, Hubs, Iterative Algorithm,</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>csci</category>
+        <category>usc</category>
+        <category>url frontier</category>
+      </categories>
+      <tags>
+        <tag>csci</tag>
+        <tag>usc</tag>
+        <tag>url frontier</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql面试个人总结</title>
-    <url>/2020/ckm7epvqf0006tiq1bmfc2j6i/</url>
+    <url>/2020/ckm8tpn3z0009kgq1abx06bmc/</url>
     <content><![CDATA[<h1>Engines</h1>
 <p>InnoDB, MEMORY, MyISAM</p>
 <h2 id="myisam-vs-innodb">MyISAM vs InnoDB</h2>
@@ -387,7 +905,7 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
   </entry>
   <entry>
     <title>Go个人学习</title>
-    <url>/2021/ckm7epvqg0008tiq1guwrezpj/</url>
+    <url>/2021/ckm8tpn40000ckgq14enh70b1/</url>
     <content><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p>
 <p>主要记录一些小知识点</p>
 <h1>Types</h1>
@@ -420,148 +938,8 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
       </tags>
   </entry>
   <entry>
-    <title>Linux命令总结</title>
-    <url>/2020/ckm7epvqh0009tiq12t0uguxy/</url>
-    <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
-<h1>Main Directory in Linux</h1>
-<h2 id="proc">/proc</h2>
-<p>This is a virtual filesystem which contains information about all the<br>
-running processes, and information about the hardware present in the system.<br>
-Such as files: cpuinfo, cmdline, meminfo</p>
-<h1>Compression</h1>
-<h2 id="tar">tar</h2>
-<ol>
-<li><code>tar -xzvf files.tar.gz</code></li>
-<li><code>tar -xjvf files.tar.bz2</code></li>
-<li><code>tar -cjvf files.tar.gz hello.c bye.txt</code><br>
-<code>x</code>: extract, <code>c</code>: create, <code>z</code>: gzip, <code>j</code>: bzip, <code>v</code>: verbose, <code>f</code>: file</li>
-</ol>
-<h1>environment variable</h1>
-<ol>
-<li><code>printenv</code></li>
-<li><code>echo $PATH</code></li>
-</ol>
-<h1>Users and Groups</h1>
-<p><code>cat /etc/passwd</code> (contains all the users available in the system)</p>
-<h1>Processes</h1>
-<ol>
-<li><code>ps aux</code></li>
-<li><code>top</code></li>
-</ol>
-<h1>Memory</h1>
-<p><a href="https://www.tecmint.com/check-memory-usage-in-linux/">Free Reference</a></p>
-<ol>
-<li><code>free -h</code></li>
-<li><code>free -s 5</code> show latest memory usage per 5 seconds</li>
-<li><code>top</code></li>
-<li><code>du --max-depth=1 -h</code> 当前目录下各个子目录的大小</li>
-</ol>
-<h1>Service</h1>
-<ol>
-<li><code>systemctl</code>
-<ol>
-<li><code>systemctl reboot/shutdown</code></li>
-<li><code>systemctl -t service</code></li>
-<li><code>systemctl start/status sshd</code></li>
-</ol>
-</li>
-<li><code>systemctl enable sshd.service</code>
-<ol>
-<li><code>journalctl -f -u sshd</code> find the log of a given service <code>-f</code>: follow(keep reading) <code>-u</code>: unit</li>
-<li><code>journalctl --since yesterday</code></li>
-<li><code>journalctl --since &quot;2015-11-10 14:00:00&quot;</code></li>
-</ol>
-</li>
-</ol>
-<h1>File System Mounting</h1>
-<h1>Networking</h1>
-<ol>
-<li><code>ip addr</code></li>
-<li><code>cat /etc/resolv.conf</code> DNS server address to use for DNS queries</li>
-<li><code>ss</code> another utility to investigate sockets
-<ol>
-<li><code>ss -tlpn</code> (<code>t</code>: tcp, <code>l</code>: listen state, <code>p</code>: process, <code>n</code>: numeric port) see ports and relevant processes</li>
-<li><code>ss -tapn</code> (show all state)</li>
-</ol>
-</li>
-<li><code>traceroute/tracepath www.google.com</code>  show the full route of a network packet from the system to any given host.</li>
-</ol>
-<h2 id="ssh">ssh</h2>
-<p><code>vim /etc/ssh/sshd_config</code> to disable password login for ssh</p>
-<h1>watch</h1>
-<ol>
-<li><code>watch -n 1 &quot;ss -ltp&quot;</code> execute a program periodically, showing output fullscreen</li>
-</ol>
-<h1>Linux Firewall</h1>
-<h2 id="install">install</h2>
-<p><code>apt install iptables-persistent</code><br>
-iptables: administration tool for IPv4/IPv6 packet filtering and NAT(Network Address Translation)</p>
-<ol>
-<li><code>iptables -nvL --line-number</code> shows the default table filter and all chains and rules inside of it<br>
-see more details in pdf chapter “Linux Firewall”</li>
-</ol>
-<h1>Disk</h1>
-<p><a href="https://www.binarytides.com/linux-command-check-disk-partitions/">Reference</a></p>
-<ol>
-<li><code>fdisk -l</code></li>
-<li><code>sfdisk -l</code></li>
-<li><code>df -h</code> <code>h</code>: --human-readable (df shows only the mounted file systems or partitions and not all.)</li>
-<li><code>df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs</code> output with specific formats<br>
-<code>-x</code> means not shows whose type is any of these</li>
-<li><code>lsblk</code> List Block Devices</li>
-</ol>
-<h1>Others</h1>
-<p><a href="https://www.tecmint.com/useful-linux-commands-for-newbies/">Reference</a></p>
-<ol>
-<li><code>md5sum/sha1sum filename</code></li>
-<li><code>uname -a</code> print detailed information about the machine name, Operating System and Kernel.<br>
-(kernel name, node name, kernel release, kernel version, )</li>
-<li><code>cat /etc/os-release</code></li>
-<li><code>sudo</code> stands for super user do</li>
-<li><code>touch filename</code> touch command creates the file, only if it doesn’t exist.<br>
-If the file already exists it will update the timestamp and not the contents of the file.</li>
-<li><code>whatis ls</code></li>
-<li><code>alias l='ls -l'</code> <code>unalias l</code></li>
-<li><code>cmp filename1 filename2</code></li>
-<li><code>w</code> a combination of <code>uptime</code> and <code>who</code></li>
-<li><code>rsync</code> a fast, versatile, remote (and local) file-copying tool, which can replace <code>cp</code></li>
-<li><code>lsof</code> list of open file <a href="https://www.tecmint.com/10-lsof-command-examples-in-linux/">See More Details</a></li>
-<li><code>more/less</code> does not have to read the entire input file before starting(vim does)</li>
-<li><code>head/tail</code> read file from head/tail</li>
-</ol>
-<h2 id="how-to-find-files-or-directories">How to find files or directories</h2>
-<ol>
-<li><code>locate java</code> locate reads one or more databases prepared by <code>updatedb</code> and writes file names matching at least<br>
-one of the PATTERNs to standard output, one per line.</li>
-<li><code>which java</code>  find the exact path of the executable being used by a command in our shell.</li>
-<li><code>whereis java</code> locate the binary, source, and manual page files for a command(ie, not only the executable one in <code>which</code>, and some other stuff (like man pages).)</li>
-<li><strong>find</strong> Search for files in the given directory, hierarchically starting at the parent directory and moving to sub-directories.
-<ol>
-<li><code>find -name *.sh</code></li>
-<li><code>find -iname *.SH</code> case insensitive</li>
-</ol>
-</li>
-<li><strong>grep</strong>
-<ol>
-<li><code>grep tecmint /etc/passwd</code></li>
-<li><code>grep -i TECMINT /etc/passwd</code> case insensitive</li>
-<li><code>grep -r &quot;127.0.0.1&quot; /etc/</code> search recursively</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Interview</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Interview</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Computer Network总结</title>
-    <url>/2020/ckm7epvqi000ctiq1de2uc89t/</url>
+    <url>/2020/ckm8tpn41000dkgq1b7qcgbmr/</url>
     <content><![CDATA[<h1>Layers</h1>
 <ol>
 <li>
@@ -839,8 +1217,148 @@ ETH_P_ARP(arp数据包)</p>
       </tags>
   </entry>
   <entry>
+    <title>Linux命令总结</title>
+    <url>/2020/ckm8tpn42000gkgq1b3fz2kax/</url>
+    <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
+<h1>Main Directory in Linux</h1>
+<h2 id="proc">/proc</h2>
+<p>This is a virtual filesystem which contains information about all the<br>
+running processes, and information about the hardware present in the system.<br>
+Such as files: cpuinfo, cmdline, meminfo</p>
+<h1>Compression</h1>
+<h2 id="tar">tar</h2>
+<ol>
+<li><code>tar -xzvf files.tar.gz</code></li>
+<li><code>tar -xjvf files.tar.bz2</code></li>
+<li><code>tar -cjvf files.tar.gz hello.c bye.txt</code><br>
+<code>x</code>: extract, <code>c</code>: create, <code>z</code>: gzip, <code>j</code>: bzip, <code>v</code>: verbose, <code>f</code>: file</li>
+</ol>
+<h1>environment variable</h1>
+<ol>
+<li><code>printenv</code></li>
+<li><code>echo $PATH</code></li>
+</ol>
+<h1>Users and Groups</h1>
+<p><code>cat /etc/passwd</code> (contains all the users available in the system)</p>
+<h1>Processes</h1>
+<ol>
+<li><code>ps aux</code></li>
+<li><code>top</code></li>
+</ol>
+<h1>Memory</h1>
+<p><a href="https://www.tecmint.com/check-memory-usage-in-linux/">Free Reference</a></p>
+<ol>
+<li><code>free -h</code></li>
+<li><code>free -s 5</code> show latest memory usage per 5 seconds</li>
+<li><code>top</code></li>
+<li><code>du --max-depth=1 -h</code> 当前目录下各个子目录的大小</li>
+</ol>
+<h1>Service</h1>
+<ol>
+<li><code>systemctl</code>
+<ol>
+<li><code>systemctl reboot/shutdown</code></li>
+<li><code>systemctl -t service</code></li>
+<li><code>systemctl start/status sshd</code></li>
+</ol>
+</li>
+<li><code>systemctl enable sshd.service</code>
+<ol>
+<li><code>journalctl -f -u sshd</code> find the log of a given service <code>-f</code>: follow(keep reading) <code>-u</code>: unit</li>
+<li><code>journalctl --since yesterday</code></li>
+<li><code>journalctl --since &quot;2015-11-10 14:00:00&quot;</code></li>
+</ol>
+</li>
+</ol>
+<h1>File System Mounting</h1>
+<h1>Networking</h1>
+<ol>
+<li><code>ip addr</code></li>
+<li><code>cat /etc/resolv.conf</code> DNS server address to use for DNS queries</li>
+<li><code>ss</code> another utility to investigate sockets
+<ol>
+<li><code>ss -tlpn</code> (<code>t</code>: tcp, <code>l</code>: listen state, <code>p</code>: process, <code>n</code>: numeric port) see ports and relevant processes</li>
+<li><code>ss -tapn</code> (show all state)</li>
+</ol>
+</li>
+<li><code>traceroute/tracepath www.google.com</code>  show the full route of a network packet from the system to any given host.</li>
+</ol>
+<h2 id="ssh">ssh</h2>
+<p><code>vim /etc/ssh/sshd_config</code> to disable password login for ssh</p>
+<h1>watch</h1>
+<ol>
+<li><code>watch -n 1 &quot;ss -ltp&quot;</code> execute a program periodically, showing output fullscreen</li>
+</ol>
+<h1>Linux Firewall</h1>
+<h2 id="install">install</h2>
+<p><code>apt install iptables-persistent</code><br>
+iptables: administration tool for IPv4/IPv6 packet filtering and NAT(Network Address Translation)</p>
+<ol>
+<li><code>iptables -nvL --line-number</code> shows the default table filter and all chains and rules inside of it<br>
+see more details in pdf chapter “Linux Firewall”</li>
+</ol>
+<h1>Disk</h1>
+<p><a href="https://www.binarytides.com/linux-command-check-disk-partitions/">Reference</a></p>
+<ol>
+<li><code>fdisk -l</code></li>
+<li><code>sfdisk -l</code></li>
+<li><code>df -h</code> <code>h</code>: --human-readable (df shows only the mounted file systems or partitions and not all.)</li>
+<li><code>df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs</code> output with specific formats<br>
+<code>-x</code> means not shows whose type is any of these</li>
+<li><code>lsblk</code> List Block Devices</li>
+</ol>
+<h1>Others</h1>
+<p><a href="https://www.tecmint.com/useful-linux-commands-for-newbies/">Reference</a></p>
+<ol>
+<li><code>md5sum/sha1sum filename</code></li>
+<li><code>uname -a</code> print detailed information about the machine name, Operating System and Kernel.<br>
+(kernel name, node name, kernel release, kernel version, )</li>
+<li><code>cat /etc/os-release</code></li>
+<li><code>sudo</code> stands for super user do</li>
+<li><code>touch filename</code> touch command creates the file, only if it doesn’t exist.<br>
+If the file already exists it will update the timestamp and not the contents of the file.</li>
+<li><code>whatis ls</code></li>
+<li><code>alias l='ls -l'</code> <code>unalias l</code></li>
+<li><code>cmp filename1 filename2</code></li>
+<li><code>w</code> a combination of <code>uptime</code> and <code>who</code></li>
+<li><code>rsync</code> a fast, versatile, remote (and local) file-copying tool, which can replace <code>cp</code></li>
+<li><code>lsof</code> list of open file <a href="https://www.tecmint.com/10-lsof-command-examples-in-linux/">See More Details</a></li>
+<li><code>more/less</code> does not have to read the entire input file before starting(vim does)</li>
+<li><code>head/tail</code> read file from head/tail</li>
+</ol>
+<h2 id="how-to-find-files-or-directories">How to find files or directories</h2>
+<ol>
+<li><code>locate java</code> locate reads one or more databases prepared by <code>updatedb</code> and writes file names matching at least<br>
+one of the PATTERNs to standard output, one per line.</li>
+<li><code>which java</code>  find the exact path of the executable being used by a command in our shell.</li>
+<li><code>whereis java</code> locate the binary, source, and manual page files for a command(ie, not only the executable one in <code>which</code>, and some other stuff (like man pages).)</li>
+<li><strong>find</strong> Search for files in the given directory, hierarchically starting at the parent directory and moving to sub-directories.
+<ol>
+<li><code>find -name *.sh</code></li>
+<li><code>find -iname *.SH</code> case insensitive</li>
+</ol>
+</li>
+<li><strong>grep</strong>
+<ol>
+<li><code>grep tecmint /etc/passwd</code></li>
+<li><code>grep -i TECMINT /etc/passwd</code> case insensitive</li>
+<li><code>grep -r &quot;127.0.0.1&quot; /etc/</code> search recursively</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Interview</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
-    <url>/2021/ckm7epvqj000dtiq1gdcbh2kq/</url>
+    <url>/2021/ckm8tpn42000hkgq1c3ib91g5/</url>
     <content><![CDATA[<h1>产品参数</h1>
 <ol>
 <li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
@@ -882,7 +1400,7 @@ ETH_P_ARP(arp数据包)</p>
   </entry>
   <entry>
     <title>Redis个人总结</title>
-    <url>/2020/ckm7epvqs001ntiq177v46gzy/</url>
+    <url>/2020/ckm8tpn4e0023kgq1cvta2qr1/</url>
     <content><![CDATA[<p><a href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
 <h1>Features</h1>
 <ol>
@@ -1116,7 +1634,7 @@ Before sort, data strcture will be converted to double</p>
   </entry>
   <entry>
     <title>OS个人总结</title>
-    <url>/2020/ckm7epvqt001otiq1gb3x5cxr/</url>
+    <url>/2020/ckm8tpn4f0024kgq15n7q3724/</url>
     <content><![CDATA[<h1>Basic</h1>
 <h2 id="用户态-user-mode-内核态-privileged-mode">用户态(user mode)，内核态(privileged mode)</h2>
 <ol>
@@ -1556,7 +2074,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <li>当CPU发出内存访问请求时，先检查缓存内是否有数据，如果存在则不经内存直接返回，若不存在，先从内存载入缓存，再返回给处理器</li>
 </ol>
 <h2 id="结构">结构</h2>
-<p><img src="/2020/ckm7epvqt001otiq1gb3x5cxr/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
+<p><img src="/2020/ckm8tpn4f0024kgq15n7q3724/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
 <ol>
 <li>CPU寄存器   访问速度: 1 clock</li>
 <li>SRAM高速缓存 访问速度 ：n clock</li>
@@ -1569,7 +2087,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <li>因此在二维数组求和中，按列求和比按行求和更优</li>
 </ol>
 <h2 id="多级缓存-intel-core-i7为例">多级缓存(Intel Core i7为例)</h2>
-<p><img src="/2020/ckm7epvqt001otiq1gb3x5cxr/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
+<p><img src="/2020/ckm8tpn4f0024kgq15n7q3724/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
 <ol>
 <li>L1: 4 clock
 <ol>
@@ -1601,7 +2119,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
   </entry>
   <entry>
     <title>Java面试个人总结</title>
-    <url>/2020/ckm7epvqx0025tiq138a8hh3b/</url>
+    <url>/2020/ckm8tpn4i002lkgq1acjc07je/</url>
     <content><![CDATA[<h1>Collections</h1>
 <h2 id="arraylist">ArrayList</h2>
 <ol>
