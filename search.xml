@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>算法个人总结</title>
-    <url>/2020/ckm8tpn3s0001kgq1c6nr6cas/</url>
+    <url>/2020/ckmm1m5b50001e7q1b5w3fc2x/</url>
     <content><![CDATA[<h1>Quick Sort</h1>
 <h2 id="原理">原理</h2>
 <p>使用了分治的思想</p>
@@ -82,7 +82,7 @@
   </entry>
   <entry>
     <title>Computer System Security(MIT 6.858)</title>
-    <url>/2020/ckm8tpn3u0003kgq1au9e7on4/</url>
+    <url>/2020/ckmm1m5b80003e7q12v2u0npa/</url>
     <content><![CDATA[<h1>Buffer Overflow</h1>
 <h2 id="buggy-c-code">buggy C code</h2>
 <p>solution: don’t use C, because almost languages check buffer overflow except C.<br>
@@ -98,814 +98,8 @@ But this is not doable</p>
       </tags>
   </entry>
   <entry>
-    <title>five six seven</title>
-    <url>/2021/ckm8tpn3x0006kgq1e2xqddp7/</url>
-    <content><![CDATA[<h1>Project Notes</h1>
-<h2 id="lstm-deep-neural-networks">LSTM Deep Neural Networks</h2>
-<p><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">这篇讲得好棒啊</a></p>
-<h1>Course Indexes</h1>
-<h1>Week1 - project</h1>
-<ol>
-<li>Project(Management) Definition</li>
-<li>Plan projects
-<ol>
-<li>env</li>
-<li>objectives</li>
-<li>S.M.A.R.T.</li>
-</ol>
-</li>
-<li>Four Cornerstones: Cost, Schedule, Scope, Quality
-<ol>
-<li>Scope: Work Breakdown Structure(WBS), creeping scope</li>
-<li>Cost: Project control, contingency plan</li>
-<li>Schedule: Critical path, Network Diagramming</li>
-<li>Quality: cost, risk, project closeout</li>
-</ol>
-</li>
-<li>Project Manager</li>
-</ol>
-<h1>Week2 - lean six sigma</h1>
-<ol>
-<li>Process Improvement</li>
-<li>Timeline</li>
-<li>Lean: Waste is deadly
-<ol>
-<li>methods
-<ol>
-<li>5S</li>
-<li>Kaizen Events(SCORE events)</li>
-<li>Kanban</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Six Sigma:
-<ol>
-<li>Goals</li>
-<li>six standard deviations, reduce variation</li>
-<li>VOC VOP</li>
-</ol>
-</li>
-<li>Lean vs. Six Sigma</li>
-</ol>
-<h1>Week3</h1>
-<ol>
-<li>8 types of waste in lean method</li>
-</ol>
-<h2 id="dmaic-methodology">DMAIC Methodology</h2>
-<ol>
-<li>Define
-<ol>
-<li>Project Scope</li>
-<li>Critical To Quality - CTQ</li>
-<li>Sub-Module
-<ol>
-<li>VOC</li>
-<li>SIPOC</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Measure
-<ol>
-<li>Six Sigma Measurements</li>
-<li>Tools
-<ol>
-<li>VOC Analysis</li>
-<li>Process Mapping</li>
-<li>Value Stream Mapping(Value Stream Process Steps)</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1>Week4 DMAIC - Analyze</h1>
-<ol>
-<li>root causes analysis</li>
-<li>80/20 Rule(Pareto Chart)</li>
-<li>Cause-and-Effect Diagram(Fishbone)</li>
-<li>5 whys</li>
-</ol>
-<h1>Week5 DMAIC</h1>
-<h2 id="improve">Improve</h2>
-<ol>
-<li>Goals</li>
-<li>Sub-module
-<ol>
-<li>Brainstorming method
-<ol>
-<li>preparation phase</li>
-<li>conduct the session</li>
-<li>evaluation phase</li>
-</ol>
-</li>
-<li>Pilot Solution</li>
-</ol>
-</li>
-</ol>
-<h2 id="control">Control</h2>
-<ol>
-<li>Definition</li>
-<li>Steps</li>
-<li>Black Belt Perspective</li>
-<li>Risk management</li>
-<li>Mistake Proofing</li>
-<li>Statistical Process Control</li>
-<li>Big-Data Analysis</li>
-</ol>
-<h1>Week 6</h1>
-<h2 id="total-project-management">Total Project Management</h2>
-<ol>
-<li>Concept</li>
-<li>Best practice</li>
-<li>Digital Project Management</li>
-<li>five steps
-<ol>
-<li>Communication</li>
-<li>Assessment</li>
-<li>Recommendation</li>
-<li>Implementation</li>
-<li>Validation</li>
-</ol>
-</li>
-<li>Traditional Environment vs. Total Project Management</li>
-<li>Driving Change</li>
-</ol>
-<h2 id="theory-of-constraints-toc">Theory of Constraints(TOC)</h2>
-<ol>
-<li>What is</li>
-<li>Bottleneck</li>
-<li>Goal</li>
-<li>Drum, Buffer, Ropes</li>
-<li>Implementations 5 steps</li>
-<li>Advantages</li>
-</ol>
-]]></content>
-      <categories>
-        <category>LSTM</category>
-      </categories>
-      <tags>
-        <tag>LSTM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>USC CSCI-572 after-class videos notes</title>
-    <url>/2021/ckm8tpn3y0008kgq1fjo9ebz6/</url>
-    <content><![CDATA[<h1>Week3 Crawling</h1>
-<p><a href="https://www.youtube.com/watch?reload=9&amp;v=X6kMrZcilTc&amp;list=PL0ZVw5-GryEkGAQT7lX7oIHqyDPeUyOMQ&amp;index=123&amp;ab_channel=OresoftLWC">URL Frontier Using Mercator Scheme*</a></p>
-<h2 id="mercator-scheme">Mercator scheme</h2>
-<p><img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-crawler.jpeg" alt="URL frontier"></p>
-<ol>
-<li>Prioritizer(freshness) appends URLs to one of k queues
-<ol>
-<li>the first means we need crawl it very frequently, the k-th means very infrequently</li>
-<li>the assigned queue is decided by
-<ol>
-<li>refresh rate sampled from previous crawls</li>
-<li>application-specific (e.g. “crawl news sites more often”)</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>queues are FIFO</li>
-<li>queue selector picks a front queue to pull a URL by some strategies
-<ol>
-<li>random number: if in [0,0.5) choose 1th queue, if in [0.5, 0.75) choose 2nd queue and so on</li>
-<li>[第一次: pick 1th],[第二次: pick 1th 2nd],[第三次: pick 1th 2nd 3rd] and so on</li>
-</ol>
-</li>
-<li>back queues invariants
-<ol>
-<li>each is kept non-empty while the crawl is in progress</li>
-<li>each only contains URLs from a single host</li>
-<li>maintain a table from hosts to back queues(Map&lt;Host name, Back queue&gt;)</li>
-</ol>
-</li>
-<li>Min Heap of Size B, the entry is Map&lt;Host name, the earliest time that the host can be hit again&gt;
-<ol>
-<li>one entry for each back queue</li>
-</ol>
-</li>
-<li>Mercator recommendation: three times as many back queues as crawler threads(队列是线程的三倍)</li>
-</ol>
-<h1>Week3 De-duplicate</h1>
-<p><a href="https://www.youtube.com/watch?v=bQAYY8INBxg&amp;ab_channel=EITDigital">Locality Sensitive Hashing*</a><br>
-start from 14 mins</p>
-<h2 id="similar-documents">Similar Documents</h2>
-<p>Three essential techniques:</p>
-<ol>
-<li>k-Shingle: convert documents to sets
-<ol>
-<li>e.g. k=2;doc=abcab =&gt; set{ab,bc,ca}</li>
-<li>changing a word affects k shingles</li>
-<li>reordering paragraphs only affects 2k shingles that cross paragraph boundaries</li>
-<li>compress shingles to 4 bytes by hashing, which is tokens</li>
-</ol>
-</li>
-<li>Minhashing: convert large sets to short signatures
-<ol>
-<li>Jaccard Similarity</li>
-<li>From sets to boolean matrices
-<ol>
-<li>Rows = elements of the universal set (e.g. k shingles)</li>
-<li>Columns = sets (e.g. docs)</li>
-<li>the matrix is sparse</li>
-</ol>
-</li>
-<li>Signature matrix
-<ol>
-<li>Rows = minhash value of k shingles</li>
-<li>Columns = sets (e.g. docs)</li>
-<li>以黄色为例，1的时候填好两个位置，2的时候第四个已经占有了，只能填第一个位子，以此类推，到4的时候填好第三个位子<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh.png" alt="input matrix to signature matrix"></li>
-</ol>
-</li>
-<li>permutation is too slow when encountering 1 billion entries
-<ol>
-<li>pick 100 hash functions</li>
-<li>for each column c and each hash function h_i keep a slot M(i,c)</li>
-<li>M(i,c) become the smallest value of h_i® for which column c has 1 in row r<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh-impl.png" alt="alt"><br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w3-lsh-eg.png" alt="alt"></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Locality-sensitive hashing: focus on pairs of signatures likely to be similar</li>
-</ol>
-<h2 id="week4-information-retrieval">Week4 Information Retrieval</h2>
-<p><a href="https://www.youtube.com/watch?v=7nWlI_TVid0&amp;ab_channel=FromLanguagestoInformation">Document Frequency Weighting*</a><br>
-<a href="https://www.youtube.com/watch?v=k1tD7pYKWuM&amp;ab_channel=FromLanguagestoInformation">Calculating tf-idf cosine scores*</a></p>
-<h3 id="document-frequency-df">Document Frequency(df)</h3>
-<ol>
-<li>Rare terms are more informative than frequent terms(stopwords) (e.g. arachnocentric)<br>
-A document containing this word is very likely to be relevant to the query.<br>
-So it should have a high weight</li>
-<li>Hence frequent terms are less informative than rare terms (e.g. high, increase, line)</li>
-<li>Inverse Document Frequency(idf): idf_t = log_10(N / df_t)（符合一二，pdf里有例子）</li>
-<li>idf has no effect on ranking one term queries(at least two terms in queries)</li>
-</ol>
-<h3 id="collection-frequency">Collection Frequency</h3>
-<h3 id="tf-idf">tf-idf</h3>
-<ol>
-<li>term frequency</li>
-<li>document frequency</li>
-<li>normalization</li>
-</ol>
-<h2 id="week5-lexicon-text-normalization">Week5 Lexicon &amp; Text Normalization</h2>
-<h3 id="zipf-mystery"><a href="https://www.youtube.com/watch?v=fCn8zs912OE&amp;ab_channel=Vsauce">Zipf Mystery</a></h3>
-<p>just introduce zipf’s law mentioned in ppt</p>
-<h3 id="word-tokenization"><a href="https://www.youtube.com/watch?v=NJaxfxRtKV0&amp;list=PLaZQkZp6WhWy4_bClrW9EGQKnUUD9yp8V&amp;index=3&amp;ab_channel=FromLanguagestoInformation">Word Tokenization*</a></h3>
-<ol>
-<li>cat and cats: same lemma, but different wordforms<br>
-e.g. my name is my ronan</li>
-<li>Type: an element of the vocabulary (4: my name is ronan)</li>
-<li>Token: an instance of that type in running text (5: my*2 name is ronan)</li>
-<li><code>tr 'A-Z' 'a-z' &lt; shakes.txt | tr -sc 'a-z' '\n' | sort | uniq -c | sort -n -r | less</code>
-<ol>
-<li>大写变小写-&gt;把非字母变换行-&gt;排序-&gt;统计-&gt;根据数量排序</li>
-</ol>
-</li>
-<li>language issues e.g. what’re -&gt; what are; San Francisco(one token or two?); PhD</li>
-<li>tokenization in chinese(aka. word segmentation): Standard baseline segmentation algorithm(greedy)
-<ol>
-<li>Given a word list of Chinese, and a string</li>
-<li>Start a pointer at the beginning of the string</li>
-<li>Find the longest word in dictionary that matches the string starting ar pointer</li>
-<li>Move the pointer over the word in string</li>
-<li>Go to 2</li>
-<li>Doesn’t work in English sometimes e.g.<br>
-Thecatinthehat(The cat in the hat);<br>
-Thetabledownthere(The table down there, Theta bled own there)</li>
-</ol>
-</li>
-</ol>
-<h3 id="word-normalization-and-stemming"><a href="https://www.youtube.com/watch?v=k5UCoz79OL8&amp;list=PLaZQkZp6WhWy4_bClrW9EGQKnUUD9yp8V&amp;index=4&amp;ab_channel=FromLanguagestoInformation">Word Normalization and Stemming*</a></h3>
-<h4 id="normalization">Normalization</h4>
-<ol>
-<li>Normalize(e.g. U.S.A.-&gt;USA)
-<ol>
-<li>Case folding(ppt)</li>
-<li>Lemmatization(ppt): reduce inflections or variant form to base form</li>
-</ol>
-</li>
-<li>Define equivalence classes of terms(e.g. deleting periods(句号) in a term)</li>
-<li>Alternative(e.g. Enter: windows -&gt; Search: window, windows)</li>
-<li>Morphology
-<ol>
-<li>Stems: The core meaning-bearing units</li>
-<li>Affixes: Bits and pieces that adhere to stems(often with grammatical functions)</li>
-<li>e.g. Stems -&gt; Stem &amp; s</li>
-</ol>
-</li>
-<li>Stemming: Reduce terms to their stems in IR
-<ol>
-<li>Porter’s algorithm(ppt) : the most common English stemmer; strip -ing if there is a vowel(e.g. walking-&gt;walk,sing-&gt;sing)</li>
-<li><code>tr -sc 'A-Za-z' '\n' &lt; shakes.txt | tr 'A-Z' 'a-z' | grep '[aeiou].*ing$' | sort | uniq -c | sort -n -r | less</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="week6-building-an-inverted-index">Week6 Building an Inverted Index</h2>
-<h3 id="csci-572-videos-w6-1-word-similarity-mp4">CSCI-572/videos/w6.1_Word_Similarity.mp4*</h3>
-<h4 id="word-similarity">Word Similarity</h4>
-<ol>
-<li>Synonymy: a binary relation</li>
-<li>Similarity(or Distance): a looser metric; a relation between senses(e.g. bank is similar to fund)</li>
-<li>Relatedness: car is similar to bicycle; car is related to gasoline, not similar</li>
-<li>compute similarity over both words and senses</li>
-</ol>
-<h4 id="two-similarity-algorithm">Two similarity algorithm</h4>
-<ol>
-<li>Thesaurus-based algorithm
-<ol>
-<li>Path based similarity: two senses are similar if they are near each other in the thesaurus hierarchy<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-path-based-similarity.png" alt="alt">
-<ol>
-<li>pathlen(c1,c2) = 1 + number of edges in the shortest path in the hypernym graph between sense nodes c1 and c2</li>
-<li>simpath(c1,c2) = 1 / pathlen(c1,c2)</li>
-<li>wordsim(w1,w2) = max sim(c1,c2) where c1 \in senses(w1), c2 \in senses(w2)</li>
-<li>e.g. simpath(nickel,coin) = 1/2 simpath(nickel,money) = 1/6</li>
-<li>Problem:
-<ol>
-<li>nickel to money seems to be closer than nickel to standard, but their simpaths are the same</li>
-<li>nodes high in the hierarchy are very abstract</li>
-</ol>
-</li>
-<li>information content similarity metrics
-<ol>
-<li>P© = count(w) / N</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Distributional algorithm</li>
-</ol>
-<h3 id="word-similarity-distributional"><a href="https://www.youtube.com/watch?v=swDoFpuHpzQ&amp;ab_channel=FromLanguagestoInformation">Word similarity distributional*</a></h3>
-<ol>
-<li>Problems with thesaurus-based meaning
-<ol>
-<li>We don’t have a thesaurus for every language</li>
-<li>Even if we do, many words and phrases are missing</li>
-</ol>
-</li>
-<li>Aka Vector-space models
-<ol>
-<li>Two words are similar if they have similar word contexts</li>
-<li>Term-document matrix<br>
-Num of Terms in docs<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-term-doc.png" alt="alt">
-<ol>
-<li>For books, Julius Caesar and Henry V are similar</li>
-<li>For words, fool and clown are similar</li>
-<li>Use tf-idf instead of raw term counts</li>
-</ol>
-</li>
-<li>Term-context matrix<br>
-Two words are similar if they have similar word contexts<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-term-context.png" alt="alt">
-<ol>
-<li>apricot and pineapple are similar, digital and information are similar</li>
-<li>Positive Pointwise Mutual Information(PPMI) is common<br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-PMI.png" alt="alt"><br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-ppmi.png" alt="alt"><br>
-<img src="/2021/ckm8tpn3y0008kgq1fjo9ebz6/w6-distributional-ppmi2.png" alt="alt"></li>
-<li>Weighted PMI</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="will-youtube-ever-run-out-of-video-ids"><a href="https://www.youtube.com/watch?reload=9&amp;v=gocwRvLhDf8&amp;ab_channel=TomScott">Will YouTube Ever Run Out of Video IDs*</a></h3>
-<ol>
-<li>Unique Id is base 64:<br>
-0-9A-Za-z plus ‘-’ plus ‘_’ (10+26+26+1+1=64)</li>
-<li>Generate ID randomly, use it if it is not used</li>
-<li>Incremental ID is ridiculous</li>
-<li>Youtube use 11 characters</li>
-</ol>
-<h1>Exam Index</h1>
-<ol>
-<li>w2.2-SearchEngineEvaluation
-<ol>
-<li>Precision/Recall: True/False Positive/Negative; Difficulties in using precision/recall</li>
-<li>Arithmetic/Geometric/Harmonic mean(F-score/F-Measure)</li>
-<li>Average Precision of relevant docs</li>
-<li>Mean Average Precision(MAP): Averaging Across Queries</li>
-<li>Discounted Cumulative Gain(DCG)</li>
-<li>How Evaluation is Done</li>
-<li>Google’s 4-step process for changing search algorithm</li>
-<li>A/B tests</li>
-<li>Clicks on web</li>
-<li>Enhancements of search results</li>
-</ol>
-</li>
-<li>w3.1-CrawlingInOne
-<ol>
-<li>normalizing url</li>
-<li>handling spam</li>
-<li>re-visit policies</li>
-<li>sitemap</li>
-<li>google crawler</li>
-</ol>
-</li>
-<li>Deduplication
-<ol>
-<li>diff urls redirect to the same page</li>
-<li>near duplicates</li>
-<li>Mirroring</li>
-<li>Why detect duplication</li>
-<li>Cryptographic hash function to convert a web page to a number</li>
-<li>Identify identical web pages</li>
-<li>Identify near identical web pages:
-<ol>
-<li>Produce fingerprints and test for similarity: Simhash or Hamming Distance</li>
-<li>Compute shingles and test for similarity</li>
-</ol>
-</li>
-<li>Distance Measure</li>
-</ol>
-</li>
-<li>w4.2-IntroToInfoRetrieval
-<ol>
-<li>DB management diff</li>
-<li>stopword, stemming, tokens, inverted index</li>
-<li>Boolean Retrieval model</li>
-<li>Vector-Space Model</li>
-<li>Term Weights
-<ol>
-<li>Term Frequency: tf</li>
-<li>Doc Frequency: df, idf=log(N/df) ‘i’ is inverse, base is chosen by us</li>
-<li>w = tf * idf</li>
-</ol>
-</li>
-<li>Cosine Similarity</li>
-</ol>
-</li>
-<li>w5.2-ZipfLexicon
-<ol>
-<li>Power Laws, Zipf’s Law, Heaps’ Law</li>
-<li>Lexicon</li>
-<li>Tokenization</li>
-<li>Token normalization: Stemming, Lemmatization</li>
-<li>Capitalization</li>
-<li>Porter Stemming Algorithm; Error Metrics</li>
-<li>Soundex Algorithm</li>
-<li>Lucene, Solr</li>
-</ol>
-</li>
-<li>w6.1-InvertedIndexPhaseOne
-<ol>
-<li>Parse Documents</li>
-<li>Query Processing</li>
-<li>Posting Merge: Skip pointers</li>
-<li>Intersect postings</li>
-<li>Phrase Queries: Bi-word index(2-grams); positional index</li>
-<li>Part-of-Speech Tagging</li>
-<li>Google N-gram</li>
-</ol>
-</li>
-<li>w6.2-YouTube
-<ol>
-<li>Video Search Engine(and issues)</li>
-<li>Channels</li>
-<li>Ads, monetize youtube</li>
-<li>Ranking Factors</li>
-<li>Upload Features, platform</li>
-<li>Recommendations system</li>
-<li>Google is biased to youtube</li>
-<li>Youtube’s CDN: upload and download</li>
-<li>ContentID for copyrights</li>
-</ol>
-</li>
-<li>w7.1-QueryFormulation
-<ol>
-<li>Boolean Queries, AND, OR(has higher priority than AND), Exact Phrases with quotes,</li>
-<li>‘+’, ‘*’</li>
-<li>Advanced Operators: ‘link:’, ‘filetype:’</li>
-<li>Failed Google Experiments</li>
-<li>Special Content Search Engine</li>
-<li>Relevance Feedback &amp; Query Expansion: Related Search</li>
-<li>Auto-Completion(Algorithm) &amp; Spelling Correction</li>
-<li>Mean Reciprocal Rank(MRR) Scoring</li>
-</ol>
-</li>
-<li>w7.2-PageRank
-<ol>
-<li>Bibliometrics; Citation</li>
-<li>PR Calculation &amp; Convergence</li>
-<li>Web links Examples</li>
-<li>Suggestions on Examples</li>
-<li>Disavow backlinks: let google not count in PR computation</li>
-<li>PR Problems</li>
-<li>Another Link Analysis Algorithm - HITS: Authorities, Hubs, Iterative Algorithm,</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>csci</category>
-        <category>usc</category>
-        <category>url frontier</category>
-      </categories>
-      <tags>
-        <tag>csci</tag>
-        <tag>usc</tag>
-        <tag>url frontier</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql面试个人总结</title>
-    <url>/2020/ckm8tpn3z0009kgq1abx06bmc/</url>
-    <content><![CDATA[<h1>Engines</h1>
-<p>InnoDB, MEMORY, MyISAM</p>
-<h2 id="myisam-vs-innodb">MyISAM vs InnoDB</h2>
-<p><a href="https://dba.stackexchange.com/questions/1/what-are-the-main-differences-between-innodb-and-myisam">Reference</a></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>min lock level</th>
-<th>support transaction and crash recovery</th>
-<th>support foreign key</th>
-<th>support MVCC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>InnoDB</td>
-<td>row-level</td>
-<td>YES</td>
-<td>YES</td>
-<td>YES</td>
-</tr>
-<tr>
-<td>MyISAM</td>
-<td>table-level</td>
-<td>NO</td>
-<td>NO</td>
-<td>NO</td>
-</tr>
-</tbody>
-</table>
-<p>在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构（主索引）。</p>
-<h3 id="mvcc">MVCC</h3>
-<ol>
-<li>MVCC是一种并发控制的方法</li>
-<li>MVCC只在 READ COMMITTED 和 REPEATABLE READ 两个隔离级别下工作，因为 READ UNCOMMITTED 总是读取最新的数据行, 而不是符合当前事务版本的数据行。而 SERIALIZABLE 则会对所有读取的行都加锁。</li>
-</ol>
-<h1>Index</h1>
-<p><a href="https://blog.codinglabs.org/articles/theory-of-mysql-index.html">这篇非常吊</a><br>
-索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储的磁盘上。这样的话，索引查找过程中就要产生磁盘I/O消耗。<br>
-相对于内存存取，I/O存取的消耗要高几个数量级，所以评价一个数据结构作为索引的优劣最重要的指标就是在查找过程中磁盘I/O操作次数的渐进复杂度。<br>
-换句话说，索引的结构组织要尽量减少查找过程中磁盘I/O的存取次数。</p>
-<ol>
-<li>B-Tree Index:
-<ol>
-<li>MyISAM: Data address(Not Data) is stored in B+Tree leaves data field, which is called  nonclustered index <br><br>
-<img src="https://img-blog.csdn.net/20180421144534845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xKRlBIUA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Nonclustered Index"></li>
-<li>InnoDB:<br>
-<a href="https://www.xaprb.com/blog/2006/07/04/how-to-exploit-mysql-index-optimizations/">Reference1</a><br>
-<a href="https://www.jianshu.com/p/c3fb0b01c44d">Reference2</a>
-<ol>
-<li>Clustered/Primary Index(聚集索引/主键索引)： leaves store primary keys and relevant row(数据页) <br><br>
-<img src="https://img-blog.csdn.net/20180421144550724?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xKRlBIUA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Clustered Index">
-<ol>
-<li>InnoDB creates a clustered index for every table.</li>
-<li>If the table has a primary key, that is the clustered index.</li>
-<li>If not, InnoDB internally assigns a six-byte unique ID to every row and uses that as the clustered index.</li>
-</ol>
-</li>
-<li>secondary index(辅助索引)： leaves store primary keys(use primary key to find row later, which means it will search indexes twice) <br><br>
-<img src="https://upload-images.jianshu.io/upload_images/1293895-eeb9baea003174f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/543/format/webp" alt="Secondary Index"></li>
-<li>Hence, we don’t use big data structure for primary key since it will increase the size of secondary index</li>
-<li>recommend to use auto-increase key as primary key(因为非单调的主键会造成在插入新记录时数据文件为了维持B+Tree的特性而频繁的分裂调整，十分低效)</li>
-<li>节点大小为磁盘页的整数倍</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Hash Index:</li>
-<li>bitmap Index:</li>
-<li>R-Tree Index<br>
-<a href="https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html">Comparison of B-Tree and Hash Indexes</a></li>
-<li><a href="https://yq.aliyun.com/articles/62419">Covering Index</a>(覆盖索引): 指一个查询语句的执行只需要从辅助索引中就可以得到查询记录，而不需要查询聚集索引中的记录。也可以称之为实现了索引覆盖。<br>
-即，一个索引包含或者说覆盖所有需要查询的字段的值</li>
-<li>联合索引：KEY test_col1_col2_col3 on test(col1,col2,col3);实际上建立了(col1)、(col1,col2)、(col,col2,col3)三个索引</li>
-<li>最左匹配（前缀）原则：（在生成的b树索引中，索引首先根据第一个字段来排列顺序，然后才是之后的字段）
-<ol>
-<li>where后的条件语句要满足(col1=??)、(col1=?? and col2=??)、(col1=?? and col2=?? and col3=?)</li>
-<li>不可以是(col=?? and col3=?)，不能漏掉col2</li>
-<li>顺序没关系(col2=?? and col1=?? and col3=?)是可以的，因为mysql的查询优化器会重新调整他们的位子</li>
-</ol>
-</li>
-<li>如何选择索引顺序<br>
-比较count(DISTINCT(column))/count(*)，选择大的那个</li>
-<li>避免多个范围条件：因为mysql只会选择其中一个索引</li>
-<li>索引的坏处：
-<ol>
-<li>索引文件本身要消耗存储空间</li>
-<li>索引会加重插入、删除和修改记录时的负担</li>
-<li>因此数据量少的表或者是count(DISTINCT(column))/count(*)小的表不建议建索引(data sparsity)</li>
-</ol>
-</li>
-</ol>
-<h2 id="根据where建立索引">根据Where建立索引</h2>
-<p><a href="https://www.cnblogs.com/rjzheng/p/12557314.html">Reference</a></p>
-<h2 id="为什么用b-树而不是红黑树或者其他数据结构">为什么用B+树而不是红黑树或者其他数据结构</h2>
-<p>主要和磁盘读取存储有关，为了减少IO，磁盘不会按需读取，一般是磁盘预读（即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存）。<br>
-预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，<br>
-每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。</p>
-<p>B+树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
-B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(log_d{N})。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。<br>
-而红黑树这种结构，h明显要深的多，效率明显比B-Tree差很多。</p>
-<p>B+树所有数据都在叶子节点上且是有序的，可以进行范围查找或排序</p>
-<p>哈希虽然能够提供 O(1) 的单数据行操作性能，但是对于范围查询和排序却无法很好地支持，最终导致全表扫描；</p>
-<h2 id="为什么用b-树而不是b树">为什么用B+树而不是B树</h2>
-<ol>
-<li>B+树可以实现区间访问，B树不行</li>
-<li>B 树能够在非叶节点中存储数据，但是这也导致在查询连续数据时可能会带来更多的随机 I/O，<br>
-而 B+ 树的所有叶节点可以通过指针相互连接，能够减少顺序遍历时产生的额外随机 I/O；</li>
-</ol>
-<h2 id="为什么要使用一个与业务无关的自增字段作为主键">为什么要使用一个与业务无关的自增字段作为主键</h2>
-<p>mysql的InnoDB引擎中使用的是B树，如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。<br>
-非自增主键（如果身份证号或学号等），由于每次插入主键的值近似于随机，因此每次新纪录都要被插到现有索引页得中间某个位置，此时MySQL不得不为了将新记录插到合适位置而移动数据。<br>
-业务有关的字段肯定是无序的，所以不能用来做主键。</p>
-<h1>原子性和持久性的实现原理</h1>
-<p><a href="https://www.cnblogs.com/rjzheng/p/10841031.html">原子性和一致性</a></p>
-<ol>
-<li>Mysql怎么保证原子性：利用Innodb的undo log</li>
-<li>Mysql怎么保持持久性：利用Innodb的redo log</li>
-</ol>
-<h1>隔离级别</h1>
-<p><img src="https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/" alt="隔离级别"></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>脏读</th>
-<th>不可重复读</th>
-<th>幻读</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>read uncommitted</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>read committed</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>read repeatable</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>serializable</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>mysql默认级别：read repeatable</p>
-<h2 id="不可重复读和幻读">不可重复读和幻读</h2>
-<p><a href="https://www.cnblogs.com/itcomputer/articles/5133254.html">Reference</a><br>
-不可重复读重点在于update，而幻读的重点在于insert</p>
-<ol>
-<li>在可重复读中，该sql第一次读取到数据后，就将这些数据加锁，其它事务无法修改这些数据，就可以实现可重复读了</li>
-<li>但这种方法却无法锁住insert的数据，所以当事务A先前读取了数据，或者修改了全部数据，事务B还是可以insert数据提交，<br>
-这时事务A就会发现莫名其妙多了一条之前没有的数据，这就是幻读，不能通过行锁来避免；serializable会串行执行指令，给读操作加一把读共享锁，在写的时候<br>
-这个锁是锁住的，不能读，因此也消除了幻读</li>
-</ol>
-<h1>DBMS Architecture</h1>
-<ol>
-<li>All data are stored in data files, which is grouped in table space<br>
-(file group: Logical grouping of several data files that store data with similar characteristics)</li>
-<li>Data files(SQL )</li>
-<li>Listener: listen for client request(SQL request), and then pass to User process</li>
-<li>User: manage each client session</li>
-<li>Scheduler: organize the concurrent execution of SQL requests</li>
-<li>Lock Manager: manages all locks placed on database objects, including disk pages</li>
-<li>Optimizer: analyze SQL queries and finds the most efficient way to access the data</li>
-</ol>
-<h2 id="query-processing">Query Processing</h2>
-<ol>
-<li>Parsing phase: use access plan(use the access plan if exist, if not optimizer will choose the best one)</li>
-<li>Execution phase: all IO operations indicated in the access plan are executed
-<ol>
-<li>acquire the locks</li>
-<li>retrieve data and place in data cache</li>
-<li>process transaction management</li>
-</ol>
-</li>
-<li>Fetching phase: return rows of resulting query result set</li>
-</ol>
-<h2 id="查询优化">查询优化</h2>
-<p>There are two optimizer rule-based optimizer and cost-based optimizer.</p>
-<ol>
-<li>MySQL使用了基于成本的优化器，可以通过查询当前会话的last_query_cost的值来得到其计算当前查询的成本</li>
-<li>优化策略
-<ol>
-<li>重新定义表的关联顺序</li>
-<li>优化MIN()和MAX()函数（找某列的最小值，如果该列有索引，只需要查找B+Tree索引最左端，反之则可以找到最大值，具体原理见下文）</li>
-<li>提前终止查询（比如：使用Limit时，查找到满足数量的结果集后会立即终止查询）</li>
-<li>优化排序（在老版本MySQL会使用两次传输排序，即先读取行指针和需要排序的字段在内存中对其排序，然后再根据排序结果去读取数据行，而新版本采用的是单次传输排序，也就是一次读取所有的数据行，然后根据给定的列排序。对于I/O密集型应用，效率会高很多）</li>
-<li>etc</li>
-</ol>
-</li>
-<li>优化器会生成执行计划</li>
-<li>优化器提示(hint): <code>SELECT select_list FROM table_name USE INDEX(index_list) WHERE condition;</code><br>
-<img src="https://ask.qcloudimg.com/http-save/yehe-1667832/qfvxpyxocc.jpeg?imageView2/2/w/1620" alt="查询过程"></li>
-</ol>
-<p><img src="https://pic4.zhimg.com/80/v2-43ccb9ca6d510bc5a7b7d023ff9bcf87_1440w.jpg" alt="查询过程"></p>
-<h2 id="查询缓存">查询缓存</h2>
-<p><a href="https://cloud.tencent.com/developer/article/1103154">Reference</a></p>
-<ol>
-<li>MySQL将缓存存放在一个引用表（不要理解成table，可以认为是类似于HashMap的数据结构），通过一个哈希值索引，这个哈希值通过查询本身、当前要查询的数据库、客户端协议版本号等一些可能影响结果的信息计算得来。所以两个查询在任何字符上的不同（例如：空格、注释），都会导致缓存不会命中。</li>
-<li>查询中包含任何用户自定义函数、存储函数、用户变量、临时表、MySQL库中的系统表，其查询结果都不会被缓存</li>
-<li>MySQL的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</li>
-<li>任何的查询语句在开始之前都必须经过检查，即使这条SQL语句永远不会命中缓存</li>
-<li>通过SQL_CACHE和SQL_NO_CACHE来控制某个查询语句是否需要进行缓存(可以将query_cache_type设置为DEMAND，这时只有加入SQL_CACHE的查询才会走缓存，其他查询则不会)</li>
-</ol>
-<h2 id="语法解析和预处理">语法解析和预处理</h2>
-<p><a href="https://tech.meituan.com/2018/05/20/sql-parser-used-in-mtdp.html">SQL解析过程</a></p>
-<ol>
-<li>词法分析(MySQLLex): 将输入转化成一个个Token(e.g. <code>select username from user</code> -&gt; 4个token select, username, from和user)。具体代码在sql/lex.h和sql/sql_lex.cc文件中</li>
-<li>语法分析：用于生成语法树，使用了Bison
-<ol>
-<li>e.g. <code>select username, ismale from userinfo where age &gt; 20 and level &gt; 5 and 1 = 1</code> 会生成如下语法树<br>
-<img src="https://awps-assets.meituan.net/mit-x/blog-images-bundle-2018a/a74c9e9c.png" alt="语法树"></li>
-</ol>
-</li>
-</ol>
-<h1>Optimization</h1>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247485117&amp;idx=1&amp;sn=92361755b7c3de488b415ec4c5f46d73&amp;chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&amp;token=79317275&amp;lang=zh_CN#rd">Reference</a></p>
-<ol>
-<li>通常来讲，没有太大的必要使用DECIMAL数据类型。即使是在需要存储财务数据时，仍然可以使用BIGINT。比如需要精确到万分之一，那么可以将数据乘以一百万然后使用BIGINT存储。这样可以避免浮点数计算不准确和DECIMAL精确计算代价高的问题。</li>
-<li>大表ALTER TABLE非常耗时，MySQL执行大部分修改表结果操作的方法是用新的结构创建一个张空表，从旧表中查出所有的数据插入新表，然后再删除旧表。尤其当内存不足而表又很大，而且还有很大索引的情况下，耗时更久。当然有一些奇技淫巧可以解决这个问题，有兴趣可自行查阅。</li>
-<li>优化<code>select * from table where age &gt; 20 limit 1000000,10</code>: <code>select * from table where id in (select id from table where age &gt; 20 limit 1000000,10) </code><br>
-子查询使用的索引是覆盖索引，不需要回表</li>
-<li>在检索效率上来讲,char &gt; varchar</li>
-</ol>
-<h2 id="possible-reasons-if-sql-is-executed-slowly">Possible Reasons if SQL is executed slowly</h2>
-<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247485185&amp;idx=1&amp;sn=66ef08b4ab6af5757792223a83fc0d45&amp;chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&amp;token=79317275&amp;lang=zh_CN#rd">Reference</a></p>
-<ol>
-<li>Mysql is flushing dirty pages(When you update a row, MySQL updates it in the buffer pool, marking the page as dirty.)
-<ol>
-<li>When redo log is full</li>
-<li>When memory is not enough</li>
-<li>MYSQL think system is in low load and it is a suitable time to flush</li>
-</ol>
-</li>
-<li>Encounter locks when executing</li>
-<li>No index for query fields</li>
-<li>MYSQL doesn’t use index properly when executing</li>
-</ol>
-<h1>Others</h1>
-<ol>
-<li>varchar(10)和int(10)各代表什么含义: varchar的10代表了申请的空间长度,也是可以存储的数据的最大长度,而int的10只是代表了展示的长度,不足10位以0填充.<br>
-也就是说,int(1)和int(10)所能存储的数字大小以及占用的空间都是相同的,只是在展示时按照长度展示</li>
-</ol>
-<h2 id="olap-online-analytical-processing">OLAP(Online Analytical Processing)</h2>
-<p><img src="http://bytes.usc.edu/cs585/s20_db0ds1ml2agi/lectures/BI/pics/s039.png" alt="OLAP"></p>
-<h1><a href="https://my.oschina.net/MiniBu/blog/270521">SQL注入和预防</a></h1>
-<p>e.g. 在程序中<code>String sql = &quot;select * from user_table where username= (userName) and password= (password);</code><br>
-usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_table WHERE username=&quot;or 1 = 1 -- and password='’</code><br>
-<code>1=1</code>条件一定成功，<code>--</code>将后面的语句注视掉，甚至可以传入<code>drop database</code></p>
-<p>预防：</p>
-<ol>
-<li>采用预编译语句集(PreparedStatement)：内置了处理SQL注入的能力<br>
-因为 preparedStatement 中可以不包含数据，只包含操作，不需要用数据来拼接 SQL。<br>
-编译过程识别了关键字、执行逻辑之类的东西，编译结束了这条SQL语句能干什么就定了。<br>
-而在编译之后加入注入的部分，就已经没办法改变执行逻辑了，这部分就只能是相当于输入字符串被处理。</li>
-<li>限制数据库权限</li>
-<li>检查用户输入的合法性</li>
-<li>对特殊字符’,&quot;进行转义</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Interview</category>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Interview</tag>
-        <tag>Mysql</tag>
-        <tag>Index</tag>
-        <tag>InnoDB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Go个人学习</title>
-    <url>/2021/ckm8tpn40000ckgq14enh70b1/</url>
+    <url>/2021/ckmm1m5ba0006e7q12v880pvu/</url>
     <content><![CDATA[<p><a href="https://golang.org/ref/spec">Go Official Specification</a></p>
 <p>主要记录一些小知识点</p>
 <h1>Types</h1>
@@ -927,6 +121,16 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
 <li>G是Goroutine</li>
 </ol>
 <h1>Map</h1>
+<h1><a href="https://zhuanlan.zhihu.com/p/34211611">初始化及Init函数</a></h1>
+<ol>
+<li>先于Main函数执行</li>
+<li>不能被其他函数调用</li>
+<li>init函数没有输入参数、返回值</li>
+<li>每个包可以有多个init函数；包的每个源文件也可以有多个init函数，这点比较特殊</li>
+<li>同一个包的init执行顺序，go没有明确定义，编程时要注意程序不要依赖这个执行顺序</li>
+<li>不同包的init函数按照包导入的依赖关系决定执行顺序</li>
+<li>变量初始化-&gt;init()-&gt;main()</li>
+</ol>
 ]]></content>
       <categories>
         <category>Self-Learning</category>
@@ -938,8 +142,148 @@ usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_ta
       </tags>
   </entry>
   <entry>
+    <title>Linux命令总结</title>
+    <url>/2020/ckmm1m5bb0008e7q17b7c4ope/</url>
+    <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
+<h1>Main Directory in Linux</h1>
+<h2 id="proc">/proc</h2>
+<p>This is a virtual filesystem which contains information about all the<br>
+running processes, and information about the hardware present in the system.<br>
+Such as files: cpuinfo, cmdline, meminfo</p>
+<h1>Compression</h1>
+<h2 id="tar">tar</h2>
+<ol>
+<li><code>tar -xzvf files.tar.gz</code></li>
+<li><code>tar -xjvf files.tar.bz2</code></li>
+<li><code>tar -cjvf files.tar.gz hello.c bye.txt</code><br>
+<code>x</code>: extract, <code>c</code>: create, <code>z</code>: gzip, <code>j</code>: bzip, <code>v</code>: verbose, <code>f</code>: file</li>
+</ol>
+<h1>environment variable</h1>
+<ol>
+<li><code>printenv</code></li>
+<li><code>echo $PATH</code></li>
+</ol>
+<h1>Users and Groups</h1>
+<p><code>cat /etc/passwd</code> (contains all the users available in the system)</p>
+<h1>Processes</h1>
+<ol>
+<li><code>ps aux</code></li>
+<li><code>top</code></li>
+</ol>
+<h1>Memory</h1>
+<p><a href="https://www.tecmint.com/check-memory-usage-in-linux/">Free Reference</a></p>
+<ol>
+<li><code>free -h</code></li>
+<li><code>free -s 5</code> show latest memory usage per 5 seconds</li>
+<li><code>top</code></li>
+<li><code>du --max-depth=1 -h</code> 当前目录下各个子目录的大小</li>
+</ol>
+<h1>Service</h1>
+<ol>
+<li><code>systemctl</code>
+<ol>
+<li><code>systemctl reboot/shutdown</code></li>
+<li><code>systemctl -t service</code></li>
+<li><code>systemctl start/status sshd</code></li>
+</ol>
+</li>
+<li><code>systemctl enable sshd.service</code>
+<ol>
+<li><code>journalctl -f -u sshd</code> find the log of a given service <code>-f</code>: follow(keep reading) <code>-u</code>: unit</li>
+<li><code>journalctl --since yesterday</code></li>
+<li><code>journalctl --since &quot;2015-11-10 14:00:00&quot;</code></li>
+</ol>
+</li>
+</ol>
+<h1>File System Mounting</h1>
+<h1>Networking</h1>
+<ol>
+<li><code>ip addr</code></li>
+<li><code>cat /etc/resolv.conf</code> DNS server address to use for DNS queries</li>
+<li><code>ss</code> another utility to investigate sockets
+<ol>
+<li><code>ss -tlpn</code> (<code>t</code>: tcp, <code>l</code>: listen state, <code>p</code>: process, <code>n</code>: numeric port) see ports and relevant processes</li>
+<li><code>ss -tapn</code> (show all state)</li>
+</ol>
+</li>
+<li><code>traceroute/tracepath www.google.com</code>  show the full route of a network packet from the system to any given host.</li>
+</ol>
+<h2 id="ssh">ssh</h2>
+<p><code>vim /etc/ssh/sshd_config</code> to disable password login for ssh</p>
+<h1>watch</h1>
+<ol>
+<li><code>watch -n 1 &quot;ss -ltp&quot;</code> execute a program periodically, showing output fullscreen</li>
+</ol>
+<h1>Linux Firewall</h1>
+<h2 id="install">install</h2>
+<p><code>apt install iptables-persistent</code><br>
+iptables: administration tool for IPv4/IPv6 packet filtering and NAT(Network Address Translation)</p>
+<ol>
+<li><code>iptables -nvL --line-number</code> shows the default table filter and all chains and rules inside of it<br>
+see more details in pdf chapter “Linux Firewall”</li>
+</ol>
+<h1>Disk</h1>
+<p><a href="https://www.binarytides.com/linux-command-check-disk-partitions/">Reference</a></p>
+<ol>
+<li><code>fdisk -l</code></li>
+<li><code>sfdisk -l</code></li>
+<li><code>df -h</code> <code>h</code>: --human-readable (df shows only the mounted file systems or partitions and not all.)</li>
+<li><code>df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs</code> output with specific formats<br>
+<code>-x</code> means not shows whose type is any of these</li>
+<li><code>lsblk</code> List Block Devices</li>
+</ol>
+<h1>Others</h1>
+<p><a href="https://www.tecmint.com/useful-linux-commands-for-newbies/">Reference</a></p>
+<ol>
+<li><code>md5sum/sha1sum filename</code></li>
+<li><code>uname -a</code> print detailed information about the machine name, Operating System and Kernel.<br>
+(kernel name, node name, kernel release, kernel version, )</li>
+<li><code>cat /etc/os-release</code></li>
+<li><code>sudo</code> stands for super user do</li>
+<li><code>touch filename</code> touch command creates the file, only if it doesn’t exist.<br>
+If the file already exists it will update the timestamp and not the contents of the file.</li>
+<li><code>whatis ls</code></li>
+<li><code>alias l='ls -l'</code> <code>unalias l</code></li>
+<li><code>cmp filename1 filename2</code></li>
+<li><code>w</code> a combination of <code>uptime</code> and <code>who</code></li>
+<li><code>rsync</code> a fast, versatile, remote (and local) file-copying tool, which can replace <code>cp</code></li>
+<li><code>lsof</code> list of open file <a href="https://www.tecmint.com/10-lsof-command-examples-in-linux/">See More Details</a></li>
+<li><code>more/less</code> does not have to read the entire input file before starting(vim does)</li>
+<li><code>head/tail</code> read file from head/tail</li>
+</ol>
+<h2 id="how-to-find-files-or-directories">How to find files or directories</h2>
+<ol>
+<li><code>locate java</code> locate reads one or more databases prepared by <code>updatedb</code> and writes file names matching at least<br>
+one of the PATTERNs to standard output, one per line.</li>
+<li><code>which java</code>  find the exact path of the executable being used by a command in our shell.</li>
+<li><code>whereis java</code> locate the binary, source, and manual page files for a command(ie, not only the executable one in <code>which</code>, and some other stuff (like man pages).)</li>
+<li><strong>find</strong> Search for files in the given directory, hierarchically starting at the parent directory and moving to sub-directories.
+<ol>
+<li><code>find -name *.sh</code></li>
+<li><code>find -iname *.SH</code> case insensitive</li>
+</ol>
+</li>
+<li><strong>grep</strong>
+<ol>
+<li><code>grep tecmint /etc/passwd</code></li>
+<li><code>grep -i TECMINT /etc/passwd</code> case insensitive</li>
+<li><code>grep -r &quot;127.0.0.1&quot; /etc/</code> search recursively</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Interview</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Computer Network总结</title>
-    <url>/2020/ckm8tpn41000dkgq1b7qcgbmr/</url>
+    <url>/2020/ckmm1m5bc0009e7q1388e3e1k/</url>
     <content><![CDATA[<h1>Layers</h1>
 <ol>
 <li>
@@ -1205,6 +549,24 @@ ETH_P_ARP(arp数据包)</p>
 <p>CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，<br>
 通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，<br>
 降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
+<h1>RPC</h1>
+<p>服务器A调用服务器B的方法</p>
+<ol>
+<li>Call ID映射
+<ol>
+<li>在RPC中，所有的函数都有一个ID。这个ID在所有进程中是唯一的。客户端在做远程过程调用时，必须附上这个ID</li>
+<li>客户端和服务端分别维护一个 {函数 &lt;–&gt; Call ID} 的对应表，相同的函数对应的Call ID必须相同</li>
+<li>当客户端需要进行远程调用时，查一下这个表，找出相应的Call ID，把它传给服务端，<br>
+服务端也通过查表，来确定客户端需要调用的函数，然后执行相应函数的代码</li>
+</ol>
+</li>
+<li>序列化和反序列化
+<ol>
+<li>客户端服务端可能使用的不是同一种语言，需要先序列化成字节流</li>
+</ol>
+</li>
+<li>网络传输: 大部分用TCP，UDP也行，gRPC用的HTTP2</li>
+</ol>
 ]]></content>
       <categories>
         <category>Interview</category>
@@ -1217,148 +579,8 @@ ETH_P_ARP(arp数据包)</p>
       </tags>
   </entry>
   <entry>
-    <title>Linux命令总结</title>
-    <url>/2020/ckm8tpn42000gkgq1b3fz2kax/</url>
-    <content><![CDATA[<p><a href="https://readthedocs.org/projects/lym/downloads/pdf/latest/">Linux Command online PDF</a></p>
-<h1>Main Directory in Linux</h1>
-<h2 id="proc">/proc</h2>
-<p>This is a virtual filesystem which contains information about all the<br>
-running processes, and information about the hardware present in the system.<br>
-Such as files: cpuinfo, cmdline, meminfo</p>
-<h1>Compression</h1>
-<h2 id="tar">tar</h2>
-<ol>
-<li><code>tar -xzvf files.tar.gz</code></li>
-<li><code>tar -xjvf files.tar.bz2</code></li>
-<li><code>tar -cjvf files.tar.gz hello.c bye.txt</code><br>
-<code>x</code>: extract, <code>c</code>: create, <code>z</code>: gzip, <code>j</code>: bzip, <code>v</code>: verbose, <code>f</code>: file</li>
-</ol>
-<h1>environment variable</h1>
-<ol>
-<li><code>printenv</code></li>
-<li><code>echo $PATH</code></li>
-</ol>
-<h1>Users and Groups</h1>
-<p><code>cat /etc/passwd</code> (contains all the users available in the system)</p>
-<h1>Processes</h1>
-<ol>
-<li><code>ps aux</code></li>
-<li><code>top</code></li>
-</ol>
-<h1>Memory</h1>
-<p><a href="https://www.tecmint.com/check-memory-usage-in-linux/">Free Reference</a></p>
-<ol>
-<li><code>free -h</code></li>
-<li><code>free -s 5</code> show latest memory usage per 5 seconds</li>
-<li><code>top</code></li>
-<li><code>du --max-depth=1 -h</code> 当前目录下各个子目录的大小</li>
-</ol>
-<h1>Service</h1>
-<ol>
-<li><code>systemctl</code>
-<ol>
-<li><code>systemctl reboot/shutdown</code></li>
-<li><code>systemctl -t service</code></li>
-<li><code>systemctl start/status sshd</code></li>
-</ol>
-</li>
-<li><code>systemctl enable sshd.service</code>
-<ol>
-<li><code>journalctl -f -u sshd</code> find the log of a given service <code>-f</code>: follow(keep reading) <code>-u</code>: unit</li>
-<li><code>journalctl --since yesterday</code></li>
-<li><code>journalctl --since &quot;2015-11-10 14:00:00&quot;</code></li>
-</ol>
-</li>
-</ol>
-<h1>File System Mounting</h1>
-<h1>Networking</h1>
-<ol>
-<li><code>ip addr</code></li>
-<li><code>cat /etc/resolv.conf</code> DNS server address to use for DNS queries</li>
-<li><code>ss</code> another utility to investigate sockets
-<ol>
-<li><code>ss -tlpn</code> (<code>t</code>: tcp, <code>l</code>: listen state, <code>p</code>: process, <code>n</code>: numeric port) see ports and relevant processes</li>
-<li><code>ss -tapn</code> (show all state)</li>
-</ol>
-</li>
-<li><code>traceroute/tracepath www.google.com</code>  show the full route of a network packet from the system to any given host.</li>
-</ol>
-<h2 id="ssh">ssh</h2>
-<p><code>vim /etc/ssh/sshd_config</code> to disable password login for ssh</p>
-<h1>watch</h1>
-<ol>
-<li><code>watch -n 1 &quot;ss -ltp&quot;</code> execute a program periodically, showing output fullscreen</li>
-</ol>
-<h1>Linux Firewall</h1>
-<h2 id="install">install</h2>
-<p><code>apt install iptables-persistent</code><br>
-iptables: administration tool for IPv4/IPv6 packet filtering and NAT(Network Address Translation)</p>
-<ol>
-<li><code>iptables -nvL --line-number</code> shows the default table filter and all chains and rules inside of it<br>
-see more details in pdf chapter “Linux Firewall”</li>
-</ol>
-<h1>Disk</h1>
-<p><a href="https://www.binarytides.com/linux-command-check-disk-partitions/">Reference</a></p>
-<ol>
-<li><code>fdisk -l</code></li>
-<li><code>sfdisk -l</code></li>
-<li><code>df -h</code> <code>h</code>: --human-readable (df shows only the mounted file systems or partitions and not all.)</li>
-<li><code>df -h --output=source,fstype,size,used,avail,pcent,target -x tmpfs -x devtmpfs</code> output with specific formats<br>
-<code>-x</code> means not shows whose type is any of these</li>
-<li><code>lsblk</code> List Block Devices</li>
-</ol>
-<h1>Others</h1>
-<p><a href="https://www.tecmint.com/useful-linux-commands-for-newbies/">Reference</a></p>
-<ol>
-<li><code>md5sum/sha1sum filename</code></li>
-<li><code>uname -a</code> print detailed information about the machine name, Operating System and Kernel.<br>
-(kernel name, node name, kernel release, kernel version, )</li>
-<li><code>cat /etc/os-release</code></li>
-<li><code>sudo</code> stands for super user do</li>
-<li><code>touch filename</code> touch command creates the file, only if it doesn’t exist.<br>
-If the file already exists it will update the timestamp and not the contents of the file.</li>
-<li><code>whatis ls</code></li>
-<li><code>alias l='ls -l'</code> <code>unalias l</code></li>
-<li><code>cmp filename1 filename2</code></li>
-<li><code>w</code> a combination of <code>uptime</code> and <code>who</code></li>
-<li><code>rsync</code> a fast, versatile, remote (and local) file-copying tool, which can replace <code>cp</code></li>
-<li><code>lsof</code> list of open file <a href="https://www.tecmint.com/10-lsof-command-examples-in-linux/">See More Details</a></li>
-<li><code>more/less</code> does not have to read the entire input file before starting(vim does)</li>
-<li><code>head/tail</code> read file from head/tail</li>
-</ol>
-<h2 id="how-to-find-files-or-directories">How to find files or directories</h2>
-<ol>
-<li><code>locate java</code> locate reads one or more databases prepared by <code>updatedb</code> and writes file names matching at least<br>
-one of the PATTERNs to standard output, one per line.</li>
-<li><code>which java</code>  find the exact path of the executable being used by a command in our shell.</li>
-<li><code>whereis java</code> locate the binary, source, and manual page files for a command(ie, not only the executable one in <code>which</code>, and some other stuff (like man pages).)</li>
-<li><strong>find</strong> Search for files in the given directory, hierarchically starting at the parent directory and moving to sub-directories.
-<ol>
-<li><code>find -name *.sh</code></li>
-<li><code>find -iname *.SH</code> case insensitive</li>
-</ol>
-</li>
-<li><strong>grep</strong>
-<ol>
-<li><code>grep tecmint /etc/passwd</code></li>
-<li><code>grep -i TECMINT /etc/passwd</code> case insensitive</li>
-<li><code>grep -r &quot;127.0.0.1&quot; /etc/</code> search recursively</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Interview</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Interview</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title></title>
-    <url>/2021/ckm8tpn42000hkgq1c3ib91g5/</url>
+    <url>/2021/ckmm1m5bl001ae7q1gn1k0i9y/</url>
     <content><![CDATA[<h1>产品参数</h1>
 <ol>
 <li>塑料款 12L 235<em>195</em>310mm 无内桶<br>
@@ -1400,7 +622,7 @@ one of the PATTERNs to standard output, one per line.</li>
   </entry>
   <entry>
     <title>Redis个人总结</title>
-    <url>/2020/ckm8tpn4e0023kgq1cvta2qr1/</url>
+    <url>/2020/ckmm1m5bm001be7q15b4dd8tk/</url>
     <content><![CDATA[<p><a href="https://redislabs.com/ebook/preface/">Book Reference</a></p>
 <h1>Features</h1>
 <ol>
@@ -1633,10 +855,359 @@ Before sort, data strcture will be converted to double</p>
       </tags>
   </entry>
   <entry>
+    <title>Mysql面试个人总结</title>
+    <url>/2020/ckmm1m5bq001ce7q10fsx3j24/</url>
+    <content><![CDATA[<h1>1. <a href="https://www.cnblogs.com/kismetv/p/10331633.html">ACID特性的实现原理</a></h1>
+<h2 id="1-1-原子性-atomicity">1.1 原子性(Atomicity)</h2>
+<p>指一个事务是一个不可分割的工作单位，其中的操作要么都做，要么都不做</p>
+<h3 id="1-1-1-undo-log">1.1.1 undo log</h3>
+<p>(对于insert，回滚时执行delete；对于delete，回滚时执行insert,etc)</p>
+<h2 id="1-2-持久性-durability">1.2 持久性(Durability)</h2>
+<ol>
+<li>指事务一旦提交，它对数据库的改变就应该是永久性的</li>
+<li>Buffer Pool
+<ol>
+<li>读写数据都需要磁盘IO，效率会很低为此，因此InnoDB提供了Buffer Pool。Buffer Pool中包含了磁盘中部分数据页的映射，作为访问数据库的缓冲</li>
+<li>当从数据库读取数据时，会先从Buffer Pool中读取，如果Buffer Pool中没有，则从磁盘读取后放入Buffer Pool</li>
+<li>当向数据库写入数据时，会先写入Buffer Pool，Buffer Pool中修改的数据会定期刷新到磁盘中（这一过程称为刷脏）</li>
+<li>但如果MySQL宕机，而此时Buffer Pool中修改的数据还没有刷新到磁盘，就会导致数据的丢失，事务的持久性无法保证(引入redo log)</li>
+</ol>
+</li>
+<li>redo log
+<ol>
+<li>采用WAL（Write-ahead logging，预写式日志），所有修改先写入日志，再更新到Buffer Pool</li>
+<li>如果MySQL宕机，重启时可以读取redo log中的数据，对数据库进行恢复</li>
+<li>当事务提交时，会调用fsync接口对redo log进行刷盘</li>
+</ol>
+</li>
+<li>redo log比buffer pool刷脏要快
+<ol>
+<li>刷脏是随机IO，因为每次修改的数据位置随机，但写redo log是追加操作，属于顺序IO</li>
+<li>刷脏是以数据页（Page）为单位的，MySQL默认页大小是16KB，一个Page上一个小修改都要整页写入；<br>
+而redo log中只包含真正需要写入的部分，无效IO大大减少。</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-3-隔离性-isolation">1.3 隔离性(Isolation)</h2>
+<p>指事务内部的操作与其他事务是隔离的(隔离级别)</p>
+<h3 id="1-3-1-锁机制-lock-based-concurrency-control">1.3.1 锁机制(Lock-Based Concurrency Control)</h3>
+<p>按粒度分：行锁，表锁 <code>select * from information_schema.innodb_locks; #锁的概况</code></p>
+<ol>
+<li>脏读：当前事务可读到其他事务未提交的数据</li>
+<li>不可重复读：在事务A中先后两次读取同一个数据，两次读取的结果不一样（同一条记录被其他事务修改了，重点在同一条数据）</li>
+<li>幻读：在事务A中按照某个条件先后两次查询数据库，两次查询结果的条数不同（被其他事务修改了，重点在数量）</li>
+</ol>
+<p><a href="https://www.cnblogs.com/itcomputer/articles/5133254.html">不可重复读和幻读的区别</a></p>
+<p><a href="https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/">隔离级别</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read uncommitted</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>read committed</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>repeatable read</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>serializable</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>serializable会串行执行指令，给读操作加一把读共享锁，在写的时候，这个锁是锁住的，不能读，因此消除了幻读</p>
+<p>mysql默认级别：repeatable read(RR)，在SQL标准中，RR无法避免幻读问题，但在InnoDB中RR避免了(使用了MVCC)</p>
+<h3 id="mvcc-multi-version-concurrency-control"><a href="https://blog.csdn.net/qq_35190492/article/details/109044141">MVCC(Multi Version Concurrency Control)</a></h3>
+<ol>
+<li>普通select请求不会加锁，提高了数据库的并发处理能力</li>
+<li>通过在每行记录后面保存两个隐藏的列来实现的
+<ol>
+<li>行的事务ID(DB_TRX_ID)(没开始一个新的事务，自动递增): 查询时用当前事务id和每行记录的事务id进行比较</li>
+<li>行的回滚指针(DB_ROLL_PT): 依赖undo log(insert undo log &amp; update undo log)</li>
+<li>链接中有例子</li>
+</ol>
+</li>
+<li>ReadView: 将当前活跃的读写事务id放到一个列表中(m_ids)
+<ol>
+<li>如果被访问的行的 trx_id 小于 m_ids 中最小的事务id，<br>
+表明生成该行的事务在生成 ReadView 前已经提交，所以该行可以被当前事务访问。</li>
+<li>如果被访问的行的 trx_id 大于 m_ids 列表中最大的事务id，<br>
+表明生成该行的事务在生成 ReadView 后才生成，所以该行不可以被当前事务访问。</li>
+<li>如果被访问的行的 trx_id 在 m_ids 列表中最大的事务id和最小事务id之间，<br>
+那就需要判断一下 trx_id 是不是在 m_ids 列表中，<br>
+如果在，说明创建 ReadView 时生成该行的事务还是活跃的，该行不可以被访问<br>
+如果不在，说明创建 ReadView 时生成该行的事务已经被提交，该行可以被访问</li>
+<li>RC隔离级别下每次查询开始时都会生成一个独立的 ReadView</li>
+<li>RR隔离级别下第一次读取数据时生成 ReadView</li>
+</ol>
+</li>
+<li>只在REPEATABLE READ和READ COMMITTED两个隔离级别下工作
+<ol>
+<li>READ UNCOMMITTED总是读取最新的数据行，而不是符合当前事务版本的数据行</li>
+<li>SERIALIZABLE会对所有读取的行都加锁</li>
+</ol>
+</li>
+<li>RR隔离级别下非加锁读（快照读，一致性读），使用MVCC避免脏读、不可重复读、幻读</li>
+<li>RC隔离级别下非加锁读，使用MVCC只能避免脏读</li>
+<li>加锁读与next-key lock
+<ol>
+<li>加锁读可避免脏读和不可重复读，但仍有幻读</li>
+<li>使用next-key lock：行锁的一种，实现相当于record lock(记录锁)+gap lock(间隙锁)<br>
+不仅会锁住记录本身(record lock的功能)，还会锁定一个范围(gap lock的功能)，可以避免幻读</li>
+</ol>
+</li>
+<li>RR隔离级别下，在同一个事务中第一次采用非加锁读，第二次采用加锁读（加锁读不会使用MVCC），仍有问题</li>
+</ol>
+<h2 id="一致性-consistency">一致性(Consistency)</h2>
+<p>数据库的完整性约束没有被破坏，事务执行的前后都是合法的数据状态</p>
+<ol>
+<li>数据库层面：原子性，持久性，隔离性；其他的例如不允许向整形列插入字符串值、字符串长度不能超过列的限制</li>
+<li>应用层层面：例如如果转账操作只扣除转账者的余额，而没有增加接收者的余额，无论数据库实现的多么完美，也无法保证状态的一致</li>
+</ol>
+<h1>Engines</h1>
+<p>InnoDB, MEMORY, MyISAM</p>
+<h2 id="myisam-vs-innodb">MyISAM vs InnoDB</h2>
+<p><a href="https://dba.stackexchange.com/questions/1/what-are-the-main-differences-between-innodb-and-myisam">Reference</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>min lock level</th>
+<th>support transaction and crash recovery</th>
+<th>support foreign key</th>
+<th>support MVCC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InnoDB</td>
+<td>row-level</td>
+<td>YES</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>MyISAM</td>
+<td>table-level</td>
+<td>NO</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+<p>在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构（主索引）。</p>
+<h1>Index</h1>
+<p><a href="https://blog.codinglabs.org/articles/theory-of-mysql-index.html">这篇非常吊</a><br>
+索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储的磁盘上。这样的话，索引查找过程中就要产生磁盘I/O消耗。<br>
+相对于内存存取，I/O存取的消耗要高几个数量级，所以评价一个数据结构作为索引的优劣最重要的指标就是在查找过程中磁盘I/O操作次数的渐进复杂度。<br>
+换句话说，索引的结构组织要尽量减少查找过程中磁盘I/O的存取次数。</p>
+<ol>
+<li>B-Tree Index:
+<ol>
+<li>MyISAM: Data address(Not Data) is stored in B+Tree leaves data field, which is called  nonclustered index <br><br>
+<img src="https://img-blog.csdn.net/20180421144534845?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xKRlBIUA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Nonclustered Index"></li>
+<li>InnoDB:<br>
+<a href="https://www.xaprb.com/blog/2006/07/04/how-to-exploit-mysql-index-optimizations/">Reference1</a><br>
+<a href="https://www.jianshu.com/p/c3fb0b01c44d">Reference2</a>
+<ol>
+<li>Clustered/Primary Index(聚集索引/主键索引)： leaves store primary keys and relevant row(数据页) <br><br>
+<img src="https://img-blog.csdn.net/20180421144550724?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xKRlBIUA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="Clustered Index">
+<ol>
+<li>InnoDB creates a clustered index for every table.</li>
+<li>If the table has a primary key, that is the clustered index.</li>
+<li>If not, InnoDB internally assigns a six-byte unique ID to every row and uses that as the clustered index.</li>
+</ol>
+</li>
+<li>secondary index(辅助索引)： leaves store primary keys(use primary key to find row later, which means it will search indexes twice) <br><br>
+<img src="https://upload-images.jianshu.io/upload_images/1293895-eeb9baea003174f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/543/format/webp" alt="Secondary Index"></li>
+<li>Hence, we don’t use big data structure for primary key since it will increase the size of secondary index</li>
+<li>recommend to use auto-increase key as primary key(因为非单调的主键会造成在插入新记录时数据文件为了维持B+Tree的特性而频繁的分裂调整，十分低效)</li>
+<li>节点大小为磁盘页的整数倍</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Hash Index:</li>
+<li>bitmap Index:</li>
+<li>R-Tree Index<br>
+<a href="https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html">Comparison of B-Tree and Hash Indexes</a></li>
+<li><a href="https://yq.aliyun.com/articles/62419">Covering Index</a>(覆盖索引): 指一个查询语句的执行只需要从辅助索引中就可以得到查询记录，而不需要查询聚集索引中的记录。也可以称之为实现了索引覆盖。<br>
+即，一个索引包含或者说覆盖所有需要查询的字段的值</li>
+<li>联合索引：KEY test_col1_col2_col3 on test(col1,col2,col3);实际上建立了(col1)、(col1,col2)、(col,col2,col3)三个索引</li>
+<li>最左匹配（前缀）原则：（在生成的b树索引中，索引首先根据第一个字段来排列顺序，然后才是之后的字段）
+<ol>
+<li>where后的条件语句要满足(col1=??)、(col1=?? and col2=??)、(col1=?? and col2=?? and col3=?)</li>
+<li>不可以是(col=?? and col3=?)，不能漏掉col2</li>
+<li>顺序没关系(col2=?? and col1=?? and col3=?)是可以的，因为mysql的查询优化器会重新调整他们的位子</li>
+</ol>
+</li>
+<li>如何选择索引顺序<br>
+比较count(DISTINCT(column))/count(*)，选择大的那个</li>
+<li>避免多个范围条件：因为mysql只会选择其中一个索引</li>
+<li>索引的坏处：
+<ol>
+<li>索引文件本身要消耗存储空间</li>
+<li>索引会加重插入、删除和修改记录时的负担</li>
+<li>因此数据量少的表或者是count(DISTINCT(column))/count(*)小的表不建议建索引(data sparsity)</li>
+</ol>
+</li>
+</ol>
+<h2 id="根据where建立索引">根据Where建立索引</h2>
+<p><a href="https://www.cnblogs.com/rjzheng/p/12557314.html">Reference</a></p>
+<h2 id="为什么用b-树而不是红黑树或者其他数据结构">为什么用B+树而不是红黑树或者其他数据结构</h2>
+<p>主要和磁盘读取存储有关，为了减少IO，磁盘不会按需读取，一般是磁盘预读（即使只需要一个字节，磁盘也会从这个位置开始，顺序向后读取一定长度的数据放入内存）。<br>
+预读的长度一般为页（page）的整倍数。页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，<br>
+每个存储块称为一页（在许多操作系统中，页得大小通常为4k），主存和磁盘以页为单位交换数据。</p>
+<p>B+树索引，每次新建节点时会直接申请一个页，实现了一个node一次IO读取。<br>
+B-Tree中一次检索最多需要h-1次I/O（根节点常驻内存），渐进复杂度为O(h)=O(log_d{N})。一般实际应用中，出度d是非常大的数字，通常超过100，因此h非常小（通常不超过3）。<br>
+而红黑树这种结构，h明显要深的多，效率明显比B-Tree差很多。</p>
+<p>B+树所有数据都在叶子节点上且是有序的，可以进行范围查找或排序</p>
+<p>哈希虽然能够提供 O(1) 的单数据行操作性能，但是对于范围查询和排序却无法很好地支持，最终导致全表扫描；</p>
+<h2 id="为什么用b-树而不是b树">为什么用B+树而不是B树</h2>
+<ol>
+<li>B+树可以实现区间访问，B树不行</li>
+<li>B 树能够在非叶节点中存储数据，但是这也导致在查询连续数据时可能会带来更多的随机 I/O，<br>
+而 B+ 树的所有叶节点可以通过指针相互连接，能够减少顺序遍历时产生的额外随机 I/O；</li>
+</ol>
+<h2 id="为什么要使用一个与业务无关的自增字段作为主键">为什么要使用一个与业务无关的自增字段作为主键</h2>
+<p>mysql的InnoDB引擎中使用的是B树，如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。<br>
+非自增主键（如果身份证号或学号等），由于每次插入主键的值近似于随机，因此每次新纪录都要被插到现有索引页得中间某个位置，此时MySQL不得不为了将新记录插到合适位置而移动数据。<br>
+业务有关的字段肯定是无序的，所以不能用来做主键。</p>
+<h1>SQL 执行过程</h1>
+<p><a href="https://juejin.cn/post/6844903655439597582">执行过程</a></p>
+<ol>
+<li>客户端给服务器发送一条查询</li>
+<li>服务端先检查查询缓存，如果命中，则返回</li>
+<li>服务端进行SQL解析，预处理，再由优化器生成对应的执行计划</li>
+<li>Mysql根据执行计划再调用存储引擎的API来查询</li>
+<li>返回结果</li>
+</ol>
+<h2 id="查询缓存">查询缓存</h2>
+<p><a href="https://cloud.tencent.com/developer/article/1103154">Reference</a></p>
+<ol>
+<li>MySQL将缓存存放在一个引用表（不要理解成table，可以认为是类似于HashMap的数据结构），<br>
+通过一个哈希值索引，这个哈希值通过查询本身、当前要查询的数据库、客户端协议版本号等一些可能影响结果的信息计算得来。<br>
+所以两个查询在任何字符上的不同（例如：空格、注释），都会导致缓存不会命中。</li>
+<li>查询中包含任何用户自定义函数、存储函数、用户变量、临时表、MySQL库中的系统表，(NOW(), CURRENT_DATE())其查询结果都不会被缓存</li>
+<li>MySQL的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</li>
+<li>任何的查询语句在开始之前都必须经过检查，即使这条SQL语句永远不会命中缓存</li>
+<li>query_cache_type:是否打开查询缓存。<br>
+可以设置为OFF、ON和DEMAND(通过SQL_CACHE和SQL_NO_CACHE来控制某个查询语句是否需要进行缓存)</li>
+</ol>
+<h2 id="语法解析">语法解析</h2>
+<p><a href="https://tech.meituan.com/2018/05/20/sql-parser-used-in-mtdp.html">SQL解析过程</a></p>
+<ol>
+<li>词法分析(MySQLLex): 将输入转化成一个个Token(e.g. <code>select username from user</code> -&gt; 4个token select, username, from和user)。具体代码在sql/lex.h和sql/sql_lex.cc文件中</li>
+<li>语法分析：用于生成语法树，使用了Bison
+<ol>
+<li>e.g. <code>select username, ismale from userinfo where age &gt; 20 and level &gt; 5 and 1 = 1</code> 会生成如下语法树<br>
+<img src="https://awps-assets.meituan.net/mit-x/blog-images-bundle-2018a/a74c9e9c.png" alt="语法树"></li>
+</ol>
+</li>
+</ol>
+<h2 id="预处理">预处理</h2>
+<p>根据MySQL规则进行进一步检查解析树是否合法，例如检查数据表和数据列是否存在，还会解析名字和别名，看看它们是否有歧义</p>
+<h2 id="查询优化器">查询优化器</h2>
+<p>将解析树转化成执行计划</p>
+<ol>
+<li>多个执行计划：一条查询可以有多种执行方法，最后都是返回相同结果，优化器的作用就是找到这其中最好的执行计划</li>
+<li>执行计划缓存：如果在一条SQL语句执行的过程中将该语句对应的最终执行计划进行缓存，当相似的语句再次被输入服务器时，就可以直接使用已缓存的执行计划</li>
+<li>MySQL使用了基于成本的优化器(cost-based optimizer CBO还有个rule-based)，<br>
+可以通过查询当前会话的last_query_cost的值来得到其计算当前查询的成本</li>
+<li>优化策略
+<ol>
+<li>重新定义表的关联顺序</li>
+<li>优化MIN()和MAX()函数（找某列的最小值，如果该列有索引，只需要查找B+Tree索引最左端，反之则可以找到最大值，具体原理见下文）</li>
+<li>提前终止查询（比如：使用Limit时，查找到满足数量的结果集后会立即终止查询）</li>
+<li>优化排序（在老版本MySQL会使用两次传输排序，即先读取行指针和需要排序的字段在内存中对其排序，然后再根据排序结果去读取数据行，而新版本采用的是单次传输排序，也就是一次读取所有的数据行，然后根据给定的列排序。对于I/O密集型应用，效率会高很多）</li>
+<li>etc</li>
+</ol>
+</li>
+<li>优化器提示(hint): <code>SELECT select_list FROM table_name USE INDEX(index_list) WHERE condition;</code><br>
+<img src="https://ask.qcloudimg.com/http-save/yehe-1667832/qfvxpyxocc.jpeg?imageView2/2/w/1620" alt="查询过程"></li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-43ccb9ca6d510bc5a7b7d023ff9bcf87_1440w.jpg" alt="查询过程"></p>
+<h1>Optimization</h1>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247485117&amp;idx=1&amp;sn=92361755b7c3de488b415ec4c5f46d73&amp;chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&amp;token=79317275&amp;lang=zh_CN#rd">Reference</a></p>
+<ol>
+<li>通常来讲，没有太大的必要使用DECIMAL数据类型。即使是在需要存储财务数据时，仍然可以使用BIGINT。比如需要精确到万分之一，那么可以将数据乘以一百万然后使用BIGINT存储。这样可以避免浮点数计算不准确和DECIMAL精确计算代价高的问题。</li>
+<li>大表ALTER TABLE非常耗时，MySQL执行大部分修改表结果操作的方法是用新的结构创建一个张空表，从旧表中查出所有的数据插入新表，然后再删除旧表。尤其当内存不足而表又很大，而且还有很大索引的情况下，耗时更久。当然有一些奇技淫巧可以解决这个问题，有兴趣可自行查阅。</li>
+<li>优化<code>select * from table where age &gt; 20 limit 1000000,10</code>: <code>select * from table where id in (select id from table where age &gt; 20 limit 1000000,10) </code><br>
+子查询使用的索引是覆盖索引，不需要回表</li>
+<li>在检索效率上来讲,char &gt; varchar</li>
+</ol>
+<h2 id="possible-reasons-if-sql-is-executed-slowly">Possible Reasons if SQL is executed slowly</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247485185&amp;idx=1&amp;sn=66ef08b4ab6af5757792223a83fc0d45&amp;chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&amp;token=79317275&amp;lang=zh_CN#rd">Reference</a></p>
+<ol>
+<li>Mysql is flushing dirty pages(When you update a row, MySQL updates it in the buffer pool, marking the page as dirty.)
+<ol>
+<li>When redo log is full</li>
+<li>When memory is not enough</li>
+<li>MYSQL think system is in low load and it is a suitable time to flush</li>
+</ol>
+</li>
+<li>Encounter locks when executing</li>
+<li>No index for query fields</li>
+<li>MYSQL doesn’t use index properly when executing</li>
+</ol>
+<h1>Others</h1>
+<ol>
+<li>varchar(10)和int(10)各代表什么含义: varchar的10代表了申请的空间长度,也是可以存储的数据的最大长度,而int的10只是代表了展示的长度,不足10位以0填充.<br>
+也就是说,int(1)和int(10)所能存储的数字大小以及占用的空间都是相同的,只是在展示时按照长度展示</li>
+</ol>
+<h1><a href="https://my.oschina.net/MiniBu/blog/270521">SQL注入和预防</a></h1>
+<p>e.g. 在程序中<code>String sql = &quot;select * from user_table where username= (userName) and password= (password);</code><br>
+usrName传入<code>&quot;or 1 = 1 –</code>，得到<code>SELECT * FROM user_table WHERE username=&quot;or 1 = 1 -- and password='’</code><br>
+<code>1=1</code>条件一定成功，<code>--</code>将后面的语句注视掉，甚至可以传入<code>drop database</code></p>
+<p>预防：</p>
+<ol>
+<li>采用预编译语句集(PreparedStatement)：内置了处理SQL注入的能力<br>
+因为 preparedStatement 中可以不包含数据，只包含操作，不需要用数据来拼接 SQL。<br>
+编译过程识别了关键字、执行逻辑之类的东西，编译结束了这条SQL语句能干什么就定了。<br>
+而在编译之后加入注入的部分，就已经没办法改变执行逻辑了，这部分就只能是相当于输入字符串被处理。</li>
+<li>限制数据库权限</li>
+<li>检查用户输入的合法性</li>
+<li>对特殊字符’,&quot;进行转义</li>
+</ol>
+<h1>聚合查询</h1>
+<p>Count, Sum, Max, Min, Avg</p>
+]]></content>
+      <categories>
+        <category>Interview</category>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Interview</tag>
+        <tag>Mysql</tag>
+        <tag>Index</tag>
+        <tag>InnoDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS个人总结</title>
-    <url>/2020/ckm8tpn4f0024kgq15n7q3724/</url>
-    <content><![CDATA[<h1>Basic</h1>
-<h2 id="用户态-user-mode-内核态-privileged-mode">用户态(user mode)，内核态(privileged mode)</h2>
+    <url>/2020/ckmm1m5c2001te7q1gd4h9zu2/</url>
+    <content><![CDATA[<h1>1. Basic</h1>
+<h2 id="1-1-用户态-user-mode-内核态-privileged-mode">1.1. 用户态(user mode)，内核态(privileged mode)</h2>
 <ol>
 <li>权限不同
 <ol>
@@ -1659,7 +1230,7 @@ Before sort, data strcture will be converted to double</p>
 </li>
 <li>上行调用(Upcall)：signals allows the kernel to invoke code that’s part of user program</li>
 </ol>
-<h2 id="寄存器-registers">寄存器(Registers)</h2>
+<h2 id="1-2-寄存器-registers">1.2. 寄存器(Registers)</h2>
 <ol>
 <li>idx regs(E means 32bits reg)
 <ol>
@@ -1687,7 +1258,7 @@ Before sort, data strcture will be converted to double</p>
 </ol>
 </li>
 </ol>
-<h2 id="总线-bus">总线(Bus)</h2>
+<h2 id="1-3-总线-bus">1.3. 总线(Bus)</h2>
 <ol>
 <li>Communication through Bus
 <ol>
@@ -1697,10 +1268,38 @@ Before sort, data strcture will be converted to double</p>
 </ol>
 </li>
 </ol>
-<h1>Process</h1>
+<h2 id="1-4-互斥和同步">1.4. 互斥和同步</h2>
+<p><a href="https://blog.csdn.net/ns_code/article/details/17284351">Reference</a></p>
+<ol>
+<li>临界资源: 能够被多个线程共享的数据/资源</li>
+<li>临界区: 对临界资源进行操作的那一段代码</li>
+<li>互斥: 指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性</li>
+<li>同步: 指在互斥的基础上，通过其它机制实现访问者对资源的有序访问</li>
+</ol>
+<h2 id="1-5-同步-异步-阻塞-非阻塞">1.5. 同步 异步 阻塞 非阻塞</h2>
+<p><a href="https://www.zhihu.com/question/19732473">同步 异步 阻塞 非阻塞</a></p>
+<ol>
+<li>同步和异步关注的是消息通信机制<br>
+1.1. 所谓同步，就是在发出一个<em>调用</em>时，在没有得到结果之前，该<em>调用</em>就不返回。但是一旦调用返回，就得到返回值了。<br>
+由<em>调用者</em>主动等待这个<em>调用</em>的结果。而异步则是相反，<em>调用</em>在发出之后，这个调用就直接返回了，所以没有返回结果。<br>
+1.2. 异步过程调用后，调用者不会立刻得到结果。而是在<em>调用</em>发出后，<em>被调用者</em>通过状态、通知来通知调用者，或通过回调函数处理。</li>
+<li>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.<br>
+2.1. 阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。<br>
+2.2. 非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
+</ol>
+<h2 id="1-6-deadlock">1.6. Deadlock</h2>
+<p>产生死锁的四个必要条件：</p>
+<ol>
+<li>互斥条件：一个资源每次只能被一个进程使用。</li>
+<li>占有且等待：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</li>
+<li>不可强行占有: 进程已获得的资源，在末使用完之前，不能强行剥夺。</li>
+<li>循环等待条件: 若干进程之间形成一种头尾相接的循环等待资源关系。</li>
+</ol>
+<h1>2. 进程、线程、协程、上下文切换</h1>
+<h2 id="2-1-process">2.1. Process</h2>
 <p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释</a><br>
 An abstraction of memory</p>
-<h2 id="basic">Basic</h2>
+<h3 id="2-1-1-basic">2.1.1. Basic</h3>
 <p><a href="https://baike.baidu.com/item/PCB/16067368">PCB</a></p>
 <ol>
 <li>进程控制块 PCB(Process Control Block)，数据段和代码段</li>
@@ -1709,11 +1308,10 @@ An abstraction of memory</p>
 <li>进程状态 <br><br>
 <img src="https://img-blog.csdn.net/20170820104536564?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWljaGVuZzc3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="进程状态"></li>
 </ol>
-<h2 id="process-communication">Process Communication</h2>
+<h3 id="2-1-2-process-communication">2.1.2. Process Communication</h3>
 <p><a href="https://segmentfault.com/a/1190000008732448">Communication Reference1</a><br>
 <a href="https://www.jianshu.com/p/9218692cb209">Communication Reference2</a><br>
 <a href="https://github.com/clpsz/linux-ipcs">Communication Reference3</a></p>
-<h2 id="inter-process-communication-ipc-进程间通讯">Inter Process Communication(IPC 进程间通讯)</h2>
 <p>Communication Fashions</p>
 <ol>
 <li>单工：A只能发信号，B只能接受信号</li>
@@ -1773,7 +1371,7 @@ An abstraction of memory</p>
 </ol>
 </li>
 </ol>
-<h2 id="methods">Methods</h2>
+<h3 id="2-1-3-methods">2.1.3. Methods</h3>
 <ol>
 <li><code>fork()</code>: the only way to create process
 <ol>
@@ -1809,10 +1407,22 @@ An abstraction of memory</p>
 </ol>
 </li>
 </ol>
-<h2 id="zombie-state">Zombie state</h2>
-<p>被终止的子进程进入zombie state，当父进程<code>exit()</code>时，<br>
-process with pid 1将继承该父进程的所有子进程(reparenting)，并一直调用<code>wait()</code>来reap zombies</p>
-<h1>Thread</h1>
+<h3 id="2-1-4-better-fork-with-copy-on-write">2.1.4. Better fork with Copy-on-write</h3>
+<p><code>vfork()</code>: 一种很快速的fork，父子进程共享地址，子进程可以修改父进程，很危险</p>
+<ol>
+<li>Private Mapping<br>
+<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/PrivateMapping.jpg" alt="alt"></li>
+<li>Shared Mapping<br>
+<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/SharedMapping.jpg" alt="alt"></li>
+</ol>
+<h3 id="2-1-5-孤儿进程-僵尸进程">2.1.5. 孤儿进程 &amp; 僵尸进程</h3>
+<ol>
+<li>孤儿进程：一个父进程退出，而它的子进程还在运行，这些子进程将成为孤儿进程。孤儿进程将被init进程(进程号为1)所收养，并一直调用<code>wait()</code>来reap</li>
+<li>僵尸进程：一个进程使用fork创建子进程，如果子进程退出，而父进程并没有调用wait获取子进程的状态信息，那么子进程的进程描述符仍然保存在系统中<br>
+被终止的子进程进入zombie state，当父进程<code>exit()</code>时，<br>
+process with pid 1将继承该父进程的所有子进程(reparenting)，并一直调用<code>wait()</code>来reap zombies</li>
+</ol>
+<h2 id="2-2-thread">2.2. Thread</h2>
 <p><a href="https://baike.baidu.com/item/%E7%BA%BF%E7%A8%8B">线程-百度百科</a><br>
 An abstraction of processor</p>
 <ol>
@@ -1823,7 +1433,7 @@ An abstraction of processor</p>
 <li>线程间可以直接读写进程数据段（如全局变量）来进行通信，需要同步互斥来保证数据一致性</li>
 <li>上下文切换比进程快得多</li>
 </ol>
-<h2 id="thread-communication">Thread Communication</h2>
+<h3 id="2-2-1-thread-communication">2.2.1. Thread Communication</h3>
 <p><a href="https://blog.csdn.net/qq_33951180/article/details/72801228">线程的同步和互斥</a><br>
 <a href="https://github.com/clpsz/linux-itss">Thread Communication</a></p>
 <ol>
@@ -1872,14 +1482,15 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 </ol>
 </li>
 </ol>
-<h1>Coroutine(协程)</h1>
+<h2 id="2-3-coroutine">2.3. Coroutine</h2>
 <ol>
 <li>协程可以认为是运行在线程上的代码块，协程提供的挂起操作会使协程暂停执行，而不会导致线程阻塞</li>
-<li>一个线程内部可以创建几千个协程都没有任何问题。</li>
-<li>协程是一个纯用户态的并发机制，同一时刻只会有一个协程在运行，其他协程挂起等待；<br>
-不同协程之间的切换不涉及内核，只用在用户态切换即可，所以切换代价更小，更轻量级，适合IO密集型的场景。</li>
+<li>一个线程内部可以创建几千个协程都没有任何问题</li>
+<li>协程是一个纯用户态的并发机制，同一时刻只会有一个协程在运行，其他协程挂起等待</li>
+<li>不同协程之间的切换不涉及内核，只用在用户态切换即可，所以切换代价更小，更轻量级，适合IO密集型的场景</li>
+<li>不需要多线程的锁机制，因为只有一个线程，多个协程工作是通过中断实现，不存在同时写变量冲突，在协程中控制共享资源不加锁</li>
 </ol>
-<h1>Context Switch</h1>
+<h2 id="2-4-context-switch">2.4. Context Switch</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/52845869">CPU上下文切换 Reference1</a><br>
 <a href="https://baike.baidu.com/item/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">CPU上下文切换 Reference2</a></p>
 <ol>
@@ -1897,6 +1508,160 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 </ol>
 </li>
 </ol>
+<h1>3. Memory Management(内存管理) - lecture 13, 14</h1>
+<h2 id="3-1-虚拟地址好处">3.1. 虚拟地址好处</h2>
+<ol>
+<li>进程地址空间隔离（早期的计算机中，程序都是直接运行在内存上的，恶意程序可随意修改别的进程的内存数据，或者bug的程序不小心修改了其它程序的内存数据）</li>
+<li>减少空间碎片</li>
+<li>程序认为它享有所有空间(Illusion of large memory)</li>
+<li>程序不会进入内核内存</li>
+</ol>
+<h2 id="3-2-段式存储-segmentation-lecture-13">3.2. 段式存储(Segmentation) - lecture 13</h2>
+<ol>
+<li>地址大小往往是根据程序大小来的，是可变的（所以有外部碎片）</li>
+<li>registers
+<ol>
+<li>base reg: 进程物理地址的开始位</li>
+<li>bounds reg: 进程物理地址长度</li>
+<li>每个segment(data, heap, stack, etc)都有一对 base reg 和 bounds reg</li>
+</ol>
+</li>
+<li>每个segment有独自的访问权限: read-only 和 read &amp; write</li>
+<li>两个进程可以share同一块物理地址</li>
+<li>访问权限不足或地址不存在会产生 segmentation fault</li>
+<li>Memory Mapped File: 可以将整个或部分文件映射到segment中</li>
+<li>Copy-on-write: 若某进程中的线程第一次执行写操作(在一个read-only segment上)，<br>
+该进程将获得一个segment的私有拷贝，原来的regs都指向新的segment，之后的写操作不会产生新的segment</li>
+<li>若内存无空间给一个在磁盘上的segment，将内存中的某个segment swap出去，并将validity位置0</li>
+<li>程序一开始所有segment都在磁盘上(validity都是0)</li>
+<li>现在基本不用这个了</li>
+</ol>
+<h2 id="3-3-页式存储-page-lecture-13">3.3. 页式存储(Page) - lecture 13</h2>
+<ol>
+<li>地址空间分成固定大小的页(大小由OS决定，一般是4KB或4MB)</li>
+<li>映射技术
+<ol>
+<li>MMU + 页表(在内存中)</li>
+<li>TLB(Translation look-aside buffers)</li>
+</ol>
+</li>
+<li>kernel数据结构 page frame(physical page)
+<ol>
+<li>包含页的虚拟地址和物理地址</li>
+<li>forward lookup: 给定一个进程的虚拟地址，找到page frame</li>
+<li>reverse lookup: 给定一个page frame，找到对应进程以及虚拟地址</li>
+</ol>
+</li>
+<li>MMU + 二级页表<br>
+<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/MMU+%E4%BA%8C%E7%BA%A7%E9%A1%B5%E8%A1%A8.jpg" alt="alt">
+<ol>
+<li>通过虚拟页号(vpn virtual page number)在页表中找到page table entry</li>
+<li>page table entry(类似于base reg和bounds reg)
+<ol>
+<li>V: validity(or present)是否有效</li>
+<li>M: modify</li>
+<li>R: reference</li>
+<li>Prot: 权限</li>
+<li>物理页号</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>线性(linear)页表，哈希(hashed)页表，聚集(clustered)页表，反转(inverted)页表</li>
+</ol>
+<h3 id="3-3-1-tlb">3.3.1. TLB</h3>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
+<ol>
+<li>在Processor中的额外空间</li>
+<li>缓存映射: TLB的entry -&gt; 页表的entry</li>
+<li>若某个PTE(Page table entry)被kernel修改了，TLB中对应的entry需失效</li>
+<li>当一个新的processor1修改PT，刚好这个PT被其他processor2的TLB缓存了，processor2的TLB全失效</li>
+<li>当运行不同的进程时，整个TLB都需失效(一个PT对应一个进程)</li>
+</ol>
+<p>TLB miss vs. page fault</p>
+<ol>
+<li>TLB miss的惩罚：O(1)的访问</li>
+<li>page fault的惩罚：trap到内核中</li>
+</ol>
+<h4 id="3-3-1-1-直接映射-direct-mapping-cache">3.3.1.1. (直接映射) Direct Mapping Cache</h4>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
+<ol>
+<li>TLB由硬件通过一个简单的hash表实现</li>
+<li>VA前20位确定位置
+<ol>
+<li>Key作为该表的idx</li>
+<li>Key的长度是6，说明表有2^{6}=64行</li>
+<li>先通过Key拿到行，再通过VA中的tag和行中的tag比较，相等则hit，不相等则miss(并从内存中拿到PTE，然后用新的tag和PTE替换该行)</li>
+</ol>
+</li>
+<li>相同的key的行的更新会把原来的内容顶掉，因此冲突的几率非常高，导致TLB miss的发生，降低了命中率</li>
+</ol>
+<h4 id="3-3-1-2-全相连-fully-associative-cache">3.3.1.2. (全相连) fully associative Cache</h4>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E5%85%A8%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
+<ol>
+<li>只有一行，没有key</li>
+<li>更新会append，但每次都需要和所有tag进行比较，比较耗时</li>
+</ol>
+<h4 id="3-3-1-3-组相连-set-associate-cache">3.3.1.3. (组相连) set-associate Cache</h4>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E7%BB%84%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
+<ol>
+<li>和直接映射差不多，不同点是每行可以存储更多内容(即相同的key，不同的Tag)，之后VA中的tag和行中所有tag比较</li>
+<li>是直接映射和全相连的中和，bucket大小一般是2,4,8,etc，8比较好</li>
+</ol>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/CacheHierarchy.jpg" alt="alt"></p>
+<h2 id="3-4-paging-scheme">3.4. Paging Scheme</h2>
+<ol>
+<li>Fetch Policy
+<ol>
+<li>预读(prefetching): fetch某一页时，将之后连续的页也拿过来</li>
+</ol>
+</li>
+<li>Placement Policy</li>
+<li>Replacement Policy</li>
+</ol>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/%E6%96%B0%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%B5%E5%88%86%E9%85%8D.jpg" alt="alt"></p>
+<ol>
+<li>在<code>fork()</code>和<code>exec()</code>后，清空页表(页表在fork时已创建)</li>
+<li>当执行第一个指令时，对应页的validity是0，发生页错误(Page fault)，trap into the kernel</li>
+<li>kernel分配物理页，将页内容从磁盘拷贝到该物理页中，并更新所有相关的数据结构</li>
+</ol>
+<h3 id="3-4-1-page-fault">3.4.1. Page Fault</h3>
+<ol>
+<li>访问的页的validity是0</li>
+<li>trap into the kernel</li>
+<li>通过伙伴系统(Buddy System)找到可用的物理页</li>
+<li>若无空的物理页，根据 <a href="https://blog.csdn.net/u011080472/article/details/51206332">分页置换算法（替换策略）</a><br>
+需要把某些页归还给Buddy System(若是脏页，即M位是1，则需要写回磁盘)
+<ol>
+<li>FIFO</li>
+<li>LRU: least recently used(使用PTE中的R)</li>
+<li>LFU: least frequently used</li>
+</ol>
+</li>
+<li>从磁盘写入页</li>
+<li>return from trap</li>
+</ol>
+<h3 id="3-4-2-pageout-daemon">3.4.2 Pageout Daemon</h3>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/PageoutDaemon.jpg" alt="alt"></p>
+<h3 id="3-4-3-zones-in-memory">3.4.3 Zones in Memory</h3>
+<p>内存可以分为</p>
+<ol>
+<li>DMA Zone(DMA Devices)</li>
+<li>Normal Zone(OS数据结构必须在这里)</li>
+<li>HighMem Zone</li>
+</ol>
+<p>每个zone都有一个buddy system</p>
+<ol>
+<li>free list: 包含没有被分配的物理页</li>
+<li>active: 被clock algorithm归类为recently used</li>
+<li>inactive: 被clock algorithm归类为not recently used
+<ol>
+<li>如果是脏页，写回磁盘</li>
+<li>不是脏页，加入free list</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-4-4-virtual-memory-map-vmm">3.4.4. Virtual Memory Map(vmm)</h3>
 <h1>Files</h1>
 <ol>
 <li>For each process, the kernel maintains a file descriptor table(the first is stdin, stdout, stderr),<br>
@@ -1910,22 +1675,7 @@ each fd points to system file table</li>
 </ol>
 </li>
 </ol>
-<h1>互斥和同步</h1>
-<p><a href="https://blog.csdn.net/ns_code/article/details/17284351">Reference</a></p>
-<ol>
-<li>临界资源: 能够被多个线程共享的数据/资源</li>
-<li>临界区: 对临界资源进行操作的那一段代码</li>
-<li>互斥: 指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性</li>
-<li>同步: 指在互斥的基础上，通过其它机制实现访问者对资源的有序访问</li>
-</ol>
-<h1>Coroutine</h1>
-<h2 id="协程-coroutine">协程(Coroutine)</h2>
-<p><a href="https://www.liaoxuefeng.com/wiki/897692888725344/923057403198272">Reference</a></p>
-<ol>
-<li>执行效率高。因为子程序切换不是线程切换，而是由程序自身控制，没有线程切换的开销</li>
-<li>不需要多线程的锁机制，因为只有一个线程，多个协程工作是通过中断实现，不存在同时写变量冲突，在协程中控制共享资源不加锁</li>
-</ol>
-<h1>Select, Poll, EPoll</h1>
+<h1>IO多路复用</h1>
 <h2 id="文件描述符"><a href="https://www.cnblogs.com/skyfsm/p/7102367.html">文件描述符</a></h2>
 <p>Linux中一切皆可以看成是文件(普通文件、目录文件、链接文件和设备文件)<br>
 <img src="https://img-blog.csdn.net/20140831224818062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="文件描述符"><br>
@@ -1969,74 +1719,6 @@ each fd points to system file table</li>
 </ol>
 </li>
 </ol>
-<h1>Deadlock</h1>
-<p>产生死锁的四个必要条件：</p>
-<ol>
-<li>互斥条件：一个资源每次只能被一个进程使用。</li>
-<li>占有且等待：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</li>
-<li>不可强行占有: 进程已获得的资源，在末使用完之前，不能强行剥夺。</li>
-<li>循环等待条件: 若干进程之间形成一种头尾相接的循环等待资源关系。</li>
-</ol>
-<h1>内存</h1>
-<h2 id="页面置换算法">页面置换算法</h2>
-<ol>
-<li>FIFO</li>
-<li>LRU: least recently used</li>
-<li>LFU: least frequently used</li>
-</ol>
-<h2 id="内存缺页错误">内存缺页错误</h2>
-<ol>
-<li>linux内存采用分页管理<br>
-1.1. 将虚拟内存和物理内存分为固定大小的页，交由CPU中的MMU模块来映射<br>
-1.2. 好处：允许虚拟内存大于实际物理内存：将长时间不用的数据存储到磁盘上；<br>
-减少内存碎片，分配管理的都是页</li>
-<li>当进程在进行计算时，CPU会请求内存中存储的数据，CPU发出的地址是虚拟地址，通过MMU(Memory Management Unit)取寻找物理内存页；<br>
-若物理内存中没有该页或者该页只读但要进行写操作，则会报告一个缺页错误(Page Fault)</li>
-</ol>
-<h2 id="虚拟存储器-虚拟内存">虚拟存储器(虚拟内存)</h2>
-<p>电脑中所运行的程序均需经由内存执行，若执行的程序占用内存很大或很多，则会导致内存消耗殆尽。<br>
-为解决该问题，Windows中运用了虚拟内存技术，即匀出一部分硬盘空间来充当内存使用。<br>
-当内存耗尽时，电脑就会自动调用硬盘来充当内存，以缓解内存的紧张。</p>
-<h1>同步 异步 阻塞 非阻塞</h1>
-<p><a href="https://www.zhihu.com/question/19732473">同步 异步 阻塞 非阻塞</a></p>
-<ol>
-<li>同步和异步关注的是消息通信机制<br>
-1.1. 所谓同步，就是在发出一个<em>调用</em>时，在没有得到结果之前，该<em>调用</em>就不返回。但是一旦调用返回，就得到返回值了。<br>
-由<em>调用者</em>主动等待这个<em>调用</em>的结果。而异步则是相反，<em>调用</em>在发出之后，这个调用就直接返回了，所以没有返回结果。<br>
-1.2. 异步过程调用后，调用者不会立刻得到结果。而是在<em>调用</em>发出后，<em>被调用者</em>通过状态、通知来通知调用者，或通过回调函数处理。</li>
-<li>阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.<br>
-2.1. 阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。<br>
-2.2. 非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</li>
-</ol>
-<h1>分段和分页</h1>
-<p><a href="https://www.cnblogs.com/myseries/p/12487211.html">Reference</a><br>
-在早期的计算机中，程序都是直接运行在内存上的，也就是说程序中访问的内存地址都是实际的物理内存地址。</p>
-<ol>
-<li>进程地址空间不隔离。恶意程序可随意修改别的进程的内存数据，或者bug的程序不小心修改了其它程序的内存数据。</li>
-<li>空间碎片</li>
-<li>程序运行的地址不确定。因为是随机分配的，所以程序运行的地址是不确定的。</li>
-</ol>
-<h2 id="分段">分段</h2>
-<p>在虚拟地址空间和物理地址空间之间做一一映射，但是每次换入换出内存的都是整个程序</p>
-<h2 id="分页">分页</h2>
-<p>地址空间分成许多的页。每页的大小由CPU决定，然后由操作系统选择页的大小，一般是4KB或4MB<br>
-分页的思想是程序运行时用到哪页就为哪页分配内存，没用到的页暂时保留在硬盘上。<br>
-当用到这些页时再在物理地址空间中为这些页分配内存，然后建立虚拟地址空间中的页和刚分配的物理内存页间的映射。</p>
-<h3 id="分页例子">分页例子</h3>
-<ol>
-<li>为程序创建一个4GB的进程虚拟地址空间</li>
-<li>创建页目和页表</li>
-<li>当CPU要访问程序中用到的某个虚拟地址时，当CPU发现该地址并没有相相关联的物理地址时，<br>
-CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个页错误(Page Fault)，CPU会将控制权交还给操作系统。<br>
-操作系统于是为该程序在物理空间中分配一个页面，然后再将这个物理页面与虚拟空间中的虚拟页面映射起来，然后将控制权再还给进程，进程从刚才发生页错误的位置重新开始执行</li>
-</ol>
-<h3 id="分页置换算法"><a href="https://blog.csdn.net/u011080472/article/details/51206332">分页置换算法</a></h3>
-<ol>
-<li>最佳置换算法(Optimal OPT): 置换以后不再被访问，或者在将来最迟才回被访问的页面，缺页中断率最低<br>
-(很难估计哪一个页面是以后不再使用或在最长时间以后才会用到的页面。所以该算法是不能实现的)</li>
-<li>先进先出置换算法(First In First Out, FIFO):</li>
-<li>最近最少使用置换算法（Least Recently Used， LRU）:</li>
-</ol>
 <h1>如何提高并发性</h1>
 <ol>
 <li>提高CPU并发计算能力
@@ -2074,7 +1756,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <li>当CPU发出内存访问请求时，先检查缓存内是否有数据，如果存在则不经内存直接返回，若不存在，先从内存载入缓存，再返回给处理器</li>
 </ol>
 <h2 id="结构">结构</h2>
-<p><img src="/2020/ckm8tpn4f0024kgq15n7q3724/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
 <ol>
 <li>CPU寄存器   访问速度: 1 clock</li>
 <li>SRAM高速缓存 访问速度 ：n clock</li>
@@ -2087,7 +1769,7 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <li>因此在二维数组求和中，按列求和比按行求和更优</li>
 </ol>
 <h2 id="多级缓存-intel-core-i7为例">多级缓存(Intel Core i7为例)</h2>
-<p><img src="/2020/ckm8tpn4f0024kgq15n7q3724/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
+<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
 <ol>
 <li>L1: 4 clock
 <ol>
@@ -2119,8 +1801,19 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
   </entry>
   <entry>
     <title>Java面试个人总结</title>
-    <url>/2020/ckm8tpn4i002lkgq1acjc07je/</url>
-    <content><![CDATA[<h1>Collections</h1>
+    <url>/2020/ckmm1m5c2001ue7q18p8i3c6p/</url>
+    <content><![CDATA[<h1>New对象的加载顺序</h1>
+<ol>
+<li>父类静态属性</li>
+<li>父类静态块</li>
+<li>子类静态属性</li>
+<li>子类静态块</li>
+<li>父类普通初始化块</li>
+<li>父类构造方法</li>
+<li>子类普通初始化块</li>
+<li>子类构造方法</li>
+</ol>
+<h1>Collections</h1>
 <h2 id="arraylist">ArrayList</h2>
 <ol>
 <li>newCapacity = oldCapacity + oldCapacity &gt;&gt; 1, namely 1.5 times</li>
@@ -2132,29 +1825,32 @@ CPU认为该虚拟地址所在的页面是个空页面，CPU会认为这是个�
 <thead>
 <tr>
 <th></th>
-<th>Is Thread Safe</th>
-<th>Efficiency</th>
-<th>Null support</th>
-<th>Initial Capacity, Capacity Growth</th>
+<th>线程安全</th>
+<th>效率</th>
+<th>NULL</th>
+<th>初识大小及扩容</th>
+<th>哈希值</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>HashMap</td>
-<td>No, use concurrentHashMap if needed</td>
-<td>faster</td>
-<td>Yes</td>
+<td>不安全</td>
+<td>快</td>
+<td>kv都支持</td>
 <td>16(2*n)</td>
-<td>convert list to red-black tree when list length &gt; 8(default)</td>
+<td>重新计算</td>
+<td>链表长度大于8会转成红黑树</td>
 </tr>
 <tr>
 <td>Hashtable</td>
-<td>Yes</td>
-<td>slower</td>
-<td>No</td>
+<td>安全</td>
+<td>慢</td>
+<td>都不支持</td>
 <td>11(2*n+1)</td>
-<td>no this mechanism</td>
+<td>直接用对象的HashCode</td>
+<td>没有这个机制</td>
 </tr>
 </tbody>
 </table>
@@ -2188,7 +1884,7 @@ n |= n &gt;&gt;&gt; 16      : 32 bits are all 1, which is MAX VALUE of integer</
 <ol>
 <li>开放定址法: 从发生冲突的那个单元起，按照一定的次序，从哈希表中找到一个空闲的单元
 <ol>
-<li>线行探查法: 从发生冲突的单元起，依次判断下一个单元是否为空，当达到最后一个单元时，再从表首依次判断。直到碰到空闲的单元或者探查完全部单元为止。</li>
+<li>线性探查法: 从发生冲突的单元起，依次判断下一个单元是否为空，当达到最后一个单元时，再从表首依次判断。直到碰到空闲的单元或者探查完全部单元为止。</li>
 <li>二次探测: 用发生冲突的单元d[i], +1², -1², +2², -2²等，反复横跳！</li>
 <li>双散列函数探查法:</li>
 </ol>
@@ -2199,6 +1895,11 @@ n |= n &gt;&gt;&gt; 16      : 32 bits are all 1, which is MAX VALUE of integer</
 </ol>
 <h3 id="hashmap-容量为什么是2的幂次方">HashMap 容量为什么是2的幂次方</h3>
 <p>为了让(hash%size==hash&amp;(size-1))，位运算 &amp; 比 % 速度要快</p>
+<h2 id="concurrenthashmap">ConcurrentHashMap</h2>
+<ol>
+<li>JDK1.7版本锁的粒度是基于Segment的，一个Segment包含多个HashEntry，使用分段锁</li>
+<li>JDK1.8锁的粒度就是HashEntry，使用synchronized + CAS</li>
+</ol>
 <hr>
 <h1>Thread</h1>
 <h2 id="lifecycle">Lifecycle</h2>
@@ -2275,8 +1976,8 @@ which causes memory consistency errors. <code>volatile</code> let variables read
 <li>get ThreadLocalMap from current thread</li>
 <li>the key of this map is <code>ThreadLocal&lt;T&gt;</code>, hence one ThreadLocal only store one value</li>
 <li>it should be declared as <code>static</code></li>
-<li>better to invoke <code>remove()</code> if ThreadLocal is useless since key(ThreadLocal<T>) is weak reference and it may be recycled by jvm,<br>
-but its value will not be recycled</T></li>
+<li>内存泄漏 better to invoke <code>remove()</code> if ThreadLocal is useless since key(ThreadLocal<T>) is weak reference<br>
+and it may be recycled by jvm, but its value will not be recycled</T></li>
 </ol>
 <h2 id="线程池参数">线程池参数</h2>
 <ol>
@@ -2313,6 +2014,37 @@ but its value will not be recycled</T></li>
 <ol>
 <li>execute(Runnable) does not return anything</li>
 <li>submit(Callable<T>) returns a Future object which allows a way to cancel the running thread and get returned value</T></li>
+</ol>
+</li>
+<li>常见线程池
+<ol>
+<li>newCachedThreadPool
+<ol>
+<li>无核心线程，最大数量为Integer.MAX_VALUE，所有任务都会被执行</li>
+<li>有过期时间</li>
+<li>适合大量的耗时较少的任务</li>
+</ol>
+</li>
+<li>newFixedThreadPool
+<ol>
+<li>核心数==最大数</li>
+<li>线程永不过期除非关闭</li>
+<li>可以快速相应请求</li>
+</ol>
+</li>
+<li>ScheduledThreadPool
+<ol>
+<li>核心数固定，最大数量为Integer.MAX_VALUE</li>
+<li>非核心线程立即回收</li>
+<li>适合执行定时任务或固定周期的重复任务</li>
+</ol>
+</li>
+<li>SingleThreadExecutor
+<ol>
+<li>一个核心线程</li>
+<li>保证所有任务在一个线程中执行</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
@@ -2597,6 +2329,7 @@ When a function finished with return or exception, VM stack will pop this stack 
 <p>当method1()方法执行完成后，object对象所分配的内存不会马上被认为是可以被释放的对象，只有在Simple类创建的对象被释放后才会被释放，<br>
 严格的说，这就是一种内存泄露。需要在method1最后添加</p>
 <h2 id="code-4"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">object &#x3D; null;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="性能调优工具">性能调优工具</h2>
 <h1>NIO</h1>
 <p><a href="http://tutorials.jenkov.com/java-nio/index.html">Java NIO</a><br>
 <a href="https://www.jianshu.com/p/a9b2fec31fd1">Java NIO</a><br>
@@ -2742,6 +2475,31 @@ class to its parent class loader before attempting to find the class itself.</li
 3.2.1. 用户自定义的</li>
 </ol>
 <hr>
+<h1><a href="https://cloud.tencent.com/developer/article/1420284">序列化，反序列化</a></h1>
+<ol>
+<li>Java对象 &lt;–&gt; 字节流</li>
+<li>可以永久性的保存对象</li>
+<li>可以在网络中或进程间传递</li>
+<li>通过<code>ObjectOutputStream</code>和<code>ObjectInputStream</code>实现，<br>
+对象必须实现<code>Serializable</code>或<code>Externalizable</code>(<code>Externalizable</code>继承<code>Serializable</code>)</li>
+<li>安全方面: 除了<code>transient</code>修饰的变量，其他的包括private都会被序列化</li>
+<li>SerialVersionUID: 用于验证序列化对象的发送者和接收者是否为该对象加载了与序列化兼容的类</li>
+<li>成员变量是个对象也会被序列化(深拷贝)</li>
+</ol>
+<h1>深浅拷贝</h1>
+<ol>
+<li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝
+<ol>
+<li>重写<code>clone()</code></li>
+</ol>
+</li>
+<li>深拷贝：对基本数据类型进行值传递，对引用数据类型创建新的对象并复制内容
+<ol>
+<li>通过序列化反序列化获得新的对象</li>
+<li>重写<code>clone()</code></li>
+</ol>
+</li>
+</ol>
 <h1>Spring</h1>
 <h2 id="七个事务传播属性">七个事务传播属性</h2>
 <ol>
@@ -2797,6 +2555,10 @@ Spring只负责创建，当容器创建了bean的实例后，bean的实例就交
 <li>GlobalSession:</li>
 </ol>
 <h2 id="bean生命周期">Bean生命周期</h2>
+<h2 id="注解">注解</h2>
+<ol>
+<li>@Conditional:</li>
+</ol>
 <hr>
 <h1>三大特性</h1>
 <p>封装，继承，多态</p>

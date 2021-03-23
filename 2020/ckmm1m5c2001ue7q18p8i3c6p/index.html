@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="Hexo,Hexo主题,代码,博客,游戏" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Java面试个人总结 |  Ronan Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Ronan Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-java"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Java面试个人总结
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/ckmm1m5c2001ue7q18p8i3c6p/" class="article-date">
+  <time datetime="2020-01-03T11:07:03.000Z" itemprop="datePublished">2020-01-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Interview/">Interview</a> / <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">8.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">33 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>New对象的加载顺序</h1>
+<ol>
+<li>父类静态属性</li>
+<li>父类静态块</li>
+<li>子类静态属性</li>
+<li>子类静态块</li>
+<li>父类普通初始化块</li>
+<li>父类构造方法</li>
+<li>子类普通初始化块</li>
+<li>子类构造方法</li>
+</ol>
+<h1>Collections</h1>
+<h2 id="arraylist">ArrayList</h2>
+<ol>
+<li>newCapacity = oldCapacity + oldCapacity &gt;&gt; 1, namely 1.5 times</li>
+<li>use <code>objedt.ensureCapacity(N)</code> before lots of add operations to avoid many capacity growth</li>
+<li>use <code>Vector</code> if thread safety is required</li>
+</ol>
+<h2 id="hashmap">HashMap</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>线程安全</th>
+<th>效率</th>
+<th>NULL</th>
+<th>初识大小及扩容</th>
+<th>哈希值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap</td>
+<td>不安全</td>
+<td>快</td>
+<td>kv都支持</td>
+<td>16(2*n)</td>
+<td>重新计算</td>
+<td>链表长度大于8会转成红黑树</td>
+</tr>
+<tr>
+<td>Hashtable</td>
+<td>安全</td>
+<td>慢</td>
+<td>都不支持</td>
+<td>11(2*n+1)</td>
+<td>直接用对象的HashCode</td>
+<td>没有这个机制</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><code>hash</code> method(扰动函数): high 16 bits XOR low 16 bits</li>
+<li>Use <code>(n - 1) &amp; hash</code> to determine the position of key in the map array.<br>
+if length is the power of 2, <code>&amp;</code> operation is faster than <code>%</code> operation (hash % length == hash &amp; (length - 1).<br>
+That’s why the length of array in HashMap is the power of 2. Hence, index is relative to the low four bits,<br>
+which generate collisions easily. So the designer use high 16 bits XOR low 16 bits to mitigate this kind of collision.</li>
+<li>when <code>put</code>, compare hash as well as key</li>
+<li><strong>Concurrent HashMap</strong>
+<ol>
+<li>JDK 1.7 Segment Lock, one segment has a <code>HashEntry</code> array, which is list-like structure. When a thread wants to modify data, it must obtain its segment lock</li>
+<li>JDK 1.8 Node array + list + red-black tree + synchronized + CAS, the lock is for the first node(root) of a list or red-black tree,<br>
+which means there is no concurrency conflict if hashcode is different.</li>
+<li>In Hashtable, it locks the whole table so its efficiency is very low</li>
+</ol>
+</li>
+<li><code>HashSet</code> use <code>HashMap</code> since key in <code>HashMap</code> is unique, when <code>add</code> in <code>HashSet</code>, <code>map.put(ele, new Object())</code></li>
+<li>tableSizeFor(int cap): 得到threshold，（不减1，如果原来就是2的幂数，将会得到其两倍，这是不对的）<br>
+函数的效果是，cap最高位及后面所有位都是1<br>
+original (num - 1) : 1000 0000 0000 0000<br>
+n |= n &gt;&gt;&gt; 1       : 1100 0000 0000 0000<br>
+n |= n &gt;&gt;&gt; 2       : 1111 0000 0000 0000<br>
+n |= n &gt;&gt;&gt; 4       : 1111 1111 0000 0000<br>
+n |= n &gt;&gt;&gt; 8       : 1111 1111 1111 1111<br>
+n |= n &gt;&gt;&gt; 16      : 32 bits are all 1, which is MAX VALUE of integer</li>
+</ol>
+<h3 id="解决哈希冲突的常用方法分析">解决哈希冲突的常用方法分析</h3>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d3cb99d7580">Reference</a></p>
+<ol>
+<li>开放定址法: 从发生冲突的那个单元起，按照一定的次序，从哈希表中找到一个空闲的单元
+<ol>
+<li>线性探查法: 从发生冲突的单元起，依次判断下一个单元是否为空，当达到最后一个单元时，再从表首依次判断。直到碰到空闲的单元或者探查完全部单元为止。</li>
+<li>二次探测: 用发生冲突的单元d[i], +1², -1², +2², -2²等，反复横跳！</li>
+<li>双散列函数探查法:</li>
+</ol>
+</li>
+<li>拉链法：HashMap</li>
+<li>再散列：使用其他hash函数计算</li>
+<li>建立公共溢出区: 将哈希表分为基本表和溢出表两部分，凡是和基本表发生冲突的元素，一律填入溢出表。</li>
+</ol>
+<h3 id="hashmap-容量为什么是2的幂次方">HashMap 容量为什么是2的幂次方</h3>
+<p>为了让(hash%size==hash&amp;(size-1))，位运算 &amp; 比 % 速度要快</p>
+<h2 id="concurrenthashmap">ConcurrentHashMap</h2>
+<ol>
+<li>JDK1.7版本锁的粒度是基于Segment的，一个Segment包含多个HashEntry，使用分段锁</li>
+<li>JDK1.8锁的粒度就是HashEntry，使用synchronized + CAS</li>
+</ol>
+<hr>
+<h1>Thread</h1>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>new, runnable, blocked, waiting, time_waiting, terminated</p>
+<h2 id="yield-join">yield(), join()</h2>
+<ol>
+<li><code>yield()</code>: basically means that the thread is not doing anything particularly important<br>
+and if any other threads or processes need to be run(has higher priority), they should run.<br>
+Otherwise, the current thread will continue to run.</li>
+<li><code>join()</code>: If <code>join()</code> is called on a Thread instance,<br>
+the currently running thread will block until the Thread instance has finished executing.</li>
+</ol>
+<h2 id="sleep-vs-wait">sleep() vs wait()</h2>
+<ol>
+<li>sleep doesn’t lose ownership of monitors, but wait does</li>
+<li>sleep is used to suspend threads, but wait is used for communication between threads</li>
+<li>sleep will resume automatically, but wait won’t unless <code>wait(timeout)</code></li>
+<li>both can suspend thread execution</li>
+<li>为什么wait在Object中，而sleep在Thread中<br>
+5.1. java锁机制中，每个对象都可以成为锁，都可以取调用wait方法，因此wait放在Object中<br>
+5.2. sleep不释放锁，和Object无关</li>
+</ol>
+<h2 id="why-we-can-t-just-invoke-run-method">Why we can’t just invoke <code>run()</code> method</h2>
+<p>Invoke <code>start()</code> will start a new thread and its state will be new.<br>
+Then the thread will execute <code>run()</code> automatically after allocated time slice, which is correct usage of thread.<br>
+Invoke <code>run()</code> directly means it is invoked in the main thread rather than a new thread, which is not regarded as thread</p>
+<h2 id="synchronized">synchronized</h2>
+<ol>
+<li>Synchronized methods enables a simple strategy for preventing the thread interference and memory consistency errors</li>
+<li>Methods or code blocks declared as <code>synchronized</code> can only be visited by one thread at any time</li>
+<li><strong>Declaration</strong>
+<ol>
+<li>instance methods: object lock</li>
+<li>static methods: class lock</li>
+<li>code block: object lock, it is recommended to use if there are many other codes after synchronized code blocks that are not relevant to concurrency</li>
+</ol>
+</li>
+<li>synchronized vs ReentrantLock
+<ol>
+<li>Both are reentrant locks: one thread obtain a object lock and this lock can be obtained again by this thread to avoid deadlock</li>
+<li>synchronized depends on JVM, ReentrantLock depends on API</li>
+<li>ReentrantLock has more advanced features: register waited threads in <code>Condition</code>, then when notifyingAll, it will only notify these registered</li>
+</ol>
+</li>
+</ol>
+<h2 id="volatile">volatile</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/paddix/p/5428507.html">volatile使用及原理</a><br>
+Every threads has their own work memory, so variables are writen in work memory first then written to main memory,<br>
+which causes memory consistency errors. <code>volatile</code> let variables read and write directly from main memory.</p>
+<ol>
+<li>vs synchronized
+<ol>
+<li>volatile is more efficient than synchronized but it can only declare variable</li>
+<li>volatile won’t result in threads blocks, but synchronized will</li>
+<li>volatile can guarantee data visibility but atomicity. Sync can guarantee both of them</li>
+<li>volatile is used to deal with data visibility, sync is used to deal with resources access from multiple threads</li>
+</ol>
+</li>
+<li>指令重排<br>
+实例化一个对象其实可以分为三个步骤: 分配内存空间，初始化对象，将内存空间的地址赋值给对应的引用<br>
+但是由于操作系统可以对指令进行重排序，所以上面的过程也可能会变成如下过程：分配内存空间，将内存空间的地址赋值给对应的引用，初始化对象<br>
+如果是这个流程，多线程环境下就可能将一个未初始化的对象引用暴露出来，从而导致不可预料的结果。<br>
+因此，为了防止这个过程的重排序，我们需要将变量设置为volatile类型的变量。</li>
+<li>无法保证原子性：e.g. i++</li>
+<li>原理：<br>
+4.1. 可见性实现：<br>
+4.1.1. 修改volatile变量会强制刷新至主内存<br>
+4.1.2. 修改volatile变量会导致其他线程工作内存中对应的变量失效，因此需要重新去主内存中读<br>
+4.2. 有序性实现(Happen-before)：JMM(Java Memory Model)会对volatile变量限制’编译器重排序’和’处理器重排序’<br>
+以上都是通过&quot;内存屏障&quot;实现</li>
+</ol>
+<h2 id="threadlocal">ThreadLocal</h2>
+<ol>
+<li>get ThreadLocalMap from current thread</li>
+<li>the key of this map is <code>ThreadLocal&lt;T&gt;</code>, hence one ThreadLocal only store one value</li>
+<li>it should be declared as <code>static</code></li>
+<li>内存泄漏 better to invoke <code>remove()</code> if ThreadLocal is useless since key(ThreadLocal<T>) is weak reference<br>
+and it may be recycled by jvm, but its value will not be recycled</T></li>
+</ol>
+<h2 id="线程池参数">线程池参数</h2>
+<ol>
+<li>corePoolSize: 核心线程数</li>
+<li>maximumPoolSize: 最大线程数</li>
+<li>keepAliveTime: 空闲回收时间</li>
+<li>unit: 回收时间单位</li>
+<li>workQueue: 用于缓存任务的阻塞队列
+<ol>
+<li>如果没有空闲的线程执行该任务且 当前运行的线程数少于corePoolSize，则添加新的线程执行该任务。</li>
+<li>如果没有空闲的线程执行该任务且 当前的线程数等于corePoolSize同时阻塞队列未满，则将任务入队列，而不添加新的线程。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数小于maximumPoolSize，则创建新的线程执行任务。</li>
+<li>如果没有空闲的线程执行该任务且 阻塞队列已满同时池中的线程数等于maximumPoolSize，则根据构造函数中的handler指定的策略来拒绝新的任务。</li>
+<li>当一个线程无事可做超过keepAliveTime时,线程池会判断:如果当前运行的线程数大于corePoolSize,那么这个线程就被停掉。<br>
+所以线程池的所有任务完成后它最终会收缩到corePoolSize的大小。</li>
+</ol>
+</li>
+<li>threadFactory: 线程工厂，用于创建线程</li>
+<li>handler: 拒绝策略
+<ol>
+<li>AbortPolicy: 直接抛出异常</li>
+<li>DiscardPolicy: 直接抛弃任务，无异常</li>
+<li>CallerRunsPolicy: 任务被拒绝添加后，会调用当前线程池的所在线程去执行被拒绝的任务</li>
+<li>DiscardOldestPolicy: 抛弃最老的任务，然后添加这个任务</li>
+</ol>
+</li>
+<li>线程数目如何变化
+<ol>
+<li>当队列空时，获取元素的线程会等待队列变为非空</li>
+<li>当队列满时，存储元素的线程会等待队列可用</li>
+</ol>
+</li>
+<li>submit vs execute
+<ol>
+<li>execute(Runnable) does not return anything</li>
+<li>submit(Callable<T>) returns a Future object which allows a way to cancel the running thread and get returned value</T></li>
+</ol>
+</li>
+<li>常见线程池
+<ol>
+<li>newCachedThreadPool
+<ol>
+<li>无核心线程，最大数量为Integer.MAX_VALUE，所有任务都会被执行</li>
+<li>有过期时间</li>
+<li>适合大量的耗时较少的任务</li>
+</ol>
+</li>
+<li>newFixedThreadPool
+<ol>
+<li>核心数==最大数</li>
+<li>线程永不过期除非关闭</li>
+<li>可以快速相应请求</li>
+</ol>
+</li>
+<li>ScheduledThreadPool
+<ol>
+<li>核心数固定，最大数量为Integer.MAX_VALUE</li>
+<li>非核心线程立即回收</li>
+<li>适合执行定时任务或固定周期的重复任务</li>
+</ol>
+</li>
+<li>SingleThreadExecutor
+<ol>
+<li>一个核心线程</li>
+<li>保证所有任务在一个线程中执行</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1>Atomic</h1>
+<p>use CAS(compare and swap)(optimistic lock) + volatile + native methods to guarantee atomicity rather than synchronized<br>
+compareAndSwap(Object object, long offset, int expected, int new) compare offset and expected, if equivalent, write new in memory<br>
+if not, do nothing.</p>
+<h2 id="aba问题"><strong>ABA</strong>问题</h2>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/71954ea28dd6">ABA problem</a></p>
+<hr>
+<h1>Lock</h1>
+<h2 id="锁分类">锁分类</h2>
+<p><a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/11/15/java-lock.html">锁分类</a></p>
+<ol>
+<li>乐观/悲观锁：是否锁住资源</li>
+<li>自旋/适应性自旋锁：锁住资源失败，是否阻塞（挂起）</li>
+<li>公平/非公平锁：排队/插队（插队失败再排队）</li>
+<li>可重入/不可重入锁：一个线程的多个流程是否能获取同一把锁</li>
+<li>共享/排他锁：多个线程能否共享一把锁</li>
+<li>无锁/偏向锁/轻量级锁/重量级锁（锁状态只能升级不能降级）</li>
+</ol>
+<h3 id="锁升级">锁升级</h3>
+<ol>
+<li>无锁：无锁没有对资源进行锁定，所有的线程都能访问并修改同一个资源，但同时只有一个线程能修改成功</li>
+<li>偏向锁：一段同步代码一直被一个线程所访问，那么该线程会自动获取锁，降低获取锁的代价</li>
+<li>轻量级锁：当锁是偏向锁的时候，被另外的线程所访问，偏向锁就会升级为轻量级锁，其他线程会通过自旋的形式尝试获取锁，不会阻塞，从而提高性能</li>
+<li>重量级锁：当自旋超过一定的次数，或者一个线程在持有锁，一个在自旋，又有第三个来访时，轻量级锁升级为重量级锁</li>
+</ol>
+<h2 id="aqs-abstractqueuedsynchronizer">AQS(AbstractQueuedSynchronizer)</h2>
+<p><a target="_blank" rel="noopener" href="https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html">从ReentrantLock的实现看AQS的原理及应用</a></p>
+<ol>
+<li>核心思想：如果被请求的共享资源空闲，将当前线程置为有效的工作线程，将共享资源设置为锁定状态；<br>
+如果共享资源被占用，就需要一定的阻塞等待唤醒机制来保证锁分配。<br>
+这个机制主要用的是CLH队列的变体实现的，将暂时获取不到锁的线程加入到队列中。</li>
+<li>CLH：Craig、Landin and Hagersten队列，是单向链表<br>
+AQS中的队列是CLH变体的虚拟双向队列（FIFO），AQS是通过将每条请求共享资源的线程封装成一个节点来实现锁的分配。<br>
+2.1. 最基本的数据结构：Node<br>
+2.1.1. waitStatus: 0(初始化的默认值), 1(cancelled),-2(condition线程等待唤醒),-3(propagate),-1(signal线程就绪，等待资源)<br>
+2.1.2. thread<br>
+2.1.3. prev: 前驱指针<br>
+2.1.4. next: 后继指针<br>
+2.1.5. nextWaiter: 指向下一个处于condition状态的节点</li>
+<li>两种锁模式:<br>
+3.1. exclusive: only one thread can execute, which can be split into two locks<br>
+3.1.1. fair lock: get locks according to the order in the queue<br>
+3.1.2. unfair lock: resources belong to the thread that grab it first<br>
+3.2. share: multiple threads can execute</li>
+<li>Based on template model, when customizing, override following methods
+<ol>
+<li><code>isHeldExclusively()</code></li>
+<li><code>tryAcquire(int)</code></li>
+<li><code>tryRelease(int)</code></li>
+<li><code>tryAcquireShared(int)</code></li>
+<li><code>tryReleaseShared(int)</code></li>
+</ol>
+</li>
+<li>Lock(): 非公平锁会先尝试CAS修改state，不行再<code>acquire(1)</code>，公平锁直接<code>acquire(1)</code></li>
+</ol>
+<h2 id="lock-vs-synchronized">Lock VS Synchronized</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>synchronized</th>
+<th>Lock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存在层次</td>
+<td>Java的关键字，在jvm层面上</td>
+<td>是一个类</td>
+</tr>
+<tr>
+<td>锁的释放</td>
+<td>1、以获取锁的线程执行完同步代码，释放锁 2、线程执行发生异常，jvm会让线程释放锁</td>
+<td>在finally中必须释放锁，不然容易造成线程死锁</td>
+</tr>
+<tr>
+<td>锁的获取</td>
+<td>假设A线程获得锁，B线程等待。如果A线程阻塞，B线程会一直等待</td>
+<td>分情况而定，Lock有多个锁获取的方式，具体下面会说道，大致就是可以尝试获得锁，线程可以不用一直等待</td>
+</tr>
+<tr>
+<td>锁状态</td>
+<td>无法判断</td>
+<td>可以判断</td>
+</tr>
+<tr>
+<td>锁类型</td>
+<td>可重入 不可中断 非公平</td>
+<td>可重入 可判断 可公平（两者皆可）</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>少量同步</td>
+<td>大量同步</td>
+</tr>
+</tbody>
+</table>
+<h2 id="optimization">Optimization</h2>
+<ol>
+<li>适应性自旋（Adaptive Spinning）: 指定自旋的次数，例如让其循环10次，如果还没获取到锁就进入阻塞状态。<br>
+JDK采用了更聪明的方式——适应性自旋，简单来说就是线程如果自旋成功了，则下次自旋的次数会更多，如果自旋失败了，则自旋的次数就会减少。</li>
+<li>锁粗化（Lock Coarsening）: 将多次连接在一起的加锁、解锁操作合并为一次，将多个连续的锁扩展成一个范围更大的锁。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class StringBufferTest &#123;</span><br><span class="line"> 4     StringBuffer stringBuffer &#x3D; new StringBuffer();</span><br><span class="line"> 5 </span><br><span class="line"> 6     public void append()&#123;</span><br><span class="line"> 7         stringBuffer.append(&quot;a&quot;);</span><br><span class="line"> 8         stringBuffer.append(&quot;b&quot;);</span><br><span class="line"> 9         stringBuffer.append(&quot;c&quot;);</span><br><span class="line">10     &#125;</span><br><span class="line">11 &#125;</span><br></pre></td></tr></table></figure>
+<p>如果虚拟机检测到有一系列连串的对同一个对象加锁和解锁操作，就会将其合并成一次范围更大的加锁和解锁操作，<br>
+即在第一次append方法时进行加锁，最后一次append方法结束后进行解锁。<br>
+3. 锁消除（Lock Elimination）: 根据代码逃逸技术，如果判断到一段代码中，堆上的数据不会逃逸出当前线程，那么可以认为这段代码是线程安全的，不必要加锁。</p>
+<hr>
+<h1>JVM</h1>
+<h2 id="判断对象是否死亡">判断对象是否死亡</h2>
+<ol>
+<li>引用计数法: 引用计数器加1，引用失效计数器减1;无法解决相互引用的问题</li>
+<li>可达性算法: 从GC root出发，没有被遍历到的都可以删了<br>
+2.1. 虚拟机栈中引用的对象；方法区中的类静态属性引用的对象；方法区中常量引用的对象；本地方法栈中JNI引用的对象</li>
+<li>在被真正回收前要经历两次标记过程2
+<ol>
+<li>可达性分析法中不可达的对象被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize方法。<br>
+当对象没有覆盖finalize方法，或finalize方法已经被虚拟机调用过时，虚拟机将这两种情况视为没有必要执行。</li>
+<li>被判定为需要执行的对象将会被放在一个队列中进行第二次标记，除非这个对象与引用链上的任何一个对象建立关联，否则就会被真的回收。</li>
+</ol>
+</li>
+</ol>
+<h2 id="判断一个类是无用的类">判断一个类是无用的类</h2>
+<ol>
+<li>该类所有的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例</li>
+<li>加载该类的 ClassLoader 已经被回收</li>
+<li>该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</li>
+</ol>
+<h2 id="引用">引用</h2>
+<ol>
+<li>强引用: Java 虚拟机宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题</li>
+<li>软引用: 如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存</li>
+<li>弱引用: 一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存</li>
+<li>虚引用: 它和没有任何引用一样，在任何时候都可能被垃圾回收</li>
+</ol>
+<h2 id="垃圾收集算法">垃圾收集算法</h2>
+<ol>
+<li>标记-清除算法：
+<ol>
+<li>标记所有需要回收的对象，在标记完成后统一回收</li>
+<li>会导致大量不连续的碎片</li>
+</ol>
+</li>
+<li>复制算法
+<ol>
+<li>将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉</li>
+<li>heap使用量是整个的一半</li>
+</ol>
+</li>
+<li>标记-整理算法
+<ol>
+<li>标记过程与“标记-清除”算法一样，但后续步骤不是直接回收可回收对象，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存</li>
+</ol>
+</li>
+<li>分代收集算法
+<ol>
+<li>根据对象存活周期的不同将内存分为几块。一般将 java 堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法;</li>
+<li>新生代每次收集都会有大量对象死去，所以可以选择复制算法(所以才有s1 s0)，只需要付出少量对象的复制成本就可以完成每次垃圾收集;</li>
+<li>老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</li>
+<li>相关问题：HotSpot为什么要分为新生代和老年代</li>
+</ol>
+</li>
+</ol>
+<h2 id="垃圾收集器">垃圾收集器</h2>
+<ol>
+<li>Serial:
+<ol>
+<li>新生代采用复制算法，老年代采用标记-整理算法</li>
+<li>单线程，进行垃圾收集工作的时候必须暂停其他所有的工作线程</li>
+</ol>
+</li>
+<li>ParNew
+<ol>
+<li>Serial收集器的多线程版本</li>
+</ol>
+</li>
+<li>Parallel Scavenge
+<ol>
+<li>新生代采用复制算法，老年代采用标记-整理算法</li>
+<li>多线程，进行垃圾收集工作的时候必须暂停其他所有的工作线程</li>
+</ol>
+</li>
+<li>CMS
+<ol>
+<li>是一种以获取最短回收停顿时间为目标的收集器</li>
+<li>第一次实现了让垃圾收集线程与用户线程同时工作</li>
+<li>标记清除</li>
+</ol>
+</li>
+<li>G1
+<ol>
+<li>可预测的停顿</li>
+<li>初始标记, 并发标记, 最终标记, 筛选回收</li>
+<li>G1收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://i.stack.imgur.com/4ySVX.png" alt="Clear "></p>
+<h2 id="vm-stack-run-time-stack">VM stack(Run-Time Stack)</h2>
+<p>栈默认大小：1MB<br>
+Each Entry in the stack is called Stack Frame(栈帧)</p>
+<p>Stack Frame consists of:</p>
+<ol>
+<li>LVA(Local Variable Array)(局部变量表): primitive types and object reference</li>
+<li>Operand Stack(操作数栈):
+<ol>
+<li>for storing intermediate calculation’s result</li>
+<li>push/pop instructions</li>
+</ol>
+</li>
+<li>Frame Data(FD):
+<ol>
+<li>contains all symbolic reference and normal method return(方法返回地址)</li>
+<li>contains a reference to Exception table which provide the corresponding catch block information in the case of exceptions.</li>
+<li>Dynamic Link</li>
+</ol>
+</li>
+</ol>
+<p>Invoking a function will push a Stack Frame into VM stack.<br>
+When a function finished with return or exception, VM stack will pop this stack frame</p>
+<h2 id="native-method-stack">Native Method Stack</h2>
+<p>When Native methods are invoked, stack frame will be pushed into Native Method Stack, which is the same as that in VM stack</p>
+<h2 id="heap">Heap</h2>
+<ol>
+<li>
+<p>Young Generation(minor GC)</p>
+<ol>
+<li>eden space: 对象优先在这里分配</li>
+<li>s0</li>
+<li>s1</li>
+</ol>
+</li>
+<li>
+<p>Tenured(old) Generation(full GC)</p>
+</li>
+<li>
+<p>发生Minor GC时: Eden和s0有用对象移至s1(如果年龄够大则到tenured);之后发生Minor GC，Eden和s1有用对象移至s0;s1和s0相互移动</p>
+</li>
+<li>
+<p>当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC. GC期间虚拟机又发现allocation1无法存入Survivor空间，所以只好通过’分配担保机制’把新生代的对象提前转移到老年代中去</p>
+</li>
+<li>
+<p>如果Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无需达到要求的年龄</p>
+</li>
+</ol>
+<h2 id="method-area">Method Area</h2>
+<ol>
+<li>Contains class info, constants, static variables, etc</li>
+<li><strong>Constant Pool</strong> is in this area
+<ol>
+<li>string pool</li>
+<li>primitive pool</li>
+<li>JDK1.7 及之后版本的JVM已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。</li>
+</ol>
+</li>
+</ol>
+<h2 id="locate-object">locate object</h2>
+<ol>
+<li>使用句柄<br>
+<img src="https://camo.githubusercontent.com/04c82b46121149c8cc9c3b81e18967a5ce06353f/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f323031392d362f2545352541462542392545382542312541312545372539412538342545382541452542462545392539372541452545352541452539412545342542442538442d2545342542442542462545372539342541382545352538462541352545362539462538342e706e67" alt="通过句柄访问"></li>
+<li>直接指针<br>
+<img src="https://camo.githubusercontent.com/0ae309b058b45ee14004cd001e334355231b2246/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f323031392d362f2545352541462542392545382542312541312545372539412538342545382541452542462545392539372541452545352541452539412545342542442538442d2545372539422542342545362538452541352545362538432538372545392539322538382e706e67" alt="直接指针"><br>
+这两种对象访问方式各有优势。使用句柄来访问的最大好处是 reference 中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针，<br>
+而 reference 本身不需要修改。使用直接指针访问方式最大的好处就是速度快，它节省了一次指针定位的时间开销。</li>
+</ol>
+<h2 id="jvm内存泄漏">JVM内存泄漏</h2>
+<p>现象</p>
+<ol>
+<li>对象已经没有被应用程序使用，但是垃圾回收器没办法移除它们，因为还在被引用着（对象可达，但是对象无用，比如如下容器的例子）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vector v &#x3D; new Vector(10);</span><br><span class="line"></span><br><span class="line">for (int i &#x3D; 0; i &lt; 100; i++) &#123;</span><br><span class="line">    Object o &#x3D; new Object();</span><br><span class="line">    v.add(o);</span><br><span class="line">    o &#x3D; null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们循环申请Object对象，并将所申请的对象放入一个 Vector 中，如果我们仅仅释放引用本身，那么 Vector 仍然引用该对象，<br>
+所以这个对象对 GC 来说是不可回收的。因此，如果对象加入到Vector 后，还必须从 Vector 中删除，最简单的方法就是将 Vector 对象设置为 null。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v &#x3D; null</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>如果长生命周期的对象（单例模式中的对象）持有短生命周期的引用，就很可能会出现内存泄露</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Simple &#123;</span><br><span class="line"> </span><br><span class="line">    Object object;</span><br><span class="line"> </span><br><span class="line">    public void method1()&#123;</span><br><span class="line">        object &#x3D; new Object();</span><br><span class="line">        &#x2F;&#x2F;...其他代码</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>当method1()方法执行完成后，object对象所分配的内存不会马上被认为是可以被释放的对象，只有在Simple类创建的对象被释放后才会被释放，<br>
+严格的说，这就是一种内存泄露。需要在method1最后添加</p>
+<h2 id="code-4"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object &#x3D; null;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="性能调优工具">性能调优工具</h2>
+<h1>NIO</h1>
+<p><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-nio/index.html">Java NIO</a><br>
+<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a9b2fec31fd1">Java NIO</a><br>
+NIO采用内存映射文件的方式来处理输入输出，NIO将文件或文件的一段区域映射到内存中。</p>
+<p>NIO面向通道和缓冲区，不阻塞（异步），当线程从通道读取数据到缓冲区时，线程还是可以进行其他事情<br>
+IO面向流，是阻塞的</p>
+<h2 id="channel">Channel</h2>
+<p>1.双向的<br>
+2. FileChannel: reads data from and to files<br>
+3. DatagramChannel: read and write data over the network via UDP<br>
+4. SocketChannel: read and write data over the network via TCP<br>
+5. ServerSocketChannel: allows you to listen for incoming TCP connections, like a web server does.<br>
+For each incoming connection a SocketChannel is created.<br>
+6. <code>channel.read(buffer)</code> Reads a sequence of bytes from this channel into the given buffer.<br>
+7. <code>channel.write(buffer)</code> Writes a sequence of bytes to this channel from the given buffer.</p>
+<h2 id="buffer">Buffer</h2>
+<p>Main conception:</p>
+<ol>
+<li>Capacity</li>
+<li>Position: MAX(Position)=Capacity-1</li>
+<li>Limit
+<ol>
+<li>In write mode: how much data you can write into the buffer(equal to capacity)</li>
+<li>In read mode: how much data you can read from the buffer(when flipping a Buffer into read mode, limit is set to the position)</li>
+</ol>
+</li>
+<li>mark</li>
+</ol>
+<h2 id="selector">Selector</h2>
+<p>Examine one or more channels and determine which channels are ready for reading and writing.<br>
+Hence, one threads can handle multiple channels(不必为每个连接创建线程)</p>
+<ol>
+<li><code>Selector selector = Selector.open();</code> Open a selector</li>
+<li>Set channel to non-blocking mode(FileChannel has no such mode)</li>
+<li><code>SelectionKey key = channel.register(selector, SelectionKey.OP_READ);</code> to register<br>
+(There are four interest sets: Connect, Accept, Read, Write)</li>
+</ol>
+<h3 id="selectionkey">SelectionKey</h3>
+<ol>
+<li>Interest set: the set of events that channel is interested in</li>
+<li>Ready Set: the set of operations that channel is interested in</li>
+</ol>
+<h2 id="common-methods">Common Methods</h2>
+<ol>
+<li>flip(): set limit to position and position to 0 before channel writing</li>
+<li>rewind(): set position to 0 before channel rewriting</li>
+<li>clear(): set position to 0 and limit to capacity before channel reading</li>
+<li>compact(): copy all unread data to the left, set position to (limit - position) and limit to capacity for writing</li>
+<li>mark() &amp; reset(): set mark to position and set position to mark</li>
+<li>equals()
+<ol>
+<li>check if they are the same object</li>
+<li>check if they are of the same type</li>
+<li>check if both (limit - position) are the same</li>
+<li>check if elements from (limit - position) to limit are identical</li>
+</ol>
+</li>
+<li>compareTo(): check if elements(start from their own position to Min(limit)) are identical</li>
+</ol>
+<h2 id="scatter-gather">Scatter / Gather</h2>
+<p>The channel “scatters” the data from the channel into multiple buffers. (no working with dynamically sized messages)<br>
+The channel “gathers” the data from multiple buffers into one channel. (work with dynamically sized messages)</p>
+<h2 id="channel-to-channel-transfer">Channel to Channel Transfer</h2>
+<p>Transfer data directly from one channel to another(ByteBuffer Usage is Encapsulated)</p>
+<ol>
+<li><code>toChannel.transferFrom(fromChannel, position, count);</code></li>
+<li><code>fromChannel.transferTo(position, count, toChannel);</code></li>
+</ol>
+<h2 id="pipe">Pipe</h2>
+<p>A pipe has a source channel and a sink channel. Write to sink channel from Thread A and read from source channel from<br>
+Thread B.</p>
+<h2 id="nio-vs-io">NIO vs IO</h2>
+<ol>
+<li>IO is Stream Oriented, NIO is Buffer Oriented. For streams
+<ol>
+<li>No cache</li>
+<li>cannot move forth or back in a stream</li>
+</ol>
+</li>
+<li>IO is Blocking, NIO is Non-blocking IO<br><br>
+When a thread invokes <code>read()</code> or <code>write()</code> from Java’IO. The thread is blocked.<br>
+In Non-blocking mode in NIO, the thread can do something else when handling with channels(can handle multiple channels with selectors).</li>
+<li>IO can read in line, which is convenient. NIO read in buffer, which is hard to control if we want to read in line</li>
+<li>use NIO if there are thousands of open connections simultaneously, which each only send a little data such as chat<br>
+system.</li>
+<li>use IO if there are few connections with very high bandwidth.</li>
+</ol>
+<hr>
+<h1><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43809223/article/details/100529810">BIO vs NIO vs AIO</a></h1>
+<ol>
+<li>BIO-同步阻塞IO
+<ol>
+<li>服务器实现模式为一个连接一个线程</li>
+<li>适用于连接数目比较小且固定的架构</li>
+</ol>
+</li>
+<li>NIO-同步非阻塞IO：
+<ol>
+<li>服务器实现模式为一个请求一个线程</li>
+<li>客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有IO请求时才启动一个线程进行处理</li>
+<li>适用于连接数目多且连接比较短（轻操作）的架构，比如聊推荐服务器</li>
+</ol>
+</li>
+<li>AIO-异步非阻塞AIO：在读写操作结束之前允许进行其他的操作
+<ol>
+<li>适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用OS参与并发操作</li>
+</ol>
+</li>
+<li>同步和异步说的是消息的通知机制，这个线程仍然要定时的读取stream，判断数据有没有准备好;<br>
+非阻塞：体现在，这个线程可以去干别的，不需要一直在这等着</li>
+</ol>
+<h1>ClassLoad</h1>
+<h2 id="类加载器">类加载器</h2>
+<ol>
+<li>BootstrapClassLoader(启动类加载器): 最顶层的加载类，由C++实现，负责加载%JAVA_HOME%/lib目录下的jar包和类或者或被 -Xbootclasspath参数指定的路径中的所有类</li>
+<li>ExtensionClassLoader(扩展类加载器): 主要负责加载目录 %JRE_HOME%/lib/ext 目录下的jar包和类，或被 java.ext.dirs 系统变量所指定的路径下的jar包</li>
+<li>AppClassLoader(应用程序类加载器): 面向我们用户的加载器，负责加载当前应用classpath下的所有jar包和类</li>
+<li>AppClassLoader的父类加载器为ExtClassLoader ExtClassLoader的父类加载器为null，null并不代表ExtClassLoader没有父类加载器，而是BootstrapClassLoader</li>
+</ol>
+<h2 id="双亲委派模型">双亲委派模型</h2>
+<ol>
+<li>The Java platform uses a delegation model for loading classes.<br>
+The basic idea is that every class loader has a “parent” class loader.<br>
+When loading a class, a class loader first “delegates” the search for the<br>
+class to its parent class loader before attempting to find the class itself.</li>
+<li><img src="https://camo.githubusercontent.com/4311721b0968c1b9fd63bdc0acf11d7358a52ff6/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f323031392d362f636c6173736c6f616465725f5750532545352539422542452545372538392538372e706e67" alt="img info"></li>
+<li>避免类的重复加载</li>
+<li>除了BootstrapClassLoader, 其他类加载器均由Java实现且全部继承自java.lang.ClassLoader</li>
+</ol>
+<hr>
+<h1>Error and Exception</h1>
+<ol>
+<li>都继承于throwable</li>
+<li>Error: 一般指与虚拟机相关的问题：系统崩溃，JVM错误，内存不足。仅靠程序本身无法恢复，建议让程序终止</li>
+<li>Exception: 表示程序可以捕获并处理的异常<br>
+3.1. Runtime/Unchecked Exception: 在编译时可被忽略<br>
+3.1.1. NullPointerException<br>
+3.1.2. ClassCastException<br>
+3.1.3. ArrayIndexOutOfBoundsException<br>
+3.2. Checked Exception: 在编译时不可被忽略，使用try-catch或者throws子句抛出<br>
+3.2.1. IOException<br>
+3.2.1. SQLException<br>
+3.2.1. 用户自定义的</li>
+</ol>
+<hr>
+<h1><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1420284">序列化，反序列化</a></h1>
+<ol>
+<li>Java对象 &lt;–&gt; 字节流</li>
+<li>可以永久性的保存对象</li>
+<li>可以在网络中或进程间传递</li>
+<li>通过<code>ObjectOutputStream</code>和<code>ObjectInputStream</code>实现，<br>
+对象必须实现<code>Serializable</code>或<code>Externalizable</code>(<code>Externalizable</code>继承<code>Serializable</code>)</li>
+<li>安全方面: 除了<code>transient</code>修饰的变量，其他的包括private都会被序列化</li>
+<li>SerialVersionUID: 用于验证序列化对象的发送者和接收者是否为该对象加载了与序列化兼容的类</li>
+<li>成员变量是个对象也会被序列化(深拷贝)</li>
+</ol>
+<h1>深浅拷贝</h1>
+<ol>
+<li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝
+<ol>
+<li>重写<code>clone()</code></li>
+</ol>
+</li>
+<li>深拷贝：对基本数据类型进行值传递，对引用数据类型创建新的对象并复制内容
+<ol>
+<li>通过序列化反序列化获得新的对象</li>
+<li>重写<code>clone()</code></li>
+</ol>
+</li>
+</ol>
+<h1>Spring</h1>
+<h2 id="七个事务传播属性">七个事务传播属性</h2>
+<ol>
+<li>Required: 支持当前事务，如果当前没有事务，就新建一个事务</li>
+<li>Supports: 支持当前事务，如果当前没有事务，就以非事务方式执行</li>
+<li>Mandatory: 支持当前事务，如果当前没有事务，就抛出异常</li>
+<li>Requires new: 新建事务，如果当前存在事务，把当前事务挂起</li>
+<li>Not support: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起</li>
+<li>Never: 以非事务方式执行，如果当前存在事务，则抛出异常</li>
+<li>Nested: 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与REQUIRED类似的操作</li>
+</ol>
+<h2 id="五个隔离级别">五个隔离级别</h2>
+<ol>
+<li>ISOLATION_DEFAULT: 这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别</li>
+<li>ISOLATION_READ_UNCOMMITTED</li>
+<li>ISOLATION_READ_COMMITTED</li>
+<li>ISOLATION_REPEATABLE_READ</li>
+<li>ISOLATION_SERIALIZABLE</li>
+</ol>
+<h2 id="spring-aop">Spring AOP</h2>
+<p>通过代理在运行时织入<br>
+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/swordfall/p/12880809.html">Spring代理</a></p>
+<ol>
+<li>静态代理</li>
+<li>动态代理<br>
+2.1. 基于接口的代理(JDK代理)：<br>
+2.1.1. 基于reflect.proxy类<br>
+2.1.2. 代理类要实现InvocationHandler接口<br>
+2.1.3. 需要接口进行动态代理<br>
+2.2. 基于继承的代理(CGlib代理)<br>
+2.2.1. CGLib采用非常底层的字节码技术，可以为一个类创建子类，并在子类中采用方法去技术拦截所有的父类方法的调用，并顺势织入横切逻辑<br>
+2.2.2. CGLib和JDK的原理类似，也是通过方法去反射调用目标对象的方法</li>
+</ol>
+<h2 id="spring-mvc">Spring MVC</h2>
+<ol>
+<li>客户端发送请求到DispatcherServlet</li>
+<li>调用HandlerMapping解析对应的Handler</li>
+<li>解析到对应的Handler,交给HandlerAdapter处理</li>
+<li>HandlerAdapter根据Handler调用Controller处理业务</li>
+<li>Controller处理完后会返回一个ModelAndView对象，Model是返回的数据对象，View是逻辑上的View</li>
+<li>ViewResolver根据View查找实际的View</li>
+<li>DispatcherServlet把model传给view（视图渲染）</li>
+<li>把View返回给客户端</li>
+</ol>
+<h2 id="bean作用域以及部分生命周期">Bean作用域以及部分生命周期</h2>
+<ol>
+<li>Singleton: Spring IoC容器中只会存在一个共享的bean实例(可以实行lazy init)<br>
+Spring容器可以管理singleton作用域下bean的生命周期:何时被创建，何时初始化完成，以及何时被销毁</li>
+<li>Prototype: 每次请求都会创建一个新的bean实例<br>
+Spring只负责创建，当容器创建了bean的实例后，bean的实例就交给了客户端的代码管理</li>
+<li>Request:   每次Http请求会产生一个新的bean，该bean仅在当前HTTPRequest内有效</li>
+<li>Session:   每一次HTTP请求都会产生一个新的 bean，该bean仅在当前HTTPSession内有效</li>
+<li>GlobalSession:</li>
+</ol>
+<h2 id="bean生命周期">Bean生命周期</h2>
+<h2 id="注解">注解</h2>
+<ol>
+<li>@Conditional:</li>
+</ol>
+<hr>
+<h1>三大特性</h1>
+<p>封装，继承，多态</p>
+<hr>
+<h1>Primitives</h1>
+<p>byte:     8 bits<br>
+short:   16 bits<br>
+char:    16 bits<br>
+int:     32 bits<br>
+float:    32 bits<br>
+double:  64 bits<br>
+long:    64 bits<br>
+boolean: boolean在数组情况下为1个字节，单个boolean为4个字节<br>
+(boolean值在编译后都使用Java虚拟机中的int数据类型来代替，而int是4字节，那么boolean值就是4字节;<br>
+boolean类型数组的访问与修改共用byte类型数组的baload和 bastore指令，所以byte数组中一个byte是1个字节，那么boolean数组中boolean是1个字节)</p>
+<hr>
+<h1>Others</h1>
+<h2 id="string-s-new-string-xyz-创建了几个对象">String s = new String(“xyz”); 创建了几个对象</h2>
+<ol>
+<li>在运行时常量池的string pool里面寻找是否存在&quot;xyz&quot;，若不存在，则创建这个string对象</li>
+<li>通过new String(“xyz”)创建并初始化内容与&quot;xyz&quot;相同的实例</li>
+</ol>
+<h2 id="oom问题查找">OOM问题查找</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jjavaboy/article/details/77773754">OOM问题排查</a></p>
+<ol>
+<li>内存分配过小，通过<code>jmap -heap PID</code>查看heap使用情况</li>
+<li>找到最耗内存的对象（实例数，所占内存，类名）(可能存在未释放内存的情况 或者 消费者消费速度慢（或停止消费了），而生产者不断往队列中投递任务，导致队列中任务累积过多）</li>
+<li>确认资源是否耗尽<br>
+3.1. <code>pstree</code>, <code>netstat</code><br>
+3.2. <code>ll /proc/$&#123;PID&#125;/fd</code><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/10050/proc-pid-fd-x-link-number">fd内容意义</a>,<code>ll /proc/$&#123;PID&#125;/task</code>(查看线程)</li>
+</ol>
+<h2 id="拆箱-装箱例子">拆箱，装箱例子</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Integer i1 &#x3D; 40;</span><br><span class="line">Integer i2 &#x3D; 40;</span><br><span class="line">Integer i3 &#x3D; 0;</span><br><span class="line">Integer i4 &#x3D; new Integer(40);</span><br><span class="line">Integer i5 &#x3D; new Integer(40);</span><br><span class="line">Integer i6 &#x3D; new Integer(0);</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;i1&#x3D;i2   &quot; + (i1 &#x3D;&#x3D; i2));</span><br><span class="line">System.out.println(&quot;i1&#x3D;i2+i3   &quot; + (i1 &#x3D;&#x3D; i2 + i3));</span><br><span class="line">System.out.println(&quot;i1&#x3D;i4   &quot; + (i1 &#x3D;&#x3D; i4));</span><br><span class="line">System.out.println(&quot;i4&#x3D;i5   &quot; + (i4 &#x3D;&#x3D; i5));</span><br><span class="line">System.out.println(&quot;i4&#x3D;i5+i6   &quot; + (i4 &#x3D;&#x3D; i5 + i6));   </span><br><span class="line">System.out.println(&quot;40&#x3D;i5+i6   &quot; + (40 &#x3D;&#x3D; i5 + i6));</span><br></pre></td></tr></table></figure>
+<p>Result:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i1&#x3D;i2   true</span><br><span class="line">i1&#x3D;i2+i3   true</span><br><span class="line">i1&#x3D;i4   false</span><br><span class="line">i4&#x3D;i5   false</span><br><span class="line">i4&#x3D;i5+i6   true</span><br><span class="line">40&#x3D;i5+i6   true</span><br></pre></td></tr></table></figure>
+<p>Explanation: <br><br>
+语句 i4 == i5 + i6，因为+这个操作符不适用于 Integer 对象，首先 i5 和 i6 进行自动拆箱操作，进行数值相加，即 i4 == 40。<br>
+然后 Integer 对象无法与数值进行直接比较，所以 i4 自动拆箱转为 int 值 40，最终这条语句转为 40 == 40 进行数值比较。</p>
+<hr>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckmm1m5c2001ue7q18p8i3c6p/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/" rel="tag">Interview</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lock/" rel="tag">Lock</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NIO/" rel="tag">NIO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thread/" rel="tag">Thread</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/ckmm1m5bq001ce7q10fsx3j24/" class="article-nav-link">
+        <strong class="article-nav-caption">Prev</strong>
+        <div class="article-nav-title">
+          
+            Mysql面试个人总结
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> Ronan Chen
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.svg" alt="Ronan Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">@Me</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
