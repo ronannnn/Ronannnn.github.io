@@ -65,7 +65,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/ckmm1m5c2001te7q1gd4h9zu2/" class="article-date">
+      <a href="/2020/ckqg6o3on001wraq122k88tw3/" class="article-date">
   <time datetime="2020-04-01T07:07:03.000Z" itemprop="datePublished">2020-04-01</time>
 </a> 
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">5.6k</span>
+            <span class="post-count">5.7k</span>
         </span>
     </span>
 
@@ -306,9 +306,9 @@ An abstraction of memory</p>
 <p><code>vfork()</code>: 一种很快速的fork，父子进程共享地址，子进程可以修改父进程，很危险</p>
 <ol>
 <li>Private Mapping<br>
-<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/PrivateMapping.jpg" alt="alt"></li>
+<img src="/2020/ckqg6o3on001wraq122k88tw3/PrivateMapping.jpg" alt="alt"></li>
 <li>Shared Mapping<br>
-<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/SharedMapping.jpg" alt="alt"></li>
+<img src="/2020/ckqg6o3on001wraq122k88tw3/SharedMapping.jpg" alt="alt"></li>
 </ol>
 <h3 id="2-1-5-孤儿进程-僵尸进程">2.1.5. 孤儿进程 &amp; 僵尸进程</h3>
 <ol>
@@ -448,7 +448,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 </ol>
 </li>
 <li>MMU + 二级页表<br>
-<img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/MMU+%E4%BA%8C%E7%BA%A7%E9%A1%B5%E8%A1%A8.jpg" alt="alt">
+<img src="/2020/ckqg6o3on001wraq122k88tw3/MMU+%E4%BA%8C%E7%BA%A7%E9%A1%B5%E8%A1%A8.jpg" alt="alt">
 <ol>
 <li>通过虚拟页号(vpn virtual page number)在页表中找到page table entry</li>
 <li>page table entry(类似于base reg和bounds reg)
@@ -465,7 +465,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>线性(linear)页表，哈希(hashed)页表，聚集(clustered)页表，反转(inverted)页表</li>
 </ol>
 <h3 id="3-3-1-tlb">3.3.1. TLB</h3>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/TLB%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
 <ol>
 <li>在Processor中的额外空间</li>
 <li>缓存映射: TLB的entry -&gt; 页表的entry</li>
@@ -479,7 +479,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>page fault的惩罚：trap到内核中</li>
 </ol>
 <h4 id="3-3-1-1-直接映射-direct-mapping-cache">3.3.1.1. (直接映射) Direct Mapping Cache</h4>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/TLB%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84.jpg" alt="alt"></p>
 <ol>
 <li>TLB由硬件通过一个简单的hash表实现</li>
 <li>VA前20位确定位置
@@ -492,18 +492,18 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>相同的key的行的更新会把原来的内容顶掉，因此冲突的几率非常高，导致TLB miss的发生，降低了命中率</li>
 </ol>
 <h4 id="3-3-1-2-全相连-fully-associative-cache">3.3.1.2. (全相连) fully associative Cache</h4>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E5%85%A8%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/TLB%E5%85%A8%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
 <ol>
 <li>只有一行，没有key</li>
 <li>更新会append，但每次都需要和所有tag进行比较，比较耗时</li>
 </ol>
 <h4 id="3-3-1-3-组相连-set-associate-cache">3.3.1.3. (组相连) set-associate Cache</h4>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/TLB%E7%BB%84%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/TLB%E7%BB%84%E7%9B%B8%E8%BF%9E.jpg" alt="alt"></p>
 <ol>
 <li>和直接映射差不多，不同点是每行可以存储更多内容(即相同的key，不同的Tag)，之后VA中的tag和行中所有tag比较</li>
 <li>是直接映射和全相连的中和，bucket大小一般是2,4,8,etc，8比较好</li>
 </ol>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/CacheHierarchy.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/CacheHierarchy.jpg" alt="alt"></p>
 <h2 id="3-4-paging-scheme">3.4. Paging Scheme</h2>
 <ol>
 <li>Fetch Policy
@@ -514,7 +514,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>Placement Policy</li>
 <li>Replacement Policy</li>
 </ol>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/%E6%96%B0%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%B5%E5%88%86%E9%85%8D.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/%E6%96%B0%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%B5%E5%88%86%E9%85%8D.jpg" alt="alt"></p>
 <ol>
 <li>在<code>fork()</code>和<code>exec()</code>后，清空页表(页表在fork时已创建)</li>
 <li>当执行第一个指令时，对应页的validity是0，发生页错误(Page fault)，trap into the kernel</li>
@@ -537,7 +537,7 @@ pthread_join函数就是一种屏障，允许一个线程等待，直到另一�
 <li>return from trap</li>
 </ol>
 <h3 id="3-4-2-pageout-daemon">3.4.2 Pageout Daemon</h3>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/PageoutDaemon.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/PageoutDaemon.jpg" alt="alt"></p>
 <h3 id="3-4-3-zones-in-memory">3.4.3 Zones in Memory</h3>
 <p>内存可以分为</p>
 <ol>
@@ -575,7 +575,8 @@ each fd points to system file table</li>
 <p>Linux中一切皆可以看成是文件(普通文件、目录文件、链接文件和设备文件)<br>
 <img src="https://img-blog.csdn.net/20140831224818062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3l3b3Nw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="文件描述符"><br>
 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003063859">Linux IO, Select, Poll, Epoll1</a><br>
-<a target="_blank" rel="noopener" href="https://embed-linux-tutorial.readthedocs.io/zh_CN/latest/system_programing/socket_io.html">Linux IO, Select, Poll, Epoll2</a></p>
+<a target="_blank" rel="noopener" href="https://embed-linux-tutorial.readthedocs.io/zh_CN/latest/system_programing/socket_io.html">Linux IO, Select, Poll, Epoll2</a><br>
+<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/31cdfd6f5a48">Linux IO, Select, Poll, Epoll3</a></p>
 <p>Select, Poll, Epoll都是IO多路复用的机制(一个进程同时处理多个网络IO)<br>
 （I/O多路复用就是通过一种机制，一个进程可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或者写就绪），能够通知程序进行相应的读写操作）。<br>
 三者都是同步IO。</p>
@@ -594,23 +595,28 @@ each fd points to system file table</li>
 <li>没有最大数量限制(select和poll都需要在返回后，通过遍历文件描述符来获取已经就绪的socket。<br>
 事实上，同时连接的大量客户端在一时刻可能只有很少的处于就绪状态，因此随着监视的描述符数量的增长，其效率也会线性下降。)</li>
 <li>和select函数一样，poll返回后，需要轮询pollfd来获取就绪的描述符。</li>
+<li>将传入的struct pollfd结构体数组拷贝到内核中进行监听</li>
 </ol>
 </li>
 <li>Epoll
 <ol>
-<li><code>int epoll_create(int size)</code> 创建一个epoll的epfd（epoll文件描述符）<br>
+<li><code>int epoll_create(int size)</code> 创建一个epoll的epfd（epoll文件描述符）,在内核的高速cache区中建立一颗红黑树以及就绪链表(该链表存储已经就绪的文件描述符)<br>
 告诉内核这个监听的数目一共有多大(参数size并不是限制了epoll所能监听的描述符最大个数，只是对内核初始分配内部数据结构的一个建议)</li>
-<li><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event)</code> 对指定描述符fd执行op操作</li>
+<li><code>int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event)</code> 对指定描述符fd执行op操作(add delete modify 红黑树中)</li>
 <li><code>int epoll_wait(int epfd, struct epoll_event * events, int maxevents, int timeout)</code> 等待epfd上的io事件，最多返回maxevents个事件</li>
-<li>epoll事先通过epoll_ctl()来注册一个文件描述符，一旦基于某个文件描述符就绪时，内核会采用类似callback的回调机制，迅速激活这个文件描述符，当进程调用epoll_wait() 时便得到通知</li>
+<li>在执行epoll_ctl的add操作时，不仅将文件描述符放到红黑树上，而且也注册了回调函数，文件描述符就绪时，该回调函数将文件描述符放在就绪链表中，当进程调用epoll_wait()查看链表即可</li>
 <li>IO的效率不会随着监视fd的数量的增长而下降。epoll不同于select和poll轮询的方式，而是通过每个fd定义的回调函数来实现的。只有就绪的fd才会执行回调函数。</li>
-<li>两种操作模式<br>
-6.1. LT模式：即水平触发模式，同时支持 block 和 non-block socket，<br>
+<li>两种操作模式
+<ol>
+<li>LT(level trigger)模式：即水平触发模式，同时支持 block 和 non-block socket，<br>
 当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序可以不立即处理它。下次调用epoll_wait时，还会再次产生通知。<br>
-保证每个数据都处理掉了。只要你没有完全接收完上次的数据(比如buff数组比较小，没有处理全部数据)，内核就会继续通知你去接收数据<br>
-6.2. ET模式：即边缘触发模式，只支持no-block socket，<br>
+保证每个数据都处理掉了。只要你没有完全接收完上次的数据(比如buff数组比较小，没有处理全部数据)，内核就会继续通知你去接收数据</li>
+<li>ET(Edge Trigger)模式：即边缘触发模式，只支持no-block socket，<br>
 当epoll_wait检测到socket描述符处于就绪时就通知应用程序，应用程序 必须 立即处理它。如果不处理，下次调用epoll_wait时，不会再次产生通知。</li>
+</ol>
+</li>
 <li>EpollOnShot事件：一个socket连接在任何时刻只被一个线程处理（对应的，处理完后应重置EPOLLONSHOT以确保这个socket下一次可读时，其他线程有机会处理这个socket）</li>
+<li>虽然epoll的性能最好，但是在连接数少并且连接都十分活跃的情况下，select和poll的性能可能比epoll好，毕竟epoll的通知机制需要很多函数回调。</li>
 </ol>
 </li>
 </ol>
@@ -651,7 +657,7 @@ each fd points to system file table</li>
 <li>当CPU发出内存访问请求时，先检查缓存内是否有数据，如果存在则不经内存直接返回，若不存在，先从内存载入缓存，再返回给处理器</li>
 </ol>
 <h2 id="结构">结构</h2>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%93%E6%9E%84.jpg" alt="alt"></p>
 <ol>
 <li>CPU寄存器   访问速度: 1 clock</li>
 <li>SRAM高速缓存 访问速度 ：n clock</li>
@@ -664,7 +670,7 @@ each fd points to system file table</li>
 <li>因此在二维数组求和中，按列求和比按行求和更优</li>
 </ol>
 <h2 id="多级缓存-intel-core-i7为例">多级缓存(Intel Core i7为例)</h2>
-<p><img src="/2020/ckmm1m5c2001te7q1gd4h9zu2/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
+<p><img src="/2020/ckqg6o3on001wraq122k88tw3/3%E7%BA%A7%E7%BC%93%E5%AD%98.jpg" alt="alt"></p>
 <ol>
 <li>L1: 4 clock
 <ol>
@@ -734,7 +740,7 @@ each fd points to system file table</li>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckmm1m5c2001te7q1gd4h9zu2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckqg6o3on001wraq122k88tw3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -747,7 +753,7 @@ each fd points to system file table</li>
    
   <nav class="article-nav">
     
-      <a href="/2020/ckmm1m5bc0009e7q1388e3e1k/" class="article-nav-link">
+      <a href="/2020/ckqg6o3o5000draq1fu5oerjm/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
@@ -757,7 +763,7 @@ each fd points to system file table</li>
       </a>
     
     
-      <a href="/2020/ckmm1m5bq001ce7q10fsx3j24/" class="article-nav-link">
+      <a href="/2020/ckqg6o3ol001vraq108zhhenh/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
         <div class="article-nav-title">Mysql面试个人总结</div>
       </a>

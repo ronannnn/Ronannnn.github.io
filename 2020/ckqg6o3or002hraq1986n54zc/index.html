@@ -65,7 +65,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/ckmm1m5c2001ue7q18p8i3c6p/" class="article-date">
+      <a href="/2020/ckqg6o3or002hraq1986n54zc/" class="article-date">
   <time datetime="2020-01-03T11:07:03.000Z" itemprop="datePublished">2020-01-03</time>
 </a> 
   <div class="article-category">
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">8.1k</span>
+            <span class="post-count">8.3k</span>
         </span>
     </span>
 
@@ -86,7 +86,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">33 min</span>
+            <span class="post-count">34 min</span>
         </span>
     </span>
 </div>
@@ -456,6 +456,78 @@ JDK采用了更聪明的方式——适应性自旋，简单来说就是线程�
 3. 锁消除（Lock Elimination）: 根据代码逃逸技术，如果判断到一段代码中，堆上的数据不会逃逸出当前线程，那么可以认为这段代码是线程安全的，不必要加锁。</p>
 <hr>
 <h1>JVM</h1>
+<h2 id="类装载子系统">类装载子系统</h2>
+<ol>
+<li>javac *.java 编译成class文件</li>
+<li>java *.class 将class运行在这个系统中</li>
+</ol>
+<h2 id="jmm-内存模型">JMM 内存模型</h2>
+<ol>
+<li>VM stack
+<ol>
+<li>默认大小：1MB</li>
+<li>每个线程一个栈</li>
+<li>每个方法一个栈帧(Stack Frame)
+<ol>
+<li>LVA(Local Variable Array)(局部变量表): primitive types and object reference</li>
+<li>Operand Stack(操作数栈):
+<ol>
+<li>for storing intermediate calculation’s result</li>
+<li>push/pop instructions</li>
+</ol>
+</li>
+<li>动态链接(Dynamic link): 找到方法区内该方法的起始地址</li>
+<li>normal method return(方法返回地址): 知道返回到调用者的哪一行</li>
+<li>Invoking a function will push a Stack Frame into VM stack.<br>
+When a function finished with return or exception, VM stack will pop this stack frame</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>程序计数器: 线程挂起 恢复执行后 需要知道之前运行到哪儿了</li>
+<li>Method Area方法区(元空间)
+<ol>
+<li>class info(*.class文件)</li>
+<li>static variables</li>
+<li><strong>Constant Pool</strong> is in this area
+<ol>
+<li>string pool</li>
+<li>primitive pool</li>
+<li>JDK1.7 及之后版本的JVM已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Native Method Stack<br>
+When Native methods are invoked, stack frame will be pushed into Native Method Stack, which is the same as that in VM stack</li>
+<li>Heap
+<ol>
+<li>Young Generation(占1/3)
+<ol>
+<li>eden(占8/10): 对象优先在这里分配</li>
+<li>s0(占1/10)</li>
+<li>s1(占1/10)</li>
+</ol>
+</li>
+<li>Tenured(old) Generation(占2/3)</li>
+<li>当eden满的时候发生Minor GC，字节码执行引擎会启一个垃圾收集线程
+<ol>
+<li>可达性算法: GC Root根结点：线程栈（本地方法栈）变量，静态变量</li>
+<li>通过可达性算法标记有用的对象，放到s0中，清空eden和s1；若这次放到s0，那么下次放到s1，清空eden和s0</li>
+<li>每次移动都会增加分代年龄，当到达15时，移动到老年代中</li>
+</ol>
+</li>
+<li>当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC. GC期间虚拟机又发现allocation1无法存入Survivor空间，所以只好通过’分配担保机制’把新生代的对象提前转移到老年代中去</li>
+<li>如果Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无需达到要求的年龄</li>
+</ol>
+</li>
+<li>垃圾收集器
+<ol>
+<li>CMS</li>
+<li>G1: 可预测停顿: 对于大eden的回收，可以进行部分回收(可以设置最大minorGC时间)，减少GC的STW对客户端响应时间的影响</li>
+</ol>
+</li>
+</ol>
 <h2 id="判断对象是否死亡">判断对象是否死亡</h2>
 <ol>
 <li>引用计数法: 引用计数器加1，引用失效计数器减1;无法解决相互引用的问题</li>
@@ -468,6 +540,17 @@ JDK采用了更聪明的方式——适应性自旋，简单来说就是线程�
 <li>被判定为需要执行的对象将会被放在一个队列中进行第二次标记，除非这个对象与引用链上的任何一个对象建立关联，否则就会被真的回收。</li>
 </ol>
 </li>
+</ol>
+<h2 id="字节码执行引擎">字节码执行引擎</h2>
+<ol>
+<li>执行*.class文件</li>
+<li>会修改程序计数器里的值</li>
+</ol>
+<h2 id="调优工具">调优工具</h2>
+<ol>
+<li>xms: 程序启动时占用内存大小</li>
+<li>xmx: 程序运行期间最大可占用的内存大小</li>
+<li></li>
 </ol>
 <h2 id="判断一个类是无用的类">判断一个类是无用的类</h2>
 <ol>
@@ -545,64 +628,6 @@ JDK采用了更聪明的方式——适应性自旋，简单来说就是线程�
 </li>
 </ol>
 <p><img src="https://i.stack.imgur.com/4ySVX.png" alt="Clear "></p>
-<h2 id="vm-stack-run-time-stack">VM stack(Run-Time Stack)</h2>
-<p>栈默认大小：1MB<br>
-Each Entry in the stack is called Stack Frame(栈帧)</p>
-<p>Stack Frame consists of:</p>
-<ol>
-<li>LVA(Local Variable Array)(局部变量表): primitive types and object reference</li>
-<li>Operand Stack(操作数栈):
-<ol>
-<li>for storing intermediate calculation’s result</li>
-<li>push/pop instructions</li>
-</ol>
-</li>
-<li>Frame Data(FD):
-<ol>
-<li>contains all symbolic reference and normal method return(方法返回地址)</li>
-<li>contains a reference to Exception table which provide the corresponding catch block information in the case of exceptions.</li>
-<li>Dynamic Link</li>
-</ol>
-</li>
-</ol>
-<p>Invoking a function will push a Stack Frame into VM stack.<br>
-When a function finished with return or exception, VM stack will pop this stack frame</p>
-<h2 id="native-method-stack">Native Method Stack</h2>
-<p>When Native methods are invoked, stack frame will be pushed into Native Method Stack, which is the same as that in VM stack</p>
-<h2 id="heap">Heap</h2>
-<ol>
-<li>
-<p>Young Generation(minor GC)</p>
-<ol>
-<li>eden space: 对象优先在这里分配</li>
-<li>s0</li>
-<li>s1</li>
-</ol>
-</li>
-<li>
-<p>Tenured(old) Generation(full GC)</p>
-</li>
-<li>
-<p>发生Minor GC时: Eden和s0有用对象移至s1(如果年龄够大则到tenured);之后发生Minor GC，Eden和s1有用对象移至s0;s1和s0相互移动</p>
-</li>
-<li>
-<p>当Eden区没有足够空间进行分配时，虚拟机将发起一次Minor GC. GC期间虚拟机又发现allocation1无法存入Survivor空间，所以只好通过’分配担保机制’把新生代的对象提前转移到老年代中去</p>
-</li>
-<li>
-<p>如果Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无需达到要求的年龄</p>
-</li>
-</ol>
-<h2 id="method-area">Method Area</h2>
-<ol>
-<li>Contains class info, constants, static variables, etc</li>
-<li><strong>Constant Pool</strong> is in this area
-<ol>
-<li>string pool</li>
-<li>primitive pool</li>
-<li>JDK1.7 及之后版本的JVM已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。</li>
-</ol>
-</li>
-</ol>
 <h2 id="locate-object">locate object</h2>
 <ol>
 <li>使用句柄<br>
@@ -628,7 +653,6 @@ When a function finished with return or exception, VM stack will pop this stack 
 <p>当method1()方法执行完成后，object对象所分配的内存不会马上被认为是可以被释放的对象，只有在Simple类创建的对象被释放后才会被释放，<br>
 严格的说，这就是一种内存泄露。需要在method1最后添加</p>
 <h2 id="code-4"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object &#x3D; null;</span><br></pre></td></tr></table></figure></h2>
-<h2 id="性能调优工具">性能调优工具</h2>
 <h1>NIO</h1>
 <p><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-nio/index.html">Java NIO</a><br>
 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a9b2fec31fd1">Java NIO</a><br>
@@ -860,7 +884,7 @@ Spring只负责创建，当容器创建了bean的实例后，bean的实例就交
 </ol>
 <hr>
 <h1>三大特性</h1>
-<p>封装，继承，多态</p>
+<p>封装，继承，多态（指同一个接口，使用不同的实例而执行不同操作）</p>
 <hr>
 <h1>Primitives</h1>
 <p>byte:     8 bits<br>
@@ -949,7 +973,7 @@ boolean类型数组的访问与修改共用byte类型数组的baload和 bastore�
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckmm1m5c2001ue7q18p8i3c6p/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckqg6o3or002hraq1986n54zc/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -962,7 +986,7 @@ boolean类型数组的访问与修改共用byte类型数组的baload和 bastore�
    
   <nav class="article-nav">
     
-      <a href="/2020/ckmm1m5bq001ce7q10fsx3j24/" class="article-nav-link">
+      <a href="/2020/ckqg6o3ol001vraq108zhhenh/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           

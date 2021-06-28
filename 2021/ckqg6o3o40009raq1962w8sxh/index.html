@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="Hexo,Hexo主题,代码,博客,游戏" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Linux Device Driver third edition |  Ronan Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Ronan Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-linux-device-driver"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Linux Device Driver third edition
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/ckqg6o3o40009raq1962w8sxh/" class="article-date">
+  <time datetime="2021-06-26T04:44:00.000Z" itemprop="datePublished">2021-06-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Device-Driver/">Device Driver</a> / <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1>第一章 设备驱动程序简介</h1>
+<h2 id="设备和模块的分类">设备和模块的分类</h2>
+<p>设备分类</p>
+<ol>
+<li>字符设备: 像字节流一样被访问的设备，需要是想open, close, read等系统调用
+<ol>
+<li>字符终端(/dev/console)</li>
+<li>串口(/dev/tty0)</li>
+</ol>
+</li>
+<li>块设备: 类似字符设备，通过/dev目录下的文件系统节点访问，可容纳文件系统(如磁盘)，进行I/O传输时只能传输一个或多个完整的块</li>
+<li>网络接口:</li>
+</ol>
+<h2 id="模块vs应用程序">模块VS应用程序</h2>
+<ol>
+<li>应用程序
+<ol>
+<li>从头到尾执行单个任务</li>
+<li>退出时可以不管资源的释放或其他清除工作</li>
+</ol>
+</li>
+<li>模块
+<ol>
+<li>预先注册，之后在module_exit()时退出</li>
+<li>退出时需要撤销初始化函数做的一切</li>
+</ol>
+</li>
+</ol>
+<h2 id="编译和装载">编译和装载</h2>
+<h3 id="编译">编译</h3>
+<p>Makefile(具体文件在Clion:linux-device-driver中)</p>
+<ol>
+<li>加入hello模块<br>
+<code>obj-m := hello.o</code></li>
+<li>构造模块名称位module.ko，并由两个源文件生成(file1.c和file2.c)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj-m :&#x3D; module.o</span><br><span class="line">module-objs :&#x3D; file1.o file2.o</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>make -C ~/kernel-2.6 M='pwd' modules</code>
+<ol>
+<li><code>-C</code>: 改变目录到选项指定位置</li>
+<li><code>M</code>: 在makefile构造modules前回到模块源代码目录，然后modules目标指向<code>obj-m</code>变量中设定的模块</li>
+</ol>
+</li>
+</ol>
+<h3 id="装载-卸载">装载/卸载</h3>
+<ol>
+<li><code>insmod hello.ko</code>: 将模块代码和数据装入内核</li>
+<li><code>modprobe</code>: 和<code>insmod</code>区别在它会考虑当前模块是否引用当前内核不存在的符号，若有则找到这些模块并加载，而<code>insmod</code>会直接报错<code>unresolved symbols</code></li>
+<li><code>rmmod</code></li>
+<li><code>lsmod</code>: 读取<code>/proc/modules</code>虚拟文件来获得信息</li>
+</ol>
+<h3 id="模块层叠技术">模块层叠技术</h3>
+<p><code>EXPORT_SYMBOL(name)</code>, <code>EXPORT_SYMBOL_GPL(name)</code></p>
+<h3 id="预备知识">预备知识</h3>
+<ol>
+<li>常用头文件
+<ol>
+<li><code>#include &lt;linux/init.h&gt;</code>: 指定初始化和清楚函数</li>
+<li><code>#include &lt;linux/module.h&gt;</code>: 可装载模块需要的大量符号和函数的定义</li>
+<li><code>#include &lt;linux/moduleparam.h&gt;</code>: 装载时向模块传递参数</li>
+</ol>
+</li>
+<li>MODULE_LICENSE: 指定代码所使用的许可证</li>
+<li>初始化<code>static int __init func()&#123;&#125;</code>, <code>module_init(func)</code>
+<ol>
+<li>函数应被生命为<code>static</code></li>
+<li><code>__init</code>: 表明该函数仅在初始化期间使用，在模块装载后装载器会将这类函数扔掉</li>
+<li></li>
+</ol>
+</li>
+<li>清除 <code>static void __exit func()&#123;&#125;</code>, <code>module_exit(func)</code>
+<ol>
+<li>无返回值</li>
+<li>若模块直接内嵌到内核中或者内核不允许卸载模块，则<code>__exit</code>将被丢弃</li>
+<li>若一个模块未定义清除函数，则内核不允许卸载该模块</li>
+</ol>
+</li>
+<li>初始化过程的错误处理(file:notes/handle_init_err.c)
+<ol>
+<li>使用goto来处理，撤销发生错误之前的执行成功的注册操作</li>
+<li>在清除函数中，unregister顺序应当和register顺序相反</li>
+</ol>
+</li>
+<li>模块装载竞争
+<ol>
+<li>race condition(竞态)</li>
+<li></li>
+</ol>
+</li>
+</ol>
+<h3 id="模块参数">模块参数</h3>
+<p>(file:misc-modules/hellop.c)</p>
+<ol>
+<li><code>insmod hellop howmany=10 whom=&quot;Mom&quot;</code>: 命令行传参</li>
+<li>module_param支持参数
+<ol>
+<li>bool</li>
+<li>invbool(true变false,false变true)</li>
+<li>charp(字符指针值)</li>
+<li>int long short uint ulong ushort</li>
+</ol>
+</li>
+<li>modulr_param_array(name, type, num, perm)支持数组参数</li>
+<li>permission(&lt;linux/stat.h&gt;)
+<ol>
+<li>S_IRUGO: 任何人均可读取该参数，但不能修改</li>
+<li>S_IRUGO|S_IWUSR: 允许root修改</li>
+</ol>
+</li>
+</ol>
+<h1>字符设备驱动程序</h1>
+<p>(file:scull/main.c)</p>
+<p>SCULL(simple Character Utility for Loading Localities): 区域装载的简单字符工具</p>
+<ol>
+<li>scull0-scull3
+<ol>
+<li>分别由一个全局且持久的内存区域组成</li>
+<li>全局: 若一个设备被多次打开，则这些fd共享该设备所有数据</li>
+<li>持久: 若设备关闭后再打开，其中的数据不丢失</li>
+<li>可用<code>cp cat</code>测试这种设备</li>
+</ol>
+</li>
+<li>scullpipe0-scullpipe3
+<ol>
+<li>类似管道</li>
+<li>多个进程读同一个设备，会有数据竞争，于是有阻塞式非阻塞式读写操作</li>
+</ol>
+</li>
+<li>scullsingle: 只允许一个进程使用</li>
+<li>scullpriv: 对每个虚拟控制台是私有的</li>
+<li>sculluid: 只能由一个用户打开，若设备已被使用，返回<code>Device Busy</code>错误</li>
+<li>scullwuid: 只能由一个用户打开，若设备已被使用，阻塞</li>
+</ol>
+<h2 id="主设备号和次设备号">主设备号和次设备号</h2>
+<p>对字符设备的访问是通过fs内的设备名称进行的，位于<code>/dev</code><br>
+<code>ls -l</code> -&gt; <code>crw-rw-rw- 1 root root 1, 3 Apr 11 2002 null</code></p>
+<ol>
+<li>开头是<code>c</code></li>
+<li>主设备号: 1 标识驱动程序</li>
+<li>次设备号: 3 标识设备文件所指设备</li>
+<li>内部表达: dev_t类型&lt;linux/types.h&gt;，是一个32位的数，12位表示主设备号，20位表示次设备号</li>
+<li>dev_t转换为主次设备号: MAJOR(dev_t dev) MINOR(dev_t dev)</li>
+<li>主次设备号转换为dev_t: MKDEV(int major, int minor)</li>
+</ol>
+<h3 id="分配和释放设备编号">分配和释放设备编号</h3>
+<ol>
+<li><code>int register_chrdev_region()</code>: 驱动程序注册一个或多个设备编号</li>
+<li><code>int alloc_chrdev_region()</code>: 动态分配编号</li>
+<li><code>void unregister_chrdev_region()</code>: 释放编号，在清除函数中使用</li>
+</ol>
+<h3 id="字符设备注册">字符设备注册</h3>
+<ol>
+<li><code>struct cdev</code>: 表示字符设备</li>
+<li>Scull中的设备注册，通过<code>struct scull_dev</code>表示每个设备</li>
+<li><code>open</code>和<code>release</code></li>
+</ol>
+<h3 id="scull的内存使用">scull的内存使用</h3>
+<ol>
+<li><code>kmalloc()</code>和<code>kfree()</code></li>
+<li><code>scull_qset</code>和<code>quantum</code></li>
+<li><code>read</code>和<code>write</code> 缓冲区在用户空间</li>
+<li><code>copy_to_user</code>和<code>copy_from_user</code> 用户地址空间和内核地址空间之间的数据拷贝</li>
+<li><code>readv</code>和<code>writev</code> 向量操作 多个缓冲区</li>
+</ol>
+<h1>调试技术</h1>
+<h1>并发和竞态</h1>
+<ol>
+<li>semaphore
+<ol>
+<li>通过<code>sema_init/init_MUTEX</code>初始化</li>
+<li><code>up()</code>释放信号量</li>
+<li><code>down()/down_interruptible()</code> 获取信号量，会阻塞</li>
+</ol>
+</li>
+<li>rwsem(读写锁)
+<ol>
+<li><code>down_read()/down_read_trylock()/up_read()</code></li>
+<li><code>down_write()/down_write_trylock()/up_write()/downgrade_write()</code></li>
+</ol>
+</li>
+<li>completion
+<ol>
+<li><code>init_completion()</code></li>
+<li><code>wait_for_completion()</code></li>
+<li><code>complete()/complete_all()</code> 可以同时唤醒所有阻塞的线程，比semaphore方便</li>
+</ol>
+</li>
+<li>自旋锁
+<ol>
+<li><code>spin_lock_init()</code></li>
+<li><code>spin_lock()</code></li>
+<li><code>spin_unlock()</code></li>
+</ol>
+</li>
+<li>读写自旋锁</li>
+<li>除了锁意外的方法
+<ol>
+<li>生产者/消费者模型，控制俩指针</li>
+<li>原子变量</li>
+<li>seqlock
+<ol>
+<li>读取时: 读取访问在进入时获得一个整数顺序值，退出时比较顺序值，若不相同则重新读取</li>
+<li>写入时: 自旋锁</li>
+</ol>
+</li>
+<li>read-copy-update(RCU)</li>
+</ol>
+</li>
+</ol>
+<h1>高级字符驱动程序操作</h1>
+<h1>分配内存</h1>
+<ol>
+<li><code>void *kmalloc(size_t size, int flags);</code> in <code>&lt;linux/slab.h&gt;</code>
+<ol>
+<li>size: 分配的块的大小</li>
+<li>flags: 分配的标志 &lt;linux/gfp.h&gt;
+<ol>
+<li>GFP_KERNEL(GFP get free pages): 代表内核空间的进程执行内存分配</li>
+<li>GFP_ATOMIC:</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Linux内核把内存分为
+<ol>
+<li>DMA</li>
+<li>常规内存</li>
+<li>高端内存</li>
+</ol>
+</li>
+<li>后备告诉缓存(lookaside cache) 有时称为 slab分配器</li>
+<li>不同scull使用不同的内存分配方式
+<ol>
+<li>scull使用kmalloc</li>
+<li>scullc使用kmem_cache_create: 速度比1块，且内存利用率更加，因为数据对象是从内存池中分配，内存池所有块大小一样</li>
+<li>scullp使用get_free_pages: 速度快，和2差不多，且能进行内存映射</li>
+<li>scullv使用vmalloc:</li>
+</ol>
+</li>
+<li>vmalloc: 分配虚拟地址空间的连续区域(物理上可能不连续)，内存使用效率低</li>
+<li>per-CPU: 当建立一个per-CPU时，系统中的每个处理器都会有该变量的特有副本，不需要锁</li>
+</ol>
+<h1>与硬件通信</h1>
+<ol>
+<li>外设都都过读写寄存器进行控制，寄存器的访问地址都是连续的</li>
+<li>通过地址总线和控制总线发送电平信号(读写信号)，再通过数据总线发送数据</li>
+<li>驱动程序必须确保不发生指令重排: 对硬件必须以特定顺序执行的操作之间设置内存屏障(memory barrier)
+<ol>
+<li>&lt;linux/kernel.h&gt; <code>void barrier(void)</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="使用i-o端口">使用I/O端口</h2>
+<ol>
+<li>分配I/O端口
+<ol>
+<li>&lt;linux/ioport.h&gt; <code>struct resource *request_region(...), release_region(), check_region()</code></li>
+<li>所有端口分配在<code>/proc/ioports</code>中</li>
+</ol>
+</li>
+<li>操作I/O端口
+<ol>
+<li><code>inb(), outb()</code>: 8位</li>
+<li><code>inw(), outw()</code>: 16位</li>
+<li><code>inl(), outl()</code>: 32位</li>
+</ol>
+</li>
+<li>用户空间访问I/O端口</li>
+<li>串操作: 以上都是一次传输一个数据
+<ol>
+<li><code>insb(), outsb()</code>: 8位</li>
+<li><code>insw(), outsw()</code>: 16位</li>
+<li><code>insl(), outsl()</code>: 32位</li>
+<li>需要注意字节序</li>
+</ol>
+</li>
+<li>暂停式I/O</li>
+<li>平台相关性</li>
+<li>并口(并行接口)简介</li>
+<li>file:short/short.c</li>
+</ol>
+<h2 id="使用i-o内存">使用I/O内存</h2>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        share
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2021/ckqg6o3o40009raq1962w8sxh/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Device-Driver/" rel="tag">Device Driver</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/ckqg6o3o00003raq17y32b9cc/" class="article-nav-link">
+        <strong class="article-nav-caption">Next</strong>
+        <div class="article-nav-title">入门装机</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> Ronan Chen
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.svg" alt="Ronan Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">@Me</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

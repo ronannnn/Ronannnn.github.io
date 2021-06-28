@@ -65,7 +65,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2020/ckmm1m5bc0009e7q1388e3e1k/" class="article-date">
+      <a href="/2020/ckqg6o3o5000draq1fu5oerjm/" class="article-date">
   <time datetime="2020-05-01T07:07:03.000Z" itemprop="datePublished">2020-05-01</time>
 </a> 
   <div class="article-category">
@@ -204,7 +204,7 @@
 </li>
 <li>time_wait=2*MSL(Maximum Segment Lifetime 最大报文生存时间)<a target="_blank" rel="noopener" href="https://blog.csdn.net/L_XRUI/article/details/75110377">Reference</a>
 <ol>
-<li>可靠地实现TCP全双工连接的释放：客户端发送的ACK可能会丢失，服务端会重发一个结束豹纹，所以需要维持time_waited状态来重发可能丢失的ACK</li>
+<li>可靠地实现TCP全双工连接的释放：客户端发送的ACK可能会丢失，服务端会重发一个结束报文，所以需要维持time_waited状态来重发可能丢失的ACK</li>
 <li>保证让迟来的报文段有足够的时间被识别丢弃：当一个TCP连接处在TIME_WAIT状态，它则会依然占用当前的端口，新的连接时无法立即使用的，<br>
 但当没有这个状态，当立即有新的TCP连接时，其会使用与刚才相同的IP地址与端口号，此时这个新的连接则极有可能收到原来连接的迟到的TCP报文段，<br>
 这明显是不应该发生的，所以设置这个状态是极有必要的。</li>
@@ -335,14 +335,20 @@ F是一个Hash算法，根据源IP、目的IP、源端口、目的端口生成�
 <h2 id="socket-套接字">Socket（套接字）</h2>
 <ol>
 <li>文件描述符，代表一个通信管道，可以进行read, write, close等类文件操作函数</li>
-<li>创建: <code>socket(int family, int type, int protocol)</code><br>
-2.1. family:   协议族(AF_INET, AF_INET6, PF_PACKET等)<br>
-2.2. type:     套接字类(SOCK_STREAM, SOCK_DGRAM, SOCK_RAW等)<br>
-2.3. protocol: 协议类别(0, IPPROTO_TCP, IPPROTO_UDP等)</li>
+<li>创建: <code>socket(int family, int type, int protocol)</code>
+<ol>
+<li>family:   协议族(AF_INET, AF_INET6, PF_PACKET等)</li>
+<li>type:     套接字类(SOCK_STREAM, SOCK_DGRAM, SOCK_RAW等)</li>
+<li>protocol: 协议类别(0, IPPROTO_TCP, IPPROTO_UDP等)</li>
+</ol>
+</li>
 <li>绑定: <code>bind()</code>将服务器ip+port和socket绑定</li>
-<li>字节序（小端格式：低位字节存在低地址，大端格式：高位字节存在低地址）<br>
-4.1. htonl, htons: host to network, l: 32 bit, s: 16 bit<br>
-4.2. ntohl, ntohs: network to host</li>
+<li>字节序（小端格式：低位字节存在低地址，大端格式：高位字节存在低地址）
+<ol>
+<li>htonl, htons: host to network, l: 32 bit, s: 16 bit</li>
+<li>ntohl, ntohs: network to host</li>
+</ol>
+</li>
 </ol>
 <h3 id="sock-raw">SOCK_RAW</h3>
 <p>附加协议: <code>#include&lt;netinet/ether.h&gt;</code><br>
@@ -383,6 +389,17 @@ ETH_P_ARP(arp数据包)</p>
 </ol>
 </li>
 <li>网络传输: 大部分用TCP，UDP也行，gRPC用的HTTP2</li>
+</ol>
+<h1>Protobuf</h1>
+<p>对结构化的数据进行序列化，从而实现数据存储或RPC数据交换的功能</p>
+<ol>
+<li>存储方式
+<ol>
+<li>Tag-Length(可选)-Value</li>
+<li>不需要分隔符，空间利用率高</li>
+<li></li>
+</ol>
+</li>
 </ol>
  
       <!-- reward -->
@@ -436,7 +453,7 @@ ETH_P_ARP(arp数据包)</p>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckmm1m5bc0009e7q1388e3e1k/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ronannnn.github.io/2020/ckqg6o3o5000draq1fu5oerjm/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -449,7 +466,7 @@ ETH_P_ARP(arp数据包)</p>
    
   <nav class="article-nav">
     
-      <a href="/2020/ckmm1m5bb0008e7q17b7c4ope/" class="article-nav-link">
+      <a href="/2020/ckqg6o3o5000craq1d9v18ixu/" class="article-nav-link">
         <strong class="article-nav-caption">Prev</strong>
         <div class="article-nav-title">
           
@@ -459,7 +476,7 @@ ETH_P_ARP(arp数据包)</p>
       </a>
     
     
-      <a href="/2020/ckmm1m5c2001te7q1gd4h9zu2/" class="article-nav-link">
+      <a href="/2020/ckqg6o3on001wraq122k88tw3/" class="article-nav-link">
         <strong class="article-nav-caption">Next</strong>
         <div class="article-nav-title">OS个人总结</div>
       </a>
